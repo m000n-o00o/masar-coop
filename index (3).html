@@ -1,0 +1,1806 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="دليل الطلاب لرحلة التدريب التعاوني: خريطة الرحلة، تجارب الطلاب، السيرة الذاتية، لينكدإن، ومتابعة التقديمات.">
+<style>html,body{margin:0}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>مسار التعاوني</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: a transit-line metaphor. The co-op journey is one line with stations;
+   the header is a station sign, countdowns are departure boards. */
+:root{
+  --bg:#F3F6F5;          /* paper, slight green bias */
+  --surface:#FFFFFF;
+  --ink:#0F1F1B;         /* text */
+  --muted:#5A6B66;
+  --line:#D5DFDC;        /* hairlines */
+  --accent:#0B7A63;      /* the line colour */
+  --accent-soft:#DDEFEA;
+  --signal:#B97800;      /* deadlines / soon */
+  --signal-soft:#F8ECD3;
+  --danger:#B3261E;
+  --done:#0B7A63;
+  --good:#1E7F3C;
+  --good-soft:#DFF1E3;
+  --font-display:"Reem Kufi", "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  --font-body:"IBM Plex Sans Arabic", "Segoe UI", Tahoma, Arial, sans-serif;
+  --font-data:"IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1513; --surface:#15201D; --ink:#E6EEEB; --muted:#9AADA7; --line:#26332F;
+    --accent:#3CC3A0; --accent-soft:#16332C; --signal:#E3AA3A; --signal-soft:#3A2E14;
+    --danger:#F08A80; --done:#3CC3A0; --good:#6BCB82; --good-soft:#18331F; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1513; --surface:#15201D; --ink:#E6EEEB; --muted:#9AADA7; --line:#26332F;
+  --accent:#3CC3A0; --accent-soft:#16332C; --signal:#E3AA3A; --signal-soft:#3A2E14;
+  --danger:#F08A80; --done:#3CC3A0; --good:#6BCB82; --good-soft:#18331F; color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.7}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+a{color:var(--accent)}
+h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.3;text-wrap:balance;margin:0}
+h1{font-size:clamp(1.9rem,4.5vw,2.8rem)}
+h2{font-size:1.6rem}
+h3{font-size:1.15rem}
+p{margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* header = station sign */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:20px;padding-block:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand .dot{width:28px;height:28px;border-radius:50%;border:5px solid var(--accent);background:var(--surface)}
+.brand b{font-family:var(--font-display);font-size:1.3rem}
+nav.tabs{display:flex;gap:4px;overflow-x:auto;flex:1;min-width:0;scrollbar-width:thin}
+nav.tabs a{white-space:nowrap;text-decoration:none;color:var(--muted);padding:6px 12px;border-radius:999px;font-weight:500;font-size:.95rem}
+nav.tabs a:hover{color:var(--ink);background:var(--accent-soft)}
+nav.tabs a[aria-current="page"]{color:var(--surface);background:var(--accent)}
+@media (max-width:760px){.top .wrap{gap:8px 12px}.brand{flex:1}nav.tabs{order:3;flex-basis:100%;margin-inline:-4px}}
+.theme-btn{border:1px solid var(--line);background:transparent;border-radius:999px;padding:4px 12px;cursor:pointer;color:var(--muted);font-size:.85rem}
+
+main{padding-block:32px 64px}
+section.view{display:grid;gap:28px}
+section.view > *,.sec > *{min-width:0}
+.lede{color:var(--muted);max-width:62ch}
+.eyebrow{font-size:.8rem;letter-spacing:.06em;color:var(--accent);font-weight:600}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--accent);background:var(--accent);color:var(--surface);padding:8px 16px;border-radius:8px;cursor:pointer;font-weight:600;text-decoration:none;font-size:.95rem}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn.quiet{border-color:var(--line);background:transparent;color:var(--muted);font-weight:500}
+.btn.danger{border-color:var(--danger);background:transparent;color:var(--danger)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.tag{display:inline-block;font-size:.75rem;padding:1px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-weight:600}
+.tag.signal{background:var(--signal-soft);color:var(--signal)}
+.tag.example{background:transparent;border:1px dashed var(--muted);color:var(--muted)}
+
+/* home hero */
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:stretch}
+.hero > *{min-width:0}
+.hero-text{display:grid;gap:14px;align-content:center}
+@media (max-width:760px){.hero{grid-template-columns:1fr}}
+
+/* departure board */
+.board{background:var(--ink);color:var(--bg);border-radius:var(--r);padding:18px 20px;display:grid;gap:10px;align-content:start}
+.board .lbl{font-size:.8rem;opacity:.75}
+.board .what{font-family:var(--font-display);font-size:1.25rem}
+.board .digits{font-size:2.4rem}
+.digits,.t-count{display:flex;gap:14px;align-items:flex-start}
+.u{display:grid;justify-items:center;gap:2px}
+.u b{font-family:var(--font-data);font-variant-numeric:tabular-nums;font-weight:600;line-height:1}
+.u small{font-family:var(--font-body);font-size:.75rem;opacity:.75;font-weight:500}
+.board .empty{opacity:.8}
+.board a{color:var(--bg)}
+
+/* transit line */
+.line{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:0;padding-top:8px}
+.line::before{content:"";position:absolute;top:22px;right:8%;left:8%;height:6px;background:var(--line);border-radius:3px}
+.line .fill{position:absolute;top:22px;right:8%;height:6px;background:var(--accent);border-radius:3px;transition:width .4s}
+.stn{position:relative;display:grid;justify-items:center;gap:6px;text-align:center;text-decoration:none;color:var(--ink);padding:0 4px}
+.stn .ring{width:34px;height:34px;border-radius:50%;background:var(--surface);border:5px solid var(--line);display:grid;place-items:center;font-family:var(--font-data);font-size:.75rem;z-index:1}
+.stn.started .ring{border-color:var(--accent)}
+.stn.done .ring{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.stn .nm{font-weight:600;font-size:.9rem;line-height:1.35}
+.stn .pc{font-family:var(--font-data);font-size:.75rem;color:var(--muted)}
+@media (max-width:640px){
+  .line{grid-template-columns:1fr;gap:14px;padding-right:0}
+  .line::before{top:10px;bottom:10px;right:16px;left:auto;width:6px;height:auto}
+  .line .fill{display:none}
+  .stn{grid-template-columns:auto 1fr auto;justify-items:start;text-align:right;align-items:center;gap:12px}
+}
+
+/* cards grid for sections */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:grid;gap:6px;text-decoration:none;color:var(--ink);align-content:start}
+.card:hover{border-color:var(--accent)}
+.card .meta{color:var(--muted);font-size:.9rem}
+
+/* journey stages */
+.stage{display:grid;grid-template-columns:56px 1fr;gap:16px}
+.stage > *{min-width:0}
+.stage .rail{display:grid;justify-items:center;grid-template-rows:auto 1fr}
+.stage .rail .ring{width:40px;height:40px;border-radius:50%;border:6px solid var(--line);background:var(--surface);display:grid;place-items:center;font-family:var(--font-data);font-weight:600;font-size:.85rem}
+.stage .rail .bar{width:6px;background:var(--line);margin-top:4px;border-radius:3px}
+.stage.done .rail .ring{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.stage.started .rail .ring{border-color:var(--accent)}
+.stage.done .rail .bar{background:var(--accent)}
+.stage-body{padding-bottom:26px;display:grid;gap:10px}
+.stage-head{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.when{font-size:.85rem;color:var(--muted)}
+.progress{height:6px;background:var(--line);border-radius:3px;overflow:hidden;max-width:320px}
+.progress i{display:block;height:100%;background:var(--accent);transition:width .3s}
+ul.checks{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+ul.checks label{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;padding:8px 10px;border-radius:8px;cursor:pointer}
+ul.checks label:hover{background:var(--accent-soft)}
+ul.checks input{width:18px;height:18px;margin-top:4px;accent-color:var(--accent)}
+ul.checks input:checked + span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--muted)}
+ul.checks .go{font-size:.85rem;margin-inline-start:6px}
+
+/* countdowns */
+.tform{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;align-items:end}
+.tform label{display:grid;gap:4px;font-size:.88rem;color:var(--muted);font-weight:500}
+.tform input,.tform select,textarea{border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:8px 10px;min-width:0;width:100%}
+.hijri{font-size:.8rem;color:var(--muted);min-height:1.2em}
+.timers{display:grid;gap:12px}
+.timer{display:grid;grid-template-columns:1fr auto;gap:8px 16px;background:var(--surface);border:1px solid var(--line);border-inline-start:6px solid var(--accent);border-radius:var(--r);padding:14px 16px}
+.timer > *{min-width:0}
+.timer.soon{border-inline-start-color:var(--signal)}
+.timer.past{border-inline-start-color:var(--line);opacity:.75}
+.timer .t-title{font-weight:600;font-size:1.05rem}
+.timer .t-sub{color:var(--muted);font-size:.88rem}
+.timer .t-count{font-size:1.5rem;align-self:center}
+.timer .t-count small{color:var(--muted)}
+.timer .t-actions{grid-column:1 / -1;display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem}
+.timer .t-actions button{background:none;border:none;padding:0;color:var(--muted);cursor:pointer;text-decoration:underline}
+.timer .t-actions a{text-decoration:underline}
+@media (max-width:520px){.timer{grid-template-columns:1fr}}
+.train{display:grid;gap:8px}
+.train .progress{max-width:none;height:10px}
+.train .ends{display:flex;justify-content:space-between;font-size:.85rem;color:var(--muted);flex-wrap:wrap;gap:8px}
+
+/* placeholder sections */
+.soon-list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.soon-list li{padding:12px 14px;border:1px dashed var(--line);border-radius:8px;background:var(--surface)}
+.soon-list li b{display:block}
+.soon-list li span{color:var(--muted);font-size:.92rem}
+.note{font-size:.9rem;color:var(--muted);border-inline-start:3px solid var(--signal);padding-inline-start:12px}
+
+footer{border-top:1px solid var(--line);padding-block:24px;color:var(--muted);font-size:.88rem}
+footer .wrap{display:grid;gap:6px}
+.foot-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.credits{font-size:.8rem;color:var(--muted)}
+.credits a{color:var(--muted)}
+.credit-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.credit-list div{display:grid;gap:2px;padding-inline-start:12px;border-inline-start:3px solid var(--accent)}
+.credit-list b{font-family:var(--font-display);font-size:1.1rem;font-weight:700}
+.credit-list span{color:var(--muted);font-size:.9rem}
+.toast{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 16px;border-radius:8px;font-size:.9rem;z-index:20}
+.inline-confirm{display:inline-flex;gap:8px;align-items:center}
+
+/* apply */
+.subnav{display:flex;gap:8px;flex-wrap:wrap}
+.subnav a{font-size:.9rem;padding:4px 12px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink);background:var(--surface)}
+.subnav a:hover{border-color:var(--accent)}
+.sec{display:grid;gap:16px}
+#sec-email{padding-top:20px;border-top:1px solid var(--line)}
+.segtabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:6px}
+.segtabs button{display:grid;gap:2px;text-align:start;border:0;background:transparent;border-radius:8px;padding:10px 12px;cursor:pointer;color:var(--ink)}
+.segtabs button b{font-size:1rem}
+.segtabs button span{font-size:.8rem;color:var(--muted)}
+.segtabs button:hover{background:var(--accent-soft)}
+.segtabs button[aria-selected="true"]{background:var(--accent);color:var(--surface)}
+.segtabs button[aria-selected="true"] span{color:var(--surface);opacity:.85}
+@media (max-width:520px){.segtabs button span{display:none}.segtabs button{text-align:center}}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 12px;cursor:pointer;font-size:.88rem;color:var(--ink)}
+.chip b{font-family:var(--font-data);font-weight:600;margin-inline-start:4px;color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip[aria-pressed="true"] b{color:var(--bg)}
+.sum{cursor:pointer;font-weight:600;color:var(--accent)}
+.apps{display:grid;gap:10px}
+.app{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;background:var(--surface);border:1px solid var(--line);border-inline-start:6px solid var(--line);border-radius:var(--r);padding:14px 16px}
+.app > *{min-width:0}
+.app.signal{border-inline-start-color:var(--signal)}
+.app.good{border-inline-start-color:var(--good)}
+.app.bad{border-inline-start-color:var(--danger)}
+.app.muted{opacity:.7}
+.app-main{display:grid;gap:4px}
+.app .meta{color:var(--muted);font-size:.9rem}
+.app-notes{font-size:.92rem}
+.app-status select{border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:6px 10px;font-weight:600}
+.app .t-actions{display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem}
+.app .t-actions button{background:none;border:none;padding:0;color:var(--muted);cursor:pointer;text-decoration:underline}
+@media (max-width:520px){.app{grid-template-columns:1fr}}
+.linkbtn{background:none;border:none;padding:0;color:var(--accent);cursor:pointer;text-decoration:underline;font-size:.9rem}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.chip.good{} .tag.good{background:var(--good-soft);color:var(--good)}
+ol.steps{margin:0;padding:0;list-style:none;counter-reset:s;display:grid;gap:10px}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:32px 1fr;gap:2px 12px}
+ol.steps li::before{content:counter(s);grid-row:span 2;width:28px;height:28px;border-radius:50%;border:3px solid var(--accent);display:grid;place-items:center;font-family:var(--font-data);font-size:.8rem;font-weight:600}
+ol.steps b{font-weight:600}
+ol.steps span{color:var(--muted);font-size:.93rem}
+code{font-family:var(--font-data);font-size:.85em;background:var(--accent-soft);padding:1px 5px;border-radius:4px}
+.code{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface)}
+.code-bar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line);font-family:var(--font-data);font-size:.85rem;color:var(--muted);flex-wrap:wrap}
+.code pre{margin:0;padding:14px;max-height:340px;overflow:auto;font-family:var(--font-data);font-size:.8rem;line-height:1.55;text-align:left;white-space:pre}
+.dir{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;align-items:start}
+.dir .panel{display:grid;gap:10px}
+ul.links{list-style:none;margin:0;padding:0;display:grid}
+ul.links li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-top:1px solid var(--line);flex-wrap:wrap}
+ul.links li:first-child{border-top:0}
+ul.links a{font-weight:600}
+ul.links span{color:var(--muted);font-size:.85rem;unicode-bidi:plaintext}
+
+/* cv */
+.callout{display:grid;gap:6px;border-inline-start:4px solid var(--accent)}
+.cvsecs{display:grid;gap:8px}
+.cvsec{background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.cvsec.key{border-color:var(--signal)}
+.cvsec summary{display:flex;align-items:center;gap:12px;padding:12px 16px;cursor:pointer;list-style:none}
+.cvsec summary::-webkit-details-marker{display:none}
+.cvsec summary::after{content:"+";margin-inline-start:auto;font-family:var(--font-data);color:var(--muted);font-size:1.2rem}
+.cvsec[open] summary::after{content:"−"}
+.cvsec .num{width:28px;height:28px;border-radius:50%;border:3px solid var(--accent);display:grid;place-items:center;font-family:var(--font-data);font-size:.8rem;font-weight:600;flex:none}
+.cvsec .nm{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.cvsec .nm span{color:var(--muted);font-size:.9rem}
+.cvsec-body{display:grid;gap:14px;padding:0 16px 16px}
+.yesno{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.yesno > *{min-width:0}
+.yesno h4{margin:0 0 4px;font-size:.9rem;color:var(--good)}
+.yesno div:last-child h4{color:var(--danger)}
+.yesno ul{margin:0;padding-inline-start:18px;display:grid;gap:2px;font-size:.93rem}
+@media (max-width:600px){.yesno{grid-template-columns:1fr}}
+.example{border:1px dashed var(--line);border-radius:8px;overflow:hidden}
+.example-lbl{display:block;font-size:.75rem;color:var(--muted);padding:4px 10px;border-bottom:1px dashed var(--line)}
+.example pre,.ptext{margin:0;padding:12px;overflow-x:auto;font-family:var(--font-data);font-size:.8rem;line-height:1.6;white-space:pre;text-align:left;background:var(--bg)}
+.ptext{white-space:pre-wrap;font-family:var(--font-body);font-size:.88rem;max-height:260px;overflow:auto;border:1px solid var(--line);border-radius:8px}
+.ptext[dir="rtl"]{text-align:right}
+.formula{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-weight:600}
+.formula span{background:var(--accent-soft);color:var(--accent);padding:4px 12px;border-radius:999px}
+.pairs{display:grid;gap:10px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface)}
+.pair > div{padding:12px 14px;display:grid;gap:6px;align-content:start;justify-items:start;min-width:0}
+.pair .weak{border-inline-end:1px solid var(--line)}
+.pair .weak p{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--danger)}
+.pair p{text-align:start;font-size:.92rem}
+@media (max-width:600px){.pair{grid-template-columns:1fr}.pair .weak{border-inline-end:0;border-bottom:1px solid var(--line)}}
+.tag.bad{background:var(--signal-soft);color:var(--danger)}
+.tag.world{background:var(--signal-soft);color:var(--signal)}
+.verbs{display:flex;flex-wrap:wrap;gap:6px}
+.verbs span{font-family:var(--font-data);font-size:.82rem;border:1px solid var(--line);border-radius:6px;padding:2px 8px;background:var(--surface)}
+.prompts{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.prompt{display:grid;gap:10px;align-content:start}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{border:0;background:transparent;padding:3px 12px;cursor:pointer;font-size:.85rem;color:var(--muted)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+ul.links.rich li{align-items:flex-start}
+ul.links.rich li > div{display:grid;gap:2px;flex:1;min-width:200px}
+ul.links.rich p{color:var(--muted);font-size:.9rem}
+ul.links.rich{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:4px 16px}
+ul.checks.panel{padding:8px}
+ul.mistakes{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px}
+ul.mistakes li{padding:10px 12px;border-radius:8px;background:var(--surface);border:1px solid var(--line);border-inline-start:4px solid var(--danger);font-size:.93rem}
+
+/* linkedin */
+.segtabs.four{grid-template-columns:repeat(4,1fr)}
+@media (max-width:640px){.segtabs.four{grid-template-columns:repeat(2,1fr)}}
+.cvsec.done .num{background:var(--accent);color:var(--surface)}
+.donebox{display:inline-flex;gap:8px;align-items:center;font-weight:600;cursor:pointer;justify-self:start;padding:6px 12px;border:1px solid var(--line);border-radius:8px}
+.donebox input{width:18px;height:18px;accent-color:var(--accent)}
+.daypick{display:flex;flex-wrap:wrap;gap:6px}
+.daypick label{cursor:pointer}
+.daypick input{position:absolute;opacity:0;pointer-events:none}
+.daypick span{display:inline-block;padding:6px 14px;border:1px solid var(--line);border-radius:999px;font-size:.9rem;background:var(--bg)}
+.daypick input:checked + span{background:var(--accent);color:var(--surface);border-color:var(--accent)}
+.daypick input:focus-visible + span{outline:2px solid var(--accent);outline-offset:2px}
+
+/* cv v2 */
+.sec-head{display:grid;gap:6px}
+.bullets{display:grid;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);overflow:hidden}
+.brow{display:grid;grid-template-columns:1fr 1.4fr}
+.brow + .brow{border-top:1px solid var(--line)}
+.brow p{padding:10px 14px;font-size:.9rem;text-align:start;min-width:0}
+.brow .w{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--danger);border-inline-end:1px solid var(--line)}
+@media (max-width:600px){.brow{grid-template-columns:1fr}.brow .w{border-inline-end:0;padding-bottom:0}}
+.toolgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
+.toolgrid > *{min-width:0}
+@media (max-width:860px){.toolgrid{grid-template-columns:1fr}}
+.tool{display:grid;gap:10px;align-content:start;justify-items:start}
+.tool .step{width:28px;height:28px;border-radius:50%;border:3px solid var(--accent);display:grid;place-items:center;font-family:var(--font-data);font-size:.8rem;font-weight:600}
+.pbtns{display:grid;gap:8px;width:100%}
+.pbtns .btn{justify-content:center}
+.peek{width:100%}
+.peek summary,.more summary{cursor:pointer;color:var(--muted);font-size:.88rem}
+.peek .ptext{margin-top:8px}
+.tip{font-size:.88rem;background:var(--accent-soft);border-radius:8px;padding:8px 10px}
+ul.tools{list-style:none;margin:0;padding:0;display:grid;gap:10px;width:100%}
+ul.tools li{display:grid;grid-template-columns:1fr auto;gap:2px 8px;align-items:center}
+ul.tools a{font-weight:600}
+ul.tools span:last-child{grid-column:1/-1;color:var(--muted);font-size:.85rem}
+.more{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 16px}
+.more[open] summary{margin-bottom:12px}
+.checkcard{display:grid;gap:12px;max-width:640px}
+
+/* linkedin v2 */
+.toolgrid.two{grid-template-columns:repeat(2,1fr)}
+@media (max-width:760px){.toolgrid.two{grid-template-columns:1fr}}
+ol.steps.compact{gap:8px;width:100%}
+ol.steps.compact span{font-size:.86rem}
+ul.tools li > b{font-weight:600}
+ul.tools code{justify-self:end}
+ul.ideas{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));border:1px solid var(--line);border-radius:var(--r);background:var(--surface);overflow:hidden}
+ul.ideas li{display:grid;gap:2px;padding:12px 16px;border-bottom:1px solid var(--line);border-inline-end:1px solid var(--line);margin-bottom:-1px;margin-inline-end:-1px}
+ul.ideas span{color:var(--muted);font-size:.88rem}
+.more .bullets{margin-top:4px}
+.soonbox{display:grid;gap:6px;border-style:dashed}
+#timers-sec{scroll-margin-top:80px}
+.timers{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
+.backup{font-size:.9rem;background:transparent;border-style:dashed}
+.grid.five{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+
+/* courses */
+.planner{display:grid;gap:18px}
+.pfield{display:grid;gap:6px;align-content:start}
+.plabel{font-size:.88rem;color:var(--muted);font-weight:500}
+.prow{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:end}
+.prow > *{min-width:0}
+@media (max-width:700px){.prow{grid-template-columns:1fr}}
+.pfield select{border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:8px 10px}
+.pfield input[type=range]{accent-color:var(--accent);width:100%}
+.big{font-family:var(--font-data);font-size:1.6rem;font-weight:600}
+.daypick input[type=radio]{position:absolute;opacity:0;pointer-events:none}
+.daypick input[type=radio]:checked + span{background:var(--accent);color:var(--surface);border-color:var(--accent)}
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
+.phases > *{min-width:0}
+@media (max-width:860px){.phases{grid-template-columns:1fr}}
+.phase{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:grid;gap:10px}
+.phase-head{display:flex;gap:10px;align-items:center}
+.phase-head .num{width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--surface);display:grid;place-items:center;font-family:var(--font-data);font-weight:600;flex:none}
+ul.res{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+ul.res li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;padding-top:10px;border-top:1px solid var(--line)}
+ul.res li > div{display:grid;gap:2px;min-width:0}
+ul.res .rtop{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+ul.res a{font-weight:600}
+ul.res span{color:var(--muted);font-size:.86rem}
+.rcheck input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent)}
+
+/* courses v2 */
+.countline{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.addc{display:grid;gap:10px}
+.addrow{display:flex;gap:8px;min-width:0}
+.addc > *{min-width:0}
+.addrow .btn{flex:none}
+.addrow input{flex:1;min-width:0;width:100%;border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:8px 10px}
+.guess,.cedit{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cedit{grid-template-columns:1fr 1fr auto;align-items:end;margin-top:6px}
+.guess label,.cedit label{display:grid;gap:4px;font-size:.85rem;color:var(--muted)}
+.guess input,.cedit input{border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:6px 10px;min-width:0;color:var(--ink)}
+@media (max-width:520px){.guess,.cedit{grid-template-columns:1fr}}
+.clist{display:grid;gap:8px}
+.course{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--line);border-inline-start:6px solid var(--line);border-radius:var(--r);padding:12px 14px}
+.course > *{min-width:0}
+.course.st-doing{border-inline-start-color:var(--signal)}
+.course.st-done{border-inline-start-color:var(--accent)}
+.course.st-done .ctitle b{color:var(--muted)}
+.cmain{display:grid;gap:4px}
+.ctitle{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.course .t-actions{display:flex;gap:14px;font-size:.85rem}
+.course .t-actions button{background:none;border:none;padding:0;color:var(--muted);cursor:pointer;text-decoration:underline}
+@media (max-width:600px){.course{grid-template-columns:1fr}}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;justify-self:start}
+.seg button{border:0;background:transparent;padding:6px 10px;cursor:pointer;font-size:.85rem;color:var(--muted)}
+.seg button + button{border-inline-start:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
+.heat-wrap{display:grid;gap:12px;min-width:0}
+.hint{font-size:.78rem;color:var(--muted)}
+.heat-wrap > *{min-width:0}
+.heat-scroll{overflow-x:auto;padding-bottom:4px}
+.heat{display:flex;gap:4px;width:100%;min-width:max-content}
+.hcol,.hdays{display:grid;grid-template-rows:16px repeat(7,auto);gap:4px}
+.hdays{grid-template-rows:16px repeat(7,1fr)}
+.hcol{flex:1 1 0;min-width:13px}
+.hcol .hc{width:100%;height:auto;aspect-ratio:1}
+.hdays span{font-size:10px;color:var(--muted);padding-right:4px;text-align:right;display:flex;align-items:center;justify-content:flex-end}
+.hm{font-size:10px;color:var(--muted);white-space:nowrap;line-height:16px;width:0;overflow:visible}
+.hc{width:14px;height:14px;border-radius:3px;border:0;padding:0;background:var(--line);cursor:pointer;display:inline-block}
+.hc.l1{background:color-mix(in srgb,var(--accent) 45%,var(--line))}
+.hc.l2{background:color-mix(in srgb,var(--accent) 65%,var(--line))}
+.hc.l3{background:var(--accent)}
+.hc.fut{opacity:.35;cursor:default}
+.hc.today{outline:2px solid var(--ink);outline-offset:-1px}
+.hc.goal{background:var(--signal);opacity:1}
+.hlegend{display:flex;gap:4px;align-items:center;justify-content:center;font-size:.8rem;color:var(--muted);flex-wrap:wrap}
+.hlegend span{margin-inline:4px}
+.resgroups{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.resgroups h3{font-size:1rem;margin-bottom:8px}
+
+/* experiences */
+.xfilters{display:grid;gap:12px}
+.xfilters input{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:10px 12px;max-width:420px;width:100%}
+.xgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:12px;align-items:start}
+.xcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);min-width:0}
+.xcard[open]{grid-column:1/-1;border-color:var(--accent)}
+.xcard summary{list-style:none;cursor:pointer;padding:16px;display:grid;gap:8px}
+.xcard summary::-webkit-details-marker{display:none}
+.xcard summary:hover h3{color:var(--accent)}
+.xchips{display:flex;flex-wrap:wrap;gap:6px}
+.xchips span{font-size:.78rem;padding:2px 10px;border-radius:999px;background:var(--bg);border:1px solid var(--line);color:var(--ink)}
+.xmore{font-size:.85rem;color:var(--accent);font-weight:600}
+.xcard[open] .xmore{display:none}
+.xbody{padding:0 16px 16px;display:grid;gap:18px;max-width:80ch}
+.xsec h4{font-family:var(--font-display);font-size:1.05rem;margin:0 0 8px;color:var(--accent)}
+.xsec dl{margin:0;display:grid;gap:10px}
+.xsec dl div{display:grid;gap:2px}
+.xsec dt{font-size:.82rem;color:var(--muted);font-weight:600}
+.xsec dd{margin:0;font-size:.95rem;overflow-wrap:anywhere}
+.xsec p{font-size:.95rem;overflow-wrap:anywhere}
+.xcontact{font-size:.9rem;color:var(--muted)}
+
+/* ux pass */
+.nextstep{display:grid;gap:8px;padding:14px 16px;border-radius:8px;background:var(--accent-soft)}
+.nextstep p{font-weight:600;font-size:1.02rem}
+.addbox:not([open]){background:transparent;border-style:dashed;padding:10px 16px}
+ul.checks .go{color:var(--muted);font-size:.8rem}
+ul.checks label:hover .go{color:var(--accent)}
+footer .credits a{color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#home"><span class="dot" aria-hidden="true"></span><b>مسار التعاوني</b></a>
+    <nav class="tabs" aria-label="أقسام الموقع">
+      <a href="#home">الرئيسية</a>
+      <a href="#journey">خريطة الرحلة</a>
+      <a href="#experiences">تجارب الطلاب</a>
+      <a href="#courses">التطوير</a>
+      <a href="#cv">السيرة الذاتية</a>
+      <a href="#linkedin">لينكدإن</a>
+      <a href="#apply">التقديم</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" type="button">الوضع</button>
+  </div>
+</header>
+
+<main class="wrap" id="app"></main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <p>بياناتك محفوظة في متصفحك فقط. للنسخة الاحتياطية شوف آخر الصفحة الرئيسية.</p>
+      <div id="fbFooter"></div>
+    </div>
+    <p class="credits" id="footCredits" hidden></p>
+    <p class="credits" id="footOwner"></p>
+  </div>
+</footer>
+
+<script type="text/plain" id="p-create-ar">
+أنت كاتب سير ذاتية محترف وخبير توظيف، تعرف ما الذي يبحث عنه من يفرز السير الذاتية في سوق العمل السعودي.
+
+أنا طالب جامعي، وأريد سيرة ذاتية بالإنجليزية في صفحة واحدة أتقدم بها على التدريب التعاوني ووظائف بداية المسار.
+
+ابدأ برسالة واحدة تجمع فيها كل ما تحتاجه مني دفعة واحدة: بياناتي وطرق التواصل والروابط، دراستي، خبراتي إن وجدت، مشاريعي، مهاراتي، أنشطتي وتطوعي، دوراتي، لغاتي. اطرح الأسئلة كلها مرة واحدة حتى أجاوب عليها في رد واحد.
+
+بعد ردي، اكتب السيرة كاملة، ورتّب الأقسام وصغ المحتوى بما تراه أنسب لحالتي - إن لم تكن لدي خبرة عملية فاجعل المشاريع في المقدمة.
+
+التزم بما يلي:
+- الناتج كله بالإنجليزية ويدخل في صفحة واحدة.
+- نص بسيط يقرأه نظام الـ ATS: بلا جداول ولا أعمدة ولا أيقونات ولا صورة شخصية.
+- لا تخترع أي خبرة أو مهارة أو مشروع أو رقم لم أذكره لك. ما ينقصك اسألني عنه.
+- ابنِ كل نقطة على فعل ونتيجة، لا على صفات عامة مثل hard worker.
+
+وبعد أن تكتبها، اذكر لي أضعف ثلاث نقاط فيها وكيف أقويها.
+</script>
+<script type="text/plain" id="p-create-en">
+You are a professional CV writer and recruiter who knows what resume screeners in the Saudi job market look for.
+
+I am a university student, and I want a one-page CV in English to apply for Co-op training and entry-level roles.
+
+Start with a single message collecting everything you need from me at once: my details and contact information and links, my education, my experience if any, my projects, my skills, my activities and volunteering, my courses, my languages. Ask all of it in one go so I can answer in one reply.
+
+After my reply, write the full CV, and order the sections and phrase the content in whatever way fits my case best - if I have no work experience, lead with the projects.
+
+Follow these rules:
+- The entire output is in English and fits on one page.
+- Plain text an ATS can read: no tables, no columns, no icons, no photo.
+- Never invent any experience, skill, project or number I did not give you. Ask me about anything missing.
+- Build every bullet on a verb and a result, not on generic adjectives like "hard worker".
+
+Once it is written, tell me its three weakest points and how to strengthen them.
+</script>
+<script type="text/plain" id="p-improve-ar">
+أنت كاتب سير ذاتية محترف وخبير توظيف، تعرف ما الذي يبحث عنه من يفرز السير الذاتية في سوق العمل السعودي.
+
+أنا طالب جامعي، وهذه سيرتي الذاتية الحالية. أريد تحسينها لأتقدم بها على التدريب التعاوني ووظائف بداية المسار، والناتج يكون بالإنجليزية في صفحة واحدة.
+
+[الصق سيرتك هنا أو أرفق الملف]
+
+ابدأ بتقييم صريح: ما أقوى ما فيها، وما أضعف ما فيها، وما الذي سيجعل من يفرزها يتجاوزها. لا تجاملني.
+
+ثم اكتبها من جديد: حسّن الصياغة، واختصر ما يطول، وأعد ترتيب الأقسام إن كان ترتيبها لا يخدمني، واحذف ما لا قيمة له.
+
+التزم بما يلي:
+- الناتج كله بالإنجليزية ويدخل في صفحة واحدة.
+- نص بسيط يقرأه نظام الـ ATS: بلا جداول ولا أعمدة ولا أيقونات ولا صورة شخصية.
+- لا تخترع أي خبرة أو مهارة أو مشروع أو رقم ليس موجودًا في سيرتي. إن احتجت معلومة ناقصة اسألني عنها.
+- ابنِ كل نقطة على فعل ونتيجة، لا على صفات عامة مثل hard worker.
+
+وفي الأخير، اذكر لي قائمة بما غيّرته ولماذا، واسألني إن كنت أريد نسخة مخصصة لإعلان وظيفة معيّن.
+</script>
+<script type="text/plain" id="p-improve-en">
+You are a professional CV writer and recruiter who knows what resume screeners in the Saudi job market look for.
+
+I am a university student, and this is my current CV. I want to improve it so I can apply for Co-op training and entry-level roles, with the output in English on one page.
+
+[Paste your CV here or attach the file]
+
+Start with an honest assessment: what is strongest in it, what is weakest, and what would make a screener pass over it. Do not flatter me.
+
+Then rewrite it: improve the wording, cut whatever runs long, reorder the sections if the current order does not serve me, and remove anything that adds no value.
+
+Follow these rules:
+- The entire output is in English and fits on one page.
+- Plain text an ATS can read: no tables, no columns, no icons, no photo.
+- Never invent any experience, skill, project or number that is not in my CV. If you need something that is missing, ask me for it.
+- Build every bullet on a verb and a result, not on generic adjectives like "hard worker".
+
+At the end, list what you changed and why, then ask me whether I want a version tailored to a specific job posting.
+</script>
+<script type="application/json" id="expData">[{"id": 3, "name": "رزان فارس", "major": "أمن سيبراني", "branch": "الزاهر", "batch": "44", "grad": true, "org": "AppSec", "mode": "حضوري بالكامل /البيئة مختلطة", "how": "عن طريق ترشيح من الجامعة", "gpa": "لا", "benefit": "استفدت بشكل كبير", "pressure": "ضغط متوسط ومتوازن", "pay": "لا", "diff": "أصعب قليلاً", "links": [["Telegram", "https://t.me/razanfaris33"]], "sections": [{"t": "إجراءات التقديم", "items": [["كيف قدمت", "عن طريق ترشيح من الجامعة"], ["خطوات الإجراء", "تم ترشيحي من قِبل الكلية وتواصلوا معايا الجهة وسويت المقابلة وكان لها اسئلة عن نفس السي ڤي حقك\nكل شهادة فيه سألوني عنها مع بعض اسئلة في اساسيات السايبر البديهية"], ["الجهة", "AppSec (حضوري بالكامل /البيئة مختلطة)"], ["هل توصي بالجهة؟", "جهة رهيبة، مختبر الإختراق الي كان يشرف علينا اسمه المشرف فنان جدًا لو تسألوه عن اي شي يساعدكم و يقولكم كل التفاصيل والأدوات وكيف طريقة العمل\nفا باختصار كونوا ملاقيف لأبعد حد الوقت الوحيد الي اللقافة فيه ترجع لكم كنوز تشكرون نفسكم عليها بعدين\nفا اذا ماكنتوا ملاقيف وغلب عليكم الحياء او ايًا كان العذر مارح تكون التجربة نفسها ابدًا\n\nفا شعاري في التدريب دايمًا: نعم_للقافة"], ["هل تشترط الجهة معدل عالي؟", "لا"]], "text": ""}, {"t": "الجانب النفسي", "items": [["هل استفدت فعليًا؟", "استفدت بشكل كبير"], ["الشعور من البداية للنهاية", "ما طولت كثير في الجهة لأن كان تدريبي في مكانين واحد في AppSec بعدين في امريكا من ضمن برنامج كاوست\nفا شعوري مع الجهة الأولى في البدايه حماس الف و في النهاية حزن لأن كان ودي اقعد زياده لأن الناس الرهيبين فعلًا وحتستفيدوا كثير منهم\nوبالنسبه لأمريكا في البدايه برضو حماس جنوني وفي النهايه استفدت كثير من العلاقات والمشروع الي سويناها لأنه حل مشكلة في نفس الجامعة الي كنا فيها و سألت حقين السايبر الي عندهم و رشحوا لي شهايد افضل ومقترحات جميلة\nفا لما تكونوا في الجهة وتلقوا اسطورة السايبر الي فيها لا تفكوه مهما كلف الثمن\nفي احتمال كبير ماتشوفوهم ثاني والحياة عباره عن فرص إما تغتنمها او تروح عليك وتتحسر\n(تأملوا في قصة الرسول لما قال سبقك بها عكاشة ابحثوا عنها)"], ["مستوى الضغط", "ضغط متوسط ومتوازن"]], "text": ""}, {"t": "المهام والمشروع", "items": [["المهام المنفذة", "الجهة الأولى AppSec كان كله عباره عن اختراقات ويب والخطة اطول من كذا بس عشان ماطولت عندهم\nفا كان رهيب لأنو قعدنا ندور على ثغرات في منصه اكتشاف الثغرات السعوديه\n\nالجهة الثانية في امريكا في الجامعة\nكان تطوير ويب وحمايته لأن كنا نسوي موقع ويب يساعد الجامعه في انهم يسووا بلوك لل IPs الغير مرغوب فيها بسرعه اعلى واداء افضل من حقهم القديم"], ["هل تختلف المهام بين الأشخاص؟", "كوننا كنا سايبر اخذنا كل المهام المتعلقة فيه"], ["صعوبة التاسكات مقارنة بالجامعة", "أصعب قليلاً"], ["المشروع", "نعم، في AppSec ماكان في مشروع\nفي امريكا نعم كان الزامي"], ["أكبر تحدٍّ", "في AppSec اني اسوي منهجية لاختراق الويب امشي عليها مع كل تارقت بخترقه\n\nفي امريكا الموقع الي سويناها مره كان كبير فا حمايته كانت تطلب الكثير من الجهد والتعقيدات المختلفه الي كان يكون الاختيار فيها يا اداء عالي يا امان\nPerformance Vs security\nواكيد بنختار الأمان بس الي معانا في الفريق مو تخصصهم سايبر فا كانوا يشوفوا الاداء اهم\nفا خذلك احلى مجادلة لين يفهموا انو الامان اهم"]], "text": ""}, {"t": "التقرير النهائي", "items": [], "text": "التقرير عبارة عن كل شي سويتيه في الجهة \nفا حطيت كل شي الخطه حقت الجهة، اش سويت بالضبط ، اش الانجازات الي طلعت فيها، اضافه من عندي اش كان ال reflection حقي مع كل جهة والمعوقات والتحديات \nفا كتابة التقرير شي مره جميل يخليك تخلد رحلة التدريب بكل تفاصيلها"}, {"t": "الجوانب الإدارية", "items": [["مكافأة مالية", "لا"], ["عدد الجهات", "أكثر من جهة"], ["إجراءات تغيير الجهة", "قلت لمشرفتي انو انقبلت في امريكا مع برنامج كاوست قالت طيب قولي لجهتك الأولى انك بتودعي الملاعب (ماقالت كذا بالشكل الحرفي)\nقلت تمام رحت للجهة الثانية وقلت لهم اني بودع عشان كاوست قالوا الله يوفقك"], ["إكمال العقد", "ما كملت كل العقد مع الجهة الأولى عشان جتني الفرصة الثانيه\nوعادي تقبلوا الموضوع بصدر رحب"], ["خطأ ينصح بتجنبه", "اظني ماكنت ملقوفة زيادة\nفا كونوا ملاقيف اكثر اذا ماجيتوا بعدها تشكروني انا ماافهم"]], "text": ""}, {"t": "بعد التخرج", "items": [["الإفادة بعد التخرج", "نعم جدًا"], ["استفادة غير متوقعة", "مافي شي"], ["شبكة تعارف", "اكيد"], ["فرص عمل فعلية", "نعم من خلال برنامج كاوست لما تخرجت منه\n رجعت teaching assistant لطلاب الدفعه الي بعدي"], ["نصيحة لمن لم يتدرب", "كونوا ملاقيف قدر المستطاع لضمان الفائدة القصوى\nحتتعجبون من كمية المعلومات الي رح تعرفوها من اللقافة\nحيكون شتان كبير جدًا بينكم وبين الشخص الي ماكان ملقوف\nمع انكم في نفس الجهة\nهذا عجب العجاب والحقيقة المطلقة"], ["أكثر شيء يتجنبه", "انوا ماتكونوا ملاقيف"]], "text": ""}, {"t": "ملخص التجربة", "items": [], "text": "لا تشيلوا هم ابدًا\nايًا كانت الجهة حتى لو متواضعة حتى لو مو الي تحلموا فيها \nفي النهاية انت الي رح تطور نفسك بنفسك \nوخصوصًا في تخصصنا سُبل التطور فيه لا نطاق لها والشهايد لا حصر لها\nاذا تقول\nوالله الجهة مو قاعده تديني مهام سايبر \nولا يهمك افتح هاك ذا بوكس وابدأ في شهادة او CyberDefenders وحل لك لاب  \nوالله كل الي معايا في الجهة مايعرفوا ولا شي عن السايبر \nولا يهمك فجر جوالات اساطير السايبر ورح ارشح لكم ناس اذا تطلب الأمر تكلموهم \nفا المغزى الأكبر انت تطور نفسك بنفسك لا تحط العذر على الجهة لأن مع كامل احترامي عذر الضعفاء ذا \nاذا انت مُصر على التطوير وناوي يكون لك شأن كبير في المجال\nولا شي رح يوقفك \nلا جهة متواضعه ولا جامعة متواضعه ولا شي \nاصلا اغلب اساطير السايبر مو الجهة الي كانت السبب في شطارتهم ولا الجامعة ولا شي \nهم بنفسهم وبإصرارهم قدروا يصيروا الأفضل"}]}, {"id": 4, "name": "", "major": "تفاعل الإنسان مع الحاسب", "branch": "الزاهر", "batch": "44", "grad": true, "org": "الراجحي", "mode": "حضوري بالكامل /البيئة مختلطة", "how": "عن طريق ترشيح من الجامعة", "gpa": "لا", "benefit": "استفدت بشكل كبير", "pressure": "مريح جدًا / ريلاكس", "pay": "نعم (1000 تقريبًا)", "diff": "مشابهة تقريبًا", "links": [], "sections": [{"t": "إجراءات التقديم", "items": [["كيف قدمت", "عن طريق ترشيح من الجامعة"], ["خطوات الإجراء", "دكتور من القسم تواصل مع الشركة وارسل اسمائنا وهو ارسل لنا موعد المقابله والموقع"], ["الجهة", "الراجحي (حضوري بالكامل /البيئة مختلطة)"], ["هل توصي بالجهة؟", "نعم لسهولة الدوام والتعامل الجميل والتعاون"], ["هل تشترط الجهة معدل عالي؟", "لا"]], "text": ""}, {"t": "الجانب النفسي", "items": [["هل استفدت فعليًا؟", "استفدت بشكل كبير"], ["الشعور من البداية للنهاية", "البداية مو فاهمه شي وكيف الوضع وبالنهايه تكيفت مع بيئة العمل وصرت أبادر بالأفكار والشغل"], ["مستوى الضغط", "مريح جدًا / ريلاكس"]], "text": ""}, {"t": "المهام والمشروع", "items": [["المهام المنفذة", "بحث وتحليل لتطبيق في الشركة والعمل على تصميم موقعين للشركة"], ["هل تختلف المهام بين الأشخاص؟", "لا"], ["صعوبة التاسكات مقارنة بالجامعة", "مشابهة تقريبًا"], ["المشروع", "نعم، يختلف"], ["أكبر تحدٍّ", "ما واجهت"]], "text": ""}, {"t": "التقرير النهائي", "items": [], "text": "المهام كل اسبوع وإرفاق صور كشواهد"}, {"t": "الجوانب الإدارية", "items": [["مكافأة مالية", "نعم (1000 تقريبًا)"], ["عدد الجهات", "جهة واحدة"], ["إكمال العقد", "أكملت"], ["خطأ ينصح بتجنبه", "لم أواجه"]], "text": ""}, {"t": "بعد التخرج", "items": [["الإفادة بعد التخرج", "نعم"], ["استفادة غير متوقعة", "النصايح وطبيعة بيئة العمل"], ["شبكة تعارف", "نعم"], ["فرص عمل فعلية", "لا حالياً لا"], ["نصيحة لمن لم يتدرب", "يستغل فتره التدريب لانها فتره ذهبيه"], ["أكثر شيء يتجنبه", "ان ما تستني احد يعطيك مهام انتي اطرحي الأفكار واطلبي لان هم ما بيعطوك"]], "text": ""}, {"t": "ملخص التجربة", "items": [], "text": "."}]}, {"id": 6, "name": "علي طيب", "major": "تفاعل الإنسان مع الحاسب", "branch": "العابدية", "batch": "44", "grad": true, "org": "تكوين - TechWin", "mode": "حضوري بالكامل /البيئة مختلطة", "how": "راسلت الجهة بنفسي", "gpa": "نعم", "benefit": "استفدت بشكل كبير", "pressure": "ضغط متوسط ومتوازن", "pay": "لا", "diff": "مشابهة تقريبًا", "links": [], "sections": [{"t": "إجراءات التقديم", "items": [["كيف قدمت", "راسلت الجهة بنفسي"], ["خطوات الإجراء", "القائمين على الجهة جمعتني بهم معرفة سابقة في إطار الأندية الطلابية، راسلتهم وأعلمتهم أني باحث عن تدريب، فعرضوا علي المجيء لهم"], ["الجهة", "تكوين - TechWin (حضوري بالكامل /البيئة مختلطة)"], ["هل توصي بالجهة؟", "أوصي بها بشدة كون العمل يكون على مشاريع حقيقية، مع فريق من الزملاء المتدربين ووضوح في تقسيم المهام والإشراف عليها"], ["هل تشترط الجهة معدل عالي؟", "نعم"], ["بديل يعوّض ضعف المعدل", "نعم، البورتفوليو الشخصي (معرض الأعمال)"], ["نصيحة لطلاب سنة أولى وثانية", "ركزوا على تعلم مهارة أو اثنان، ادعموهما بالشهادات، لا تكتفي بتعليم الجامعة، خذوا أوقاتكم في بناء البورتفوليو (مهم جدًا)"]], "text": ""}, {"t": "الجانب النفسي", "items": [["هل استفدت فعليًا؟", "استفدت بشكل كبير"], ["الشعور من البداية للنهاية", "كنت خائفًا، تجربة جديدة، دوام كامل، ماذا سيحصل في أسوأ الأحوال؟\n\nفي النهاية كنت أودع أفراد عائلة، تعلمت منهم خليط من المهارات، ناعمة وصلبة، أحببتهم، وما زلت أتواصل معهم"], ["مستوى الضغط", "ضغط متوسط ومتوازن"]], "text": ""}, {"t": "المهام والمشروع", "items": [["المهام المنفذة", "تصميم ثم تطوير بوابة الأدمنز لتطبيق ملتي سايدد بلاتفورم (ويب)، ثم لاحقا تصميم واجهات التطبيق بدون تطوير (موبايل)"], ["هل تختلف المهام بين الأشخاص؟", "على وقتي، كان التدريب فرونت وباك وجوال فقط، لكن سمعت أنهم اضافوا برامج خاصة للUI/UX وللDevOps"], ["صعوبة التاسكات مقارنة بالجامعة", "مشابهة تقريبًا"], ["المشروع", "نعم، حسب مجال التدريب"], ["أكبر تحدٍّ", "تسليم مهامي في مواعيدها"]], "text": ""}, {"t": "التقرير النهائي", "items": [], "text": "لم يلزمني المشرف بشيء معين، طلب مني تقريرًا تلخيصيًا للتدريب\nفتقرير كان مكون من:\nمقدمة - نبذة عن جهة التدريب - التدريب - مشروع التدريب - التحديات - الخاتمة"}, {"t": "الجوانب الإدارية", "items": [["مكافأة مالية", "لا"], ["عدد الجهات", "أكثر من جهة"], ["إجراءات تغيير الجهة", "لم أقم بأي إجراء رسمي"], ["إكمال العقد", "أكملت أكثر بقليل من مدة العقد"], ["خطأ ينصح بتجنبه", "لا تخجل أن تطرح الأسئلة، ولا تخف أن تعترف بالفشل الحالي لتكون أقوى مستقبلاً"]], "text": ""}, {"t": "بعد التخرج", "items": [["الإفادة بعد التخرج", "نعم، كثيرًا"], ["استفادة غير متوقعة", "لا يوجد شيء بعينه"], ["شبكة تعارف", "نعم"], ["فرص عمل فعلية", "نعم حصلت على فرصتين للمقابلات الوظيفية من خلال زملائي في التديب"], ["نصيحة لمن لم يتدرب", "التدريب فترة من أجمل الفترات، اطرح الأسئلة قدر ما تستطيع، لأنك في رحلة تعلم، ولست محاسبًا على خطئك، فتعلم قدر ما تستطيع"], ["أكثر شيء يتجنبه", "الخوف من تبيين أنك لا تعرف، فبناء على ذلك تقوم بالتسويف"]], "text": ""}, {"t": "ملخص التجربة", "items": [], "text": "التدريب فرصة، وفي كثير من الأحيان تحتاج علاقاتك عشان تجيك، لمن تجيك استغلها، تعلم كل شيء تقدر تتعلم، مو لازم فقط في مجالك، بل استكشف هذا العالم بروح فضولية، لا تعرف أي جواب، فقط اطرح الأسئلة، بعد ما تتعلم وتطبق وتصير لمعرفتك نتيجة محسوسة افخر بها، مهما كانت، طبيعي ما تكون افضل شي، لكن حاجة انت بنفسك سويتها اعتبرها ابنك أو بنتك، وتعلم كيف تعرضها بطريقة جذابة وفخورة، خليك كائن محب للي حولك وتبغى لهم الخير، أعطي للناس عشان ربنا يعطيك، مو لازم عطاء مال، فيه 1001 للعطاء، عطاء الوقت، عطاء الجهد، ولا تحسب هين وهو عند الله عظيم"}]}, {"id": 11, "name": "", "major": "علم بيانات", "branch": "الزاهر", "batch": "45", "grad": false, "org": "مؤشرات", "mode": "حضوري بالكامل /البيئة مختلطة", "how": "عن طريق ترشيح من الجامعة", "gpa": "لا", "benefit": "استفدت بشكل كبير", "pressure": "ضغط كبير", "pay": "نعم (الف ريال تقريبًا)", "diff": "أصعب قليلاً", "links": [], "sections": [{"t": "إجراءات التقديم", "items": [["كيف قدمت", "عن طريق ترشيح من الجامعة"], ["خطوات الإجراء", "القسم ارسلو فورم ترشح للجهة وسلجت فيه وارفقت السجل الاكاديمي والسيره الذاتيه"], ["الجهة", "مؤشرات (حضوري بالكامل /البيئة مختلطة)"], ["هل توصي بالجهة؟", "اوصي بشده"], ["هل تشترط الجهة معدل عالي؟", "لا"]], "text": ""}, {"t": "الجانب النفسي", "items": [["هل استفدت فعليًا؟", "استفدت بشكل كبير"], ["الشعور من البداية للنهاية", "مختلط للأمانه لكن على النهاية زاد الضغط مرا مع الموسم"], ["مستوى الضغط", "ضغط كبير"]], "text": ""}, {"t": "المهام والمشروع", "items": [["المهام المنفذة", "متتوعه من تقارير وداشبوردات ومودلنق ومشين ليرننق كل شي"], ["هل تختلف المهام بين الأشخاص؟", "لا كلنا داتا"], ["صعوبة التاسكات مقارنة بالجامعة", "أصعب قليلاً"], ["المشروع", "نعم، حسب الخطه"], ["أكبر تحدٍّ", "التواصل كان في صعوبه شوي"]], "text": ""}, {"t": "التقرير النهائي", "items": [], "text": "اي على المهام المنفذه وايش اتعلمت"}, {"t": "الجوانب الإدارية", "items": [["مكافأة مالية", "نعم (الف ريال تقريبًا)"], ["عدد الجهات", "جهة واحدة"], ["إكمال العقد", "اخذت الحد الادنى"], ["خطأ ينصح بتجنبه", "اسألو ولا تتركو اي تساؤل عندكم"]], "text": ""}, {"t": "ملخص التجربة", "items": [], "text": "بدأت التدريب بمزيج من الحماس والقلق، لكن مع الوقت اكتشفت أن أجمل ما فيه هو الانتقال من المعرفة النظرية إلى التطبيق الحقيقي. تعلمت أدوات ومهارات جديدة، واجهت تحديات، وتعرّفت أكثر على نقاط قوتي والمجال الذي أطمح للاستمرار فيه.\n\nنصيحتي لكل طالب مقبل على التدريب: لا تتوقع أنك تعرف كل شيء، ادخل بعقلية المتعلم، اسأل، جرّب، واستفد من كل مهمة مهما بدت بسيطة. اجعل التدريب فرصة حقيقية لتطوير نفسك، وليس مجرد متطلب للتخرج."}]}, {"id": 12, "name": "سارا", "major": "علم بيانات", "branch": "الزاهر", "batch": "45", "grad": false, "org": "مؤشرات", "mode": "مدمج (حضوري و عن بعد) /البيئة منفصلة", "how": "الجهة أعلنت و سجلت بالفورم", "gpa": "لا", "benefit": "استفدت بشكل كبير", "pressure": "ضغط متوسط ومتوازن", "pay": "نعم (1000﷼ تقريبًا)", "diff": "أصعب قليلاً", "links": [], "sections": [{"t": "إجراءات التقديم", "items": [["كيف قدمت", "الجهة أعلنت و سجلت بالفورم"], ["خطوات الإجراء", "لجنة التدريب اعلنت عن فورم مقدم من الجهة فيه المعلومات المعروفة مثل السيرة الذاتية وهي اكثر ما يركزون عليه"], ["الجهة", "مؤشرات (مدمج (حضوري و عن بعد) /البيئة منفصلة)"], ["هل توصي بالجهة؟", "نعم. الجهة تعاملك كأنك موظف، تتلقى مهام بشكل دوري ويؤخذ برأيك وبعض الأحيان تمسك مشروع كامل لحالك.\nويوجد تواصل واجتماعيات يومية وأسبوعية لمراجعة العمل والمشاكل.\nالتجربة تساعدك تفهم بيئات العمل، وكيف تُستخدم البيانات في سوق العمل، وتكوّن خبرة وثقة بمهاراتك السابقة وتتعلم مهارات جديدة."], ["هل تشترط الجهة معدل عالي؟", "لا"]], "text": ""}, {"t": "الجانب النفسي", "items": [["هل استفدت فعليًا؟", "استفدت بشكل كبير"], ["الشعور من البداية للنهاية", "بالبداية توتر وجهل تام بطريقة العمل والـworkflow؛\nلكن الجهة أعطتنا اسبوعين تجهيزية مع المشرف والي عطانا فيها الأساسيات.\nبعد ذلك أعطتنا تاسك حقيقي خلانا نفهم البيانات اللي عندهم بشكل كبير وشالت كم كبير من الغموض."], ["مستوى الضغط", "ضغط متوسط ومتوازن"]], "text": ""}, {"t": "المهام والمشروع", "items": [["المهام المنفذة", "كتابة مرئيات وملاحظات بناءً على البيانات\nصنع تقارير تشغيلية\nبناء نماذج تسهل وتقلل من العمل اليدوي\nهيكلة وبناء داشبوردات"], ["هل تختلف المهام بين الأشخاص؟", "أغلبنا داتا وفقط واحد علوم حاسب، والمهام ما اختلفت بيننا لأن طالب العلوم كان توجهه داتا."], ["صعوبة التاسكات مقارنة بالجامعة", "أصعب قليلاً"], ["المشروع", "نعم، غير إلزامي، بحسب ما يتوفر من تاسكات ومشاكل بحاجة لحلول ومشاريع متعمقة."], ["أكبر تحدٍّ", "تعلم التواصل مع الإدارة ومدير الفريق إذا كان من الصعب تنفيذ مهمة أو يوجد اختلاف آراء في طريقة التنفيذ.\nموازنة الضغط في موسم الحج."]], "text": ""}, {"t": "التقرير النهائي", "items": [], "text": "المهام المنفذة بدءًا من كيف نشئت إلى كيف تعاملت معها والنتائج النهائية وأثرها على العمل. بالإضافة إلى التحديات الشخصية والحلول."}, {"t": "الجوانب الإدارية", "items": [["مكافأة مالية", "نعم (1000﷼ تقريبًا)"], ["عدد الجهات", "جهة واحدة"], ["إكمال العقد", "كاملة. مسموح."], ["خطأ ينصح بتجنبه", "اجتهد ولكن وازن بين الراحة والعمل، أنت متدرب بالأخير فلا تجهد نفسك فوق طاقتك.\nتواصل مع الموظفين واثبت نفسك ومهاراتك.\nخذ أي أوراق مطلوب توقعها الجهة نهاية الفترة التدريبية قبل ما تطلع، لأنهم راح ينسونك ويلطعونك لو تركتهم على راحتهم."]], "text": ""}, {"t": "ملخص التجربة", "items": [], "text": "التدريب جزء مهم من مسيرتك المهنية، يوضح لك أمور ويصحح لك توقعات مسبقة ويخليك ترتب أهدافك بثقة أكبر. \nإذا لم تستطع التدرب مع جهة جيدة فلا بأس، لا تضيع الوقت وابدأ في متابعة دورات وعمل مشاريع شخصية، وتذكر أن فرصة التوظيف الموسمي هي قائمة وفرصة رائعة لاكتساب الخبرات والمهارات تعوض عمّا لم تجده في التدريب.\nاجتهد، فهذه أولى الخطوات التي تكوّن مستقبلك المهني، أعطي أحسن ما عندك، وتأمّل خيرًا، وفقك الله لما يحب ويرضى."}]}, {"id": 13, "name": "", "major": "علم بيانات", "branch": "الزاهر", "batch": "45", "grad": false, "org": "وزارة الحج والعمرة - مركز تحليل البيانات وذكاء الأعمال.", "mode": "حضوري بالكامل /البيئة مختلطة", "how": "عن طريق ترشيح من الجامعة", "gpa": "لا", "benefit": "استفدت بشكل متوسط", "pressure": "مريح جدًا / ريلاكس", "pay": "لا", "diff": "مشابهة تقريبًا", "links": [], "sections": [{"t": "إجراءات التقديم", "items": [["كيف قدمت", "عن طريق ترشيح من الجامعة"], ["خطوات الإجراء", "تواصلت معي إحدى دكاترة القسم لتقوم بترشيحي بناءً على طلب أحد معارفها بالجهة أن ترشح لهم طلبة من القسم.\nقامت هي بالتواصل مع الجهة وتم القبول."], ["الجهة", "وزارة الحج والعمرة - مركز تحليل البيانات وذكاء الأعمال.  (حضوري بالكامل /البيئة مختلطة)"], ["هل توصي بالجهة؟", "يعتمد على فترة التدريب + المشرف.\nفي حالتي , فترة التدريب كانت من شعبان الى ما بعد موسم الحج, التدريب مقبول في غير موسم الحج لكن مع بدأ الموسم وانشغالهم يتم اهمال التدريب بل وقد لا تتوافر مكاتب ويحولوكم للعمل عن بعد (طبعا لا يوجد تاسكات بحسب انشغالهم لذا تقريبا تكون اجازة اكثر من كونها عن بعد).\n\nأما بخصوص المشرف, مشرفتنا كانت متخصصة بنفس تخصصنا, لذا استفدت بعض الشيء من خلال المحاورة والنقاشات معها. لكن البعض مع مشرفين اخرين كانوا يعانون من عدم ارتباط التاسكات بمستوى تخصصهم نهائيًا لذا اقول انه يعتمد على المشرف.\n\nكانطباع عام, هناك جهات افضل بالتأكيد, لكن في حال عدم توافر فرص فيهم, بالامكان اللجوء للوزارة كحل بديل عوضًا عن الجهات اللتي يقال انها لا تعطي ابدا اي مهام وما إلى ذلك. لأنه على الاقل ستغطي متطلبات التدريب بالاضافة الى بيئة مريحة إلى حد ما, أما فائدة حقيقة تنعكس على مهاراتك وتُثري معرفتك؟ لا أظن."], ["هل تشترط الجهة معدل عالي؟", "لا"]], "text": ""}, {"t": "الجانب النفسي", "items": [["هل استفدت فعليًا؟", "استفدت بشكل متوسط"], ["الشعور من البداية للنهاية", "بناءً على سمعة الجهة من الدفعة السابقة, شعرت بالاحباط خوفًا من تشابه تجربتي مع خاصتهم.\nمع ذلك, بعد ان انتهيت والحمد لله, لم يكن بذاك السوء ولا بتلك الفائدة, مجرد تغطية متطلبات التدريب + تطوير بعض المهارات الناعمة (soft skills) من حيث تجربة التحدث والتعامل مع الموظفين."], ["مستوى الضغط", "مريح جدًا / ريلاكس"]], "text": ""}, {"t": "المهام والمشروع", "items": [["المهام المنفذة", "مهمة تحليل بيانات متكاملة وإنشاء داشبورد لها - طبعًا البيانات من مصادر مفتوحة ولا علاقة بها بالوزارة, نفس المهمة مرة بالاكسل ومرة ببيانات اخرى على الباور بي اي.\n\nتصنيف بيانات شكاوي واستفسارات الحج خاصة بهم (تقريبا البيانات الوحيدة التي سمحوا لنا باستخدامها)\n\nانشاء قاعدة بيانات مصغرة للحج والعمرة (البيانات طلب منا توليدها بـ python faker)\n\nبناء ai assistant خاص لقاعدة البيانات السابقة."], ["هل تختلف المهام بين الأشخاص؟", "بالنسبة لنا كنا نقوم بنفس المهام"], ["صعوبة التاسكات مقارنة بالجامعة", "مشابهة تقريبًا"], ["المشروع", "لا يوجد"], ["أكبر تحدٍّ", "التاسكات رغم ارتباطها بالتخصص إلا انها ليست بتلك الفائدة"]], "text": ""}, {"t": "التقرير النهائي", "items": [], "text": "المهام بالتفصيل + التحديات والانطباع عن تجربة التدريب"}, {"t": "الجوانب الإدارية", "items": [["مكافأة مالية", "لا"], ["عدد الجهات", "جهة واحدة"], ["إكمال العقد", "اعتقد يعتمد على المشرف, نحن وقعنا في البداية كما طلبت اللجنة حيث قالوا المدة هي الترم الثاني + الصيفي ,, لذا وقعنا حتى عشرينات أغسطس ,, وبعد ان عدلوا شروطهم -اللجنة- وقالوا لابأس بانهاء التدريب لمن اكمل 23 اسبوع تواصلنا مع المشرفة برغبتنا في الانتهاء على بداية يوليو, وقبلت ذلك."], ["خطأ ينصح بتجنبه", "لا يحضرني شيء, فالقصور في تدريبنا كان من الجهة حيث انهم يرفضون اعطاءنا مهام تتعلق ببياناتهم الحقيقية, لذا كانت المشرفة تعطينا مهام بديله ببيانات مفتوحة وما الى ذلك."]], "text": ""}, {"t": "ملخص التجربة", "items": [], "text": "استمع لتجارب سابقيك لكن لا تعتمد وتبني عليها, ففي حالتي مع الوزارة, تجربة احد طلاب الدفعة السابقة كانت سيئة للغاية, تجربتي؟ أراها مقبولة, ليست بذاك السوء وليست الافضل.\nوأخيرًا إن لم تحصل على جهةٍ كنت تريدها, ماذا في ذَلك؟ اعتبرها تجربة دوام مكتبيّ + تعلم التحاور والتعامل مع موظفين, اما جانبك المهني والتقني؟ تطويره يبدأ منك, استغل الفرصة لتطوير نفسك بنفسك في حال سلاسة وسهولة المهمات او اهمال جهة التدريب لك (في احد المواسم كالحج مثلا ’-’)\nاسألُ الله لكم كل التوفيق والتيسير في تدريبكم, واستمتعوا بالفترةِ حُلوةً كانت او سَيئة..."}]}, {"id": 5, "name": "امل الشريف", "major": "علوم حاسب", "branch": "الزاهر", "batch": "45", "grad": true, "org": "وادي مكة", "mode": "حضوري بالكامل /البيئة مختلطة", "how": "الاثنين معًا", "gpa": "لا", "benefit": "استفدت بشكل كبير", "pressure": "ضغط متوسط ومتوازن", "pay": "لا", "diff": "أصعب قليلاً", "links": [], "sections": [{"t": "إجراءات التقديم", "items": [["كيف قدمت", "الاثنين معًا"], ["خطوات الإجراء", "اول شي طبعت الcv وقدمت بعدين راسلتهم برضو ايميل وهم اقبلوني من تقديمي اليدوي"], ["الجهة", "وادي مكة (حضوري بالكامل /البيئة مختلطة)"], ["هل توصي بالجهة؟", "ايي مره واذا شافكم كويسين يعطوكم مشاريع حقيقيه تفيدكم"], ["هل تشترط الجهة معدل عالي؟", "لا"]], "text": ""}, {"t": "الجانب النفسي", "items": [["هل استفدت فعليًا؟", "استفدت بشكل كبير"], ["الشعور من البداية للنهاية", "مرره يجنن كانو متعاونين حتى لما كنا نسوي المشروع اللي بنقدمه للعميل كانو يجيبون لنا اكثر من مشرف بمجالات مختلفه من ui/ux ومن اختبار برمجيات عشان يعدلون علينا ويعلمونا"], ["مستوى الضغط", "ضغط متوسط ومتوازن"]], "text": ""}, {"t": "المهام والمشروع", "items": [["المهام المنفذة", "سوينا مشاريع بسيطه قبل ما ندخل بمشروع الاكبر\nاخذنا متطلبات من العميل وسوينا مقابله مع الاتش ار نسأله عن بعض الاشياء اللي نحتاج توضيح فيها\nبعدها سوينا المتطلبات الفنكشنال ريكوارمنت\nبعدها صممنا الواجهات بالفقما\nبعدها برمجناها"], ["هل تختلف المهام بين الأشخاص؟", "لا كنا كلنا علوم حاسب"], ["صعوبة التاسكات مقارنة بالجامعة", "أصعب قليلاً"], ["المشروع", "نعم، الزامي"], ["أكبر تحدٍّ", "كيف نحل الconflict اللي تجي بعد المسرح بالقيت هب"]], "text": ""}, {"t": "التقرير النهائي", "items": [], "text": "كتبنا كل شي من مشاريعنا وايش سوينا بكل شهر معاهم"}, {"t": "الجوانب الإدارية", "items": [["مكافأة مالية", "لا"], ["عدد الجهات", "جهة واحدة"], ["إكمال العقد", "لا كملته كامل"], ["خطأ ينصح بتجنبه", "-"]], "text": ""}, {"t": "بعد التخرج", "items": [["الإفادة بعد التخرج", "اي كثييير"], ["استفادة غير متوقعة", "القيت هب وأوامر القيت"], ["شبكة تعارف", "طبعا باللنكد ان"], ["فرص عمل فعلية", "لا -"], ["نصيحة لمن لم يتدرب", "يقدم بكل الوسائل يدوي فورم وإيميل ويجيهم باللنكد ان"], ["أكثر شيء يتجنبه", "-"]], "text": ""}, {"t": "ملخص التجربة", "items": [], "text": "."}]}, {"id": 10, "name": "جمانه الهذلي", "major": "علوم حاسب", "branch": "الزاهر", "batch": "45", "grad": false, "org": "ركايا", "mode": "مدمج (حضوري و عن بعد) /البيئة مختلطة", "how": "الجهة أعلنت و سجلت بالفورم", "gpa": "لا", "benefit": "استفدت بشكل كبير", "pressure": "ضغط كبير", "pay": "نعم (ما اعرف ما اعطونا للان  تقريبًا)", "diff": "أصعب وأثقل بكثير من واجبات الجامعة", "links": [["X", "https://x.com/jxwib"]], "sections": [{"t": "إجراءات التقديم", "items": [["كيف قدمت", "الجهة أعلنت و سجلت بالفورم"], ["خطوات الإجراء", "تقديم كان عن طريق الموقع\nوتم التواصل عن طريق الايميل لعقد مقابله شخصيه كانت عند بعد\nبعد المقابله اتصلوا عشان يعلموني الموافقه وباشرت بالتدريب"], ["الجهة", "ركايا  (مدمج (حضوري و عن بعد) /البيئة مختلطة)"], ["هل توصي بالجهة؟", "نعم نعم نعم\nاوصي بشده لمن رغب فعلا بتطوير مهاراته التقنيه يتعرف أكثر على سوق العمل يفهم نفسه ورغباته"], ["هل تشترط الجهة معدل عالي؟", "لا"]], "text": ""}, {"t": "الجانب النفسي", "items": [["هل استفدت فعليًا؟", "استفدت بشكل كبير"], ["الشعور من البداية للنهاية", "كنت متوتره الصدق بدايه التدريب ما انسى اول فتره كان عندي شعور انه مكاني غلط\nاخر يوم تدريب بكيت لانه اعتدت المكان وولقيت فيه جزء من ذاتي\nفيه ضغط نفسي فتره التدريب وتسليم المهام يس طبيعي عشان نتطور"], ["مستوى الضغط", "ضغط كبير"]], "text": ""}, {"t": "المهام والمشروع", "items": [["المهام المنفذة", "جربت أشياء كثير في نطاق اهتمامي\nجربت اكون برودكت اونر\nطول فتره التدريب كنت فرونت اند\nجربت ux ui\nكنت دائما امثل التيم في الميتنق فمهاره اللقاء تطورت وحاولت اركز اني اطور الالقاء المهني في الاجتماعات\nجربت اخر شهر مره ثانيه اكون برودكت مانجر لاحد منتجات الشركه"], ["هل تختلف المهام بين الأشخاص؟", "اي\nحسب المسار الى تم اختياره\nكنا ٧ كلنا من نفس التخصص بس مجالات مختلفه\nباك فرونت وموبايل"], ["صعوبة التاسكات مقارنة بالجامعة", "أصعب وأثقل بكثير من واجبات الجامعة"], ["المشروع", "نعم، كل دفعه بالشركه كانت تشغل على مشروع كبير ونحن اشتغلنا على مشروع أيضا اسمه سند\nكان مشروع كبير وهي نظام داخلي للاداره الشركات"], ["أكبر تحدٍّ", "تنظيم الوقت\nهل انا صدق حابه ذا المجال\nالتعامل مع التيم\nالالتزام\nتقبل انه مو شرط شغلك يكون مثالي اهم شيء انك تتعلم وعادي تغلط"]], "text": ""}, {"t": "التقرير النهائي", "items": [], "text": "التقرير الخاص بالجامعه اي المهام وين تدربت وايش سويت\nفيه نموذج جاهزه ارسله لنا القسم مشيت عليه"}, {"t": "الجوانب الإدارية", "items": [["مكافأة مالية", "نعم (ما اعرف ما اعطونا للان  تقريبًا)"], ["عدد الجهات", "جهة واحدة"], ["إكمال العقد", "لا\nنفس المده"], ["خطأ ينصح بتجنبه", "اغلط قد ما تقدر لانه عندك مساحه للغلط كونك متدرب\nمحد راح يفصلك\nتعلم\nوما راح تتعلم لين ما تغلط"]], "text": ""}, {"t": "ملخص التجربة", "items": [], "text": "قبل التدريب كنت متوتره لانه كان براسي ابي جهه اكتشف فيها نفسي ومهاراتي ما اقدر اطلع برا مكه فالخيارات قليل جدا\nقبول التدريب جاني متأخر بعد ما فقدت الامل\nوبديت التدريب باسبوع بعد بنات الدفعه\nكنت متوتره وماني مرتاحه وذا شعور طبيعي مع أي بيئه جديده بس كمان فيه حماس انه سوق العمل و بيئه الشركات مو نفس تصوري\nكانت افضل صراحه\nتجربه التدريب اعطتني رؤيه ونظره لسوق العمل المسميات وش ممكن اتوقع بعد تخرجي يمر على\nفيه تحديات بالتدريب كنت ضمن فريق من ٧ أشخاص واول مره اجرب اشتغل في تيم لمده طويله ذي\nتقريبا ٦ شهور كتا نشتغل سوا\nفكانت تصير مشاكل وحساسيات بس لازم تتعلم تتقن الشغل لوجه الله اولا ثم لذاتك ولا تتأثر في البيئه\nاوقات التسليم والضغط طبيعي تصير حساسيات فلا تشيل الموضوع بخاطرك\nركز على رحله تعلمك وتدريبك وحاول تكسب مهاره تفيدك مستقبلا\nلتدريب من أكثر الفترات الجميله بحياتي وممكن اتخرج واتوظف وانا لازلت اتذكرها \nوممتنه جدا لركايا"}]}, {"id": 1, "name": "أنس المحمادي", "major": "علوم حاسب", "branch": "العابدية", "batch": "45", "grad": false, "org": "البنك الأهلي السعودي - إتقان الجودة لحلول الأعمال", "mode": "حضوري بالكامل /البيئة مختلطة", "how": "راسلت الجهة بنفسي", "gpa": "نعم", "benefit": "استفدت بشكل كبير", "pressure": "ضغط متوسط ومتوازن", "pay": "نعم (- تقريبًا)", "diff": "أصعب قليلاً", "links": [], "sections": [{"t": "إجراءات التقديم", "items": [["كيف قدمت", "راسلت الجهة بنفسي"], ["خطوات الإجراء", "تواصل مباشر مع مسؤولي التوظيف على لنكدإن"], ["الجهة", "البنك الأهلي السعودي - إتقان الجودة لحلول الأعمال (حضوري بالكامل /البيئة مختلطة)"], ["هل توصي بالجهة؟", "الجهة كويسة جدًا، والميزة انك بتشتغل مع الموظفين على مهام حقيقية (بعد إثبات جاهزيتك)، وراح يكون عليها ديدلاين والنتيجة تروح لمسؤولين في القسم ويُبنى عليها قرارات فعلية. وبشكل عام حاول تثبت نفسك وتبين اهتمامك وتطلب منهم شغل فعلي"], ["هل تشترط الجهة معدل عالي؟", "نعم"], ["بديل يعوّض ضعف المعدل", "اللغة الإنجليزية، السيرة الذاتية، والمهارات الناعمة"], ["نصيحة لطلاب سنة أولى وثانية", "ابنوا أساس قوي في مجالكم، حاولوا تسوون مشاريع قدر الإمكان، ولا تنتظرون السنوات الأخيرة عشان تبدأون"]], "text": ""}, {"t": "الجانب النفسي", "items": [["هل استفدت فعليًا؟", "استفدت بشكل كبير"], ["الشعور من البداية للنهاية", "-"], ["مستوى الضغط", "ضغط متوسط ومتوازن"]], "text": ""}, {"t": "المهام والمشروع", "items": [["المهام المنفذة", "Data analysis (Python + Excel + SQL), data preparation and cleansing, building reports and dashboards using Power BI"], ["هل تختلف المهام بين الأشخاص؟", "نعم"], ["صعوبة التاسكات مقارنة بالجامعة", "أصعب قليلاً"], ["المشروع", "لا يوجد"], ["أكبر تحدٍّ", "-"]], "text": ""}, {"t": "التقرير النهائي", "items": [], "text": "• صفحة الغلاف.\n\n• المقدمة.\n\n• نبذة عن جهة التدريب.\n\n• توضيح الأعمال والمهام والمشاريع التي تم إنجازها، مع ربطها بالمعرفة النظرية المكتسبة خلال الدراسة.\n\n• المشكلات والتحديات التي تمت مواجهتها خلال فترة التدريب.\n\n• الخاتمة.\n\n• المراجع.\n\nويمكنكم الاستفادة من النموذج المقترح على منصة Overleaf عند إعداد التقرير من خلال الرابط التالي:\n\nhttps://www.overleaf.com/read/vtjrxgpvrfhn#a54e41"}, {"t": "الجوانب الإدارية", "items": [["مكافأة مالية", "نعم (- تقريبًا)"], ["عدد الجهات", "أكثر من جهة"], ["إجراءات تغيير الجهة", "التواصل مع المشرف الأكاديمي والمشرف الميداني"], ["إكمال العقد", "-"], ["خطأ ينصح بتجنبه", "-"]], "text": ""}, {"t": "ملخص التجربة", "items": [], "text": "تجربة جميلة جدًا، راح تتعلم فيها الكثير على المستوى التقني والشخصي، وبتتعرف على بيئة العمل وكيف يكون الشغل الفعلي داخل الفريق. وأنصح أي طالب مقبل على التدريب إنه يستغل الفرصة ويتعلم قدر الإمكان، ويكون مبادر ويطلب المشاركة في المهام، سواء كانت داخل خطة التدريب أو خارجها"}]}, {"id": 7, "name": "", "major": "علوم حاسب", "branch": "القنفذة", "batch": "25", "grad": false, "org": "stc", "mode": "حضوري بالكامل /البيئة مختلطة", "how": "راسلت الجهة بنفسي", "gpa": "نعم", "benefit": "استفدت بشكل كبير", "pressure": "ضغط متوسط ومتوازن", "pay": "نعم (3k تقريبًا)", "diff": "أصعب وأثقل بكثير من واجبات الجامعة", "links": [], "sections": [{"t": "إجراءات التقديم", "items": [["كيف قدمت", "راسلت الجهة بنفسي"], ["خطوات الإجراء", "تم ترشيحي بعد مفاضله ومقابله شخصيه"], ["الجهة", "stc (حضوري بالكامل /البيئة مختلطة)"], ["هل توصي بالجهة؟", "stc من اقوى الشركات في التقنية بشكل عام ومكسب لاي متدرب انه يتدرب فيها"], ["هل تشترط الجهة معدل عالي؟", "نعم"], ["بديل يعوّض ضعف المعدل", "الشهادات والمشاريع\nتم سوالي في المقابله الشخصيه عن مشروع كنت حاطته في السيره الذاتيه وايش انواع المودلز الي استخدمتها في المشروع\nالتفاصيل الصغيره مهمه"], ["نصيحة لطلاب سنة أولى وثانية", "تخصصك يحكم عليك تشتغل على نفسك خارج الجامعه الجامعه ماراح تخليك مستعد لسوق العمل انت جهز نفسك"]], "text": ""}, {"t": "الجانب النفسي", "items": [["هل استفدت فعليًا؟", "استفدت بشكل كبير"], ["الشعور من البداية للنهاية", "المهام متقسمة، ومع نهاية كل Quarter يصير Closing ويخف الشغل والتاسكات. والمهام كانت قوية من الناحية التقنية، فاستفدت منها كثير"], ["مستوى الضغط", "ضغط متوسط ومتوازن"]], "text": ""}, {"t": "المهام والمشروع", "items": [["المهام المنفذة", "اشتغلت على أتمتة العمليات وتحليل البيانات وبناء Dashboards من  Scratch بالإضافة إلى اختبارات الأتمتة والتحقق من Logic و SQL Queries"], ["هل تختلف المهام بين الأشخاص؟", "Yes"], ["صعوبة التاسكات مقارنة بالجامعة", "أصعب وأثقل بكثير من واجبات الجامعة"], ["المشروع", "نعم، على حسب الإدارة داخل القسم كل اداره تشتغل على مشروع معين"], ["أكبر تحدٍّ", "xx"]], "text": ""}, {"t": "التقرير النهائي", "items": [], "text": "هذا الشي يعتمد على المتدرب نفسه التجارب تختلف"}, {"t": "الجوانب الإدارية", "items": [["مكافأة مالية", "نعم (3k تقريبًا)"], ["عدد الجهات", "جهة واحدة"], ["إكمال العقد", "مسموح التغيير لكن كملت مده العقد كامله"], ["خطأ ينصح بتجنبه", "عدم السؤال عند الحاجه\nبالعكس وجودك في بيئه عمل كطالب تصنع لك مهارات ناعمه اكثر والتدريب ييبين لك شخصيتك في بيئه العمل واهم شي التواصل الفعال والذكاء الاجتماعي ودايم اسالو واطلبو احيانا ينسون انكم متدربين"]], "text": ""}, {"t": "ملخص التجربة", "items": [], "text": "xx"}]}, {"id": 9, "name": "سارا أكرم بشاوري", "major": "ذكاء اصطناعي", "branch": "الزاهر", "batch": "44", "grad": true, "org": "Savola foods company", "mode": "حضوري بالكامل /البيئة مختلطة", "how": "راسلت الجهة بنفسي", "gpa": "نعم", "benefit": "استفدت بشكل كبير", "pressure": "ضغط متوسط ومتوازن", "pay": "نعم (3000 تقريبًا)", "diff": "أصعب قليلاً", "links": [["LinkedIn", "https://www.linkedin.com/in/sara-bashawri-857322168"], ["X", "https://x.com/Sara_Bashawri"]], "sections": [{"t": "إجراءات التقديم", "items": [["كيف قدمت", "راسلت الجهة بنفسي"], ["خطوات الإجراء", "عن طريق لينكدان"], ["الجهة", "Savola foods company  (حضوري بالكامل /البيئة مختلطة)"], ["هل توصي بالجهة؟", "اكيد لانها عززت من تخصصي و ورتني هوا في سوق العمل كيف و مرت عليا اشياء كتير ما اخدتها في الجامعة و استفدت منها\nمو شرط يكون كل شي عن تخصصي في اشياء كتير استفدت منها"], ["هل تشترط الجهة معدل عالي؟", "نعم"], ["بديل يعوّض ضعف المعدل", "."], ["نصيحة لطلاب سنة أولى وثانية", "اول شي حاولو تتطورو cv و linkedin عن طريق الدورات و الهاكثونات\nحاولو تتعلمو على اكسل و power bi لانها مره مهمه\nمو شرط نفس الشركة اللي تدربت فيها لكن المصانع بشكل عام تدريبها مره حلو ان كان المراعي او سدافكو"]], "text": ""}, {"t": "الجانب النفسي", "items": [["هل استفدت فعليًا؟", "استفدت بشكل كبير"], ["الشعور من البداية للنهاية", "في البداية طبعا كان توتر\nلكن بيئة العمل حلوه و استفدت مره كتير"], ["مستوى الضغط", "ضغط متوسط ومتوازن"]], "text": ""}, {"t": "المهام والمشروع", "items": [["المهام المنفذة", "اشتغلت على فكره ب AI\nو اتطلعت على مشاريعم اللي لها علاقة بتخصصي\nو اشتغلت على اشياء كتير خارج التخصص"], ["هل تختلف المهام بين الأشخاص؟", "كنت المتدربة الوحيده"], ["صعوبة التاسكات مقارنة بالجامعة", "أصعب قليلاً"], ["المشروع", "نعم، يختلف حسب الجهة"], ["أكبر تحدٍّ", "انه كنت اشتغل على برنامج ai حقيقي"]], "text": ""}, {"t": "التقرير النهائي", "items": [], "text": "عن نفسي كنت اكتب كل شي كأنه قصة"}, {"t": "الجوانب الإدارية", "items": [["مكافأة مالية", "نعم (3000 تقريبًا)"], ["عدد الجهات", "جهة واحدة"], ["إكمال العقد", "كاملة"], ["خطأ ينصح بتجنبه", "لا يوجد"]], "text": ""}, {"t": "بعد التخرج", "items": [["الإفادة بعد التخرج", "طبعا مره استفدت عرفت بيئة العمل الحقيقية"], ["استفادة غير متوقعة", "اشياء كثير اتعلمتها و فادتني وقت مشروع التخرج"], ["شبكة تعارف", "نعم"], ["فرص عمل فعلية", "نعم العمل في شركة كويسة ممكن يزيد من فرص قبولك في وظايف"], ["نصيحة لمن لم يتدرب", "لا تستنو المدير يعطيكم المهام روحو اسئلو و طفشوهم بكثره الاسئلة"], ["أكثر شيء يتجنبه", "لا تعتذرو عن الحضور كثير و\nلو طلب منكم شي المشرف لا تقولو ما اعرف اسوي"]], "text": ""}, {"t": "ملخص التجربة", "items": [], "text": "قبل التدريب كنت متحمسة، بس بنفس الوقت كنت خايفة ومتوترة، وما كنت أعرف إيش أتوقع أو كيف بيكون أول يوم.\n\nأول ما بدأت، أخذت وقت عشان أتعود على المكان والناس وطريقة الشغل. ومع الوقت بدأت أفهم أكثر وأدخل في المشاريع.\n\nأحلى لحظاتي كانت لما أسوي شيء بنفسي وأشوف إن اللي درسته بالجامعة فعلاً أقدر أطبقه في الواقع.\n\nوبصراحة، أكثر شيء تغير فيني بعد التدريب هو ثقتي بنفسي. صرت أعرف أتعامل مع الأشياء الجديدة حتى لو ما كنت أعرفها من البداية.\n\nفإذا أنتم لسه بتبدأون، طبيعي جدًا تكونون متوترين… أنا كنت مثلكم بالضبط. 🤍"}]}, {"id": 2, "name": "جود الحارثي", "major": "ذكاء اصطناعي", "branch": "الزاهر", "batch": "44", "grad": true, "org": "امانة العاصمة المقدسة + جامعة هونق كونق للتعليم", "mode": "حضوري بالكامل /البيئة مختلطة", "how": "الاثنين معًا", "gpa": "نعم", "benefit": "استفدت بشكل كبير", "pressure": "ضغط متوسط ومتوازن", "pay": "لا", "diff": "مشابهة تقريبًا", "links": [["LinkedIn", "https://www.linkedin.com/in/joudai"]], "sections": [{"t": "إجراءات التقديم", "items": [["كيف قدمت", "الاثنين معًا"], ["خطوات الإجراء", "وقتها رحت لهم بنفسي بالامانة وعطيتهم السيفي ( امانة العاصمة )\nبالنسبة لهونق كونق كان ترشيح من الجامعة قدمت بالفورم وسووا تصفيقات بعدين مقابلة وقبلوا ١٠ طلاب"], ["الجهة", "امانة العاصمة المقدسة + جامعة هونق كونق للتعليم (حضوري بالكامل /البيئة مختلطة)"], ["هل توصي بالجهة؟", "(أمانة العاصمة المقدسة) تم قبولي للتدريب ضمن مجال التحول الرقمي، وكان التدريب حضوريًا. استفدت من التعرف على بيئة العمل المؤسسية والعمل على مهام متنوعة مثل تصميم الواجهات باستخدام Figma، التقارير، التوثيق، وتحسين بعض الإجراءات والتنسيق. أوصي بالجهة للاستفادة من بيئة العمل والتحول الرقمي، لكن التدريب لم يكن تقنيًا بشكل كبير في مجال الذكاء الاصطناعي، لذلك كانت استفادتي منه متوسطة مقارنة بالتدريب المتخصص في AI\n\n(The Education University of Hong Kong) تم اختياري ضمن 10 طلاب من جامعة أم القرى للمشاركة في برنامج تدريبي متخصص في Deep Learning for Computer Vision، وكان حضوريًا ومكثفًا. أوصي به جدًا لطلاب الذكاء الاصطناعي لأنه كان تقنيًا بشكل واضح، حيث كنا ندرس المفاهيم ونطبقها عمليًا على مشروع AI في نفس الوقت، لذلك كانت استفادتي منه كبيرة من ناحية المهارات التقنية والتطبيق العملي."], ["هل تشترط الجهة معدل عالي؟", "نعم"], ["بديل يعوّض ضعف المعدل", "الحقيقة ما أعرف لكن فعلًا ممكن فيه جهات تهتم بالشغل العملي أكثر من المعدل\nلكن حاول قد ماتقدر تدمج بينهم المعدل والمهارات العملية"], ["نصيحة لطلاب سنة أولى وثانية", "اول سنة أشوف التركيز يكون ١٠٠٪؜ على الدراسة لأن هي الأساس مو وقت هاكثونات او نوادي وهذا اللي انا سويته\nمن ثاني سنة لما صار عندي اساس كويس بالمعدل صرت ادخل هاكثونات وأجرب واتأكد اني اقدر اوازن وقتي لكن دائمًا الدراسة قبل كل شيء"]], "text": ""}, {"t": "الجانب النفسي", "items": [["هل استفدت فعليًا؟", "استفدت بشكل كبير"], ["الشعور من البداية للنهاية", "كلها كنت مبسوطة جدًا ومستمتعة شعور العمل الحقيقي بالواقع رهيييييب"], ["مستوى الضغط", "ضغط متوسط ومتوازن"]], "text": ""}, {"t": "المهام والمشروع", "items": [["المهام المنفذة", "(أمانة العاصمة المقدسة) تصميم واجهات باستخدام Figma، إعداد التقارير والتوثيق، والمشاركة في مهام مرتبطة بالتحول الرقمي وتحسين الإجراءات.\n\n(The Education University of Hong Kong) دراسة وتطبيق Deep Learning وComputer Vision، والعمل بالتوازي على مشروع AI تطبيقي."], ["هل تختلف المهام بين الأشخاص؟", "لا غالبًا"], ["صعوبة التاسكات مقارنة بالجامعة", "مشابهة تقريبًا"], ["المشروع", "نعم، إلزامي بالجهتين"], ["أكبر تحدٍّ", "(أمانة العاصمة المقدسة) قلة المهام التقنية المرتبطة مباشرة بالذكاء الاصطناعي.\n\n(The Education University of Hong Kong) كثافة المحتوى وضغط الوقت، خصوصًا مع\nدراسة المفاهيم التقنية وتطبيقها مباشرة على المشروع خلال فترة قصيرة."]], "text": ""}, {"t": "التقرير النهائي", "items": [], "text": "كان أسبوعي وش سوينا بكل أسبوع نكتبه"}, {"t": "الجوانب الإدارية", "items": [["مكافأة مالية", "لا"], ["عدد الجهات", "أكثر من جهة"], ["إجراءات تغيير الجهة", "ماغيرتها خلصت المدتين كاملة لكل جهة"], ["إكمال العقد", "كملتها، الترم الثالث كامل كان بالامانة\nو٤٠ يوم من الصيفي كان بهونق كونق"], ["خطأ ينصح بتجنبه", "لا تضيع وقت وأنت تدور اماكن وتقارن اللي كاتبه ربي بيصير وسبحان الله ربي بييسرلك المكان المناسب لك ١٠٠٪؜\nاهم شيء خليك منتظم"]], "text": ""}, {"t": "بعد التخرج", "items": [["الإفادة بعد التخرج", "بلاششششك"], ["استفادة غير متوقعة", "التواصل مع الناس"], ["شبكة تعارف", "ايوا"], ["فرص عمل فعلية", "لا توي تخرجت فعليًا ورحت كاوست شهرين ف توي خلصت ماتوظفت ف مااقدر أحدد"], ["نصيحة لمن لم يتدرب", "لا تشيل همه تراه سهالااات وممتع"], ["أكثر شيء يتجنبه", "الغياب واللعب وإنك تعطيهم طابع انك لعّاب مو حلوه بحقك"]], "text": ""}, {"t": "ملخص التجربة", "items": [], "text": "(أمانة العاصمة المقدسة) بالبداية كنت متحمسة أعرف كيف بيكون التدريب في جهة كبيرة وبيئة عمل فعلية، والتجربة فادتني أكثر في فهم بيئة العمل والتحول الرقمي والتعامل مع مهام مختلفة مثل الواجهات والتقارير والتوثيق. بس من ناحية الذكاء الاصطناعي، ما كان التدريب تقني بالشكل اللي كنت أتوقعه. نصيحتي لأي طالب: لا تعتمد على اسم الجهة بس، حاول تعرف طبيعة المهام من البداية وهل فعلًا بتخدم تخصصك والمهارات اللي تبغى تطورها\n\n(The Education University of Hong Kong) هذي التجربة كانت مختلفة وأقوى بالنسبة لي من الناحية التقنية. كنا ندرس Deep Learning وComputer Vision ونطبق مشروع AI، فكان فيه ضغط وكثافة، لكن بنفس الوقت حسيت إني فعلًا أتعلم وأطبق. أكثر شيء استفدت منه هو الربط بين الدراسة والتطبيق في نفس الوقت. نصيحتي: ادخل أي تدريب تقني وأنت مستعد تتعلم بسرعة وتسأل وتجرب بنفسك وتخووض كل التجارب الممكنة ولا تخاف او تستحي"}]}, {"id": 8, "name": "", "major": "ذكاء اصطناعي", "branch": "الزاهر", "batch": "44", "grad": true, "org": "وادي مكة التقنية", "mode": "حضوري بالكامل /البيئة مختلطة", "how": "راسلت الجهة بنفسي", "gpa": "لا", "benefit": "استفدت بشكل كبير", "pressure": "مريح جدًا / ريلاكس", "pay": "لا", "diff": "مشابهة تقريبًا", "links": [], "sections": [{"t": "إجراءات التقديم", "items": [["كيف قدمت", "راسلت الجهة بنفسي"], ["خطوات الإجراء", "زرت مقر الشركة شخصيًا وقدمت لهم السيرة الذاتية، بعد فترة تم التواصل معي من قِبل موظف الموارد البشرية وحددنا موعد للمقابلة، سرت المقابلة بشكل طبيعي، أسئلة شخصية عامة، عن التخصص، الخبرات، والإضافة الي راح تقدميها للشركة. وفور انتهاء المقابلة بلغوني بالقبول وموعد مباشرة التدريب."], ["الجهة", "وادي مكة التقنية  (حضوري بالكامل /البيئة مختلطة)"], ["هل توصي بالجهة؟", "شخصيًا، تجربتي معاهم كانت جيدة جدًا الى ممتازة، لكن يجدر بالذكر إن التدريب ماكان بالكامل حول الذكاء الاصطناعي، كان مختلط بين الذكاء الاصطناعي، علوم الحاسب، علوم البيانات و IT.\n\nمن البداية تم تقسيم جميع المتدربين الى مجموعات، كل مجموعة مكونة من ٤-٥ متدربين، وكل مجموعة لها مشرف/ه. طريقة سير التدريب، العمل، المشاريع، والمهام، كلها تعتمد على المشرف/ه ويتم تحديدها من قبله.\nفلهذا السبب، تختلف جودة التجربة والمخرجات بإختلاف المشرف."], ["هل تشترط الجهة معدل عالي؟", "لا"]], "text": ""}, {"t": "الجانب النفسي", "items": [["هل استفدت فعليًا؟", "استفدت بشكل كبير"], ["الشعور من البداية للنهاية", "مريح من بدايته الى نهايته"], ["مستوى الضغط", "مريح جدًا / ريلاكس"]], "text": ""}, {"t": "المهام والمشروع", "items": [["المهام المنفذة", "طريقة سير التدريب، العمل، المشاريع، والمهام، كلها تعتمد على المشرف/ه ويتم تحديدها من قبله.\nفلهذا السبب، تختلف جودة التجربة والمخرجات بإختلاف المشرف."], ["هل تختلف المهام بين الأشخاص؟", "تختلف بإختلاف المشرف، ولا تختلف بإختلاف الاشخاص."], ["صعوبة التاسكات مقارنة بالجامعة", "مشابهة تقريبًا"], ["المشروع", "نعم، يعتمد على المشرف"], ["أكبر تحدٍّ", "—"]], "text": ""}, {"t": "التقرير النهائي", "items": [], "text": "الجهة ماطلبت تقرير، التقرير الوحيد الي طلب تنفيذه هو التقرير الجامعي، وتم تحديد متطلباته ومحتوياته من قِبل المشرف الجامعي."}, {"t": "الجوانب الإدارية", "items": [["مكافأة مالية", "لا"], ["عدد الجهات", "جهة واحدة"], ["إكمال العقد", "الجهة رفضت توقيع عقود من الأساس، واكتفت بخطاب قبول ومباشرة التدريب، والجامعة والقسم قبلوا فيها.\n\nونظرًا لإنه ماوجد عقد، المشرف ترك لنا حرية القرار بخصوص المدة، وأنهيناها في الشهر الخامس."], ["خطأ ينصح بتجنبه", "—"]], "text": ""}, {"t": "بعد التخرج", "items": [["الإفادة بعد التخرج", "نعم"], ["استفادة غير متوقعة", "—"], ["شبكة تعارف", "نعم"], ["فرص عمل فعلية", "نعم —"], ["نصيحة لمن لم يتدرب", "قدموا في كل فرصة وفي كل جهة، سواءً كانت من ضمن رغباتكم أو لم تكن.\nولا تاخذوا تجارب الآخرين ١٠٠٪؜، التجربة تختلف من شخص الى آخر، الغير مريح للآخر ممكن يكون مثالي لك، والعكس."], ["أكثر شيء يتجنبه", "—"]], "text": ""}, {"t": "ملخص التجربة", "items": [], "text": "—"}]}]</script>
+<script type="text/plain" id="gasCode">
+/**
+ * Co-op Email Tracker (Google Apps Script)
+ * Scans your Gmail for co-op / internship emails, guesses the status
+ * (offer, rejection, interview, received), and logs each one to this Google Sheet.
+ * Everything runs inside your own Google account. Nothing is sent anywhere else.
+ *
+ * Setup:
+ * 1. Create a new Google Sheet.
+ * 2. Extensions > Apps Script, delete the sample code, paste this file, save.
+ * 3. Choose the "setup" function and press Run, then approve the permissions.
+ *    It scans the last DAYS_BACK days and installs a daily automatic scan.
+ */
+
+const CONFIG = {
+  SHEET_NAME: 'Applications',
+  DAYS_BACK: 180,            // how far back the first scan looks
+  RUN_HOUR: 7,               // daily scan hour (your account's time zone)
+  LABEL: 'Co-op',            // Gmail label added to matched threads ('' to disable)
+  // Gmail search. Edit freely: add company names or remove words that bring noise.
+  QUERY: '(internship OR intern OR "co-op" OR coop OR "cooperative training" OR trainee OR ' +
+         '"تدريب تعاوني" OR "التدريب التعاوني" OR "تدريب صيفي" OR "برنامج تدريب") ' +
+         '-category:promotions -category:social -in:sent',
+};
+
+// Checked in this order: the first match decides the status.
+const RULES = [
+  { status: 'قبول', words: ['congratulations', 'pleased to offer', 'offer letter', 'we are pleased to inform',
+      'you have been selected', 'you have been accepted', 'مبروك', 'تهانينا', 'تم قبولك', 'يسعدنا إبلاغك', 'خطاب القبول'] },
+  { status: 'رفض', words: ['unfortunately', 'regret to inform', 'not been selected', 'not to move forward',
+      'other candidates', 'will not be progressing', 'نأسف', 'نعتذر', 'لم يتم اختيارك', 'لم يتم قبول', 'عدم قبول'] },
+  { status: 'مقابلة', words: ['invite you to an interview', 'invitation to interview', 'interview invitation',
+      'schedule your interview', 'schedule an interview', 'online assessment', 'hackerrank', 'codility', 'shortlisted',
+      'دعوة لمقابلة', 'موعد المقابلة', 'موعد مقابلة', 'اختبار إلكتروني', 'تم ترشيحك'] },
+  { status: 'تم الاستلام', words: ['received your application', 'thank you for applying', 'thank you for your application',
+      'application has been submitted', 'تم استلام', 'شكرا لتقديمك', 'شكراً لتقديمك', 'تم تقديم طلبك'] },
+  // Anything else that still looks application-related, so nothing slips through unlogged.
+  { status: 'تحديث', words: ['application', 'interview', 'candidate', 'طلبك', 'مقابلة', 'المتقدم'] },
+];
+
+const HEADERS = ['Date', 'Company', 'Status', 'Subject', 'From', 'Link', 'MessageId'];
+
+function setup() {
+  getSheet_();
+  ScriptApp.getProjectTriggers()
+    .filter(t => t.getHandlerFunction() === 'scanInbox')
+    .forEach(t => ScriptApp.deleteTrigger(t));
+  ScriptApp.newTrigger('scanInbox').timeBased().everyDays(1).atHour(CONFIG.RUN_HOUR).create();
+  scanInbox();
+}
+
+function scanInbox() {
+  const sheet = getSheet_();
+  const seen = new Set(
+    sheet.getLastRow() > 1
+      ? sheet.getRange(2, 7, sheet.getLastRow() - 1, 1).getValues().map(r => String(r[0]))
+      : []
+  );
+  const label = CONFIG.LABEL ? (GmailApp.getUserLabelByName(CONFIG.LABEL) || GmailApp.createLabel(CONFIG.LABEL)) : null;
+  const query = CONFIG.QUERY + ' newer_than:' + CONFIG.DAYS_BACK + 'd';
+  const rows = [];
+
+  for (let start = 0; start < 500; start += 100) {
+    const threads = GmailApp.search(query, start, 100);
+    if (!threads.length) break;
+    threads.forEach(thread => {
+      thread.getMessages().forEach(msg => {
+        const id = msg.getId();
+        if (seen.has(id)) return;
+        const subject = msg.getSubject() || '';
+        const text = (subject + ' ' + msg.getPlainBody().slice(0, 4000)).toLowerCase();
+        const status = classify_(text);
+        if (!status) return;   // matched the search but looks unrelated to an application
+        rows.push([msg.getDate(), company_(msg.getFrom()), status, subject, msg.getFrom(),
+                   'https://mail.google.com/mail/u/0/#all/' + thread.getId(), id]);
+        seen.add(id);
+      });
+      if (label) thread.addLabel(label);
+    });
+  }
+
+  if (rows.length) {
+    rows.sort((a, b) => a[0] - b[0]);
+    sheet.getRange(sheet.getLastRow() + 1, 1, rows.length, HEADERS.length).setValues(rows);
+  }
+}
+
+function classify_(text) {
+  for (const rule of RULES) {
+    if (rule.words.some(w => text.indexOf(w.toLowerCase()) !== -1)) return rule.status;
+  }
+  return '';
+}
+
+// "Talent Team at Acme <careers@acme.com>" -> "Talent Team at Acme";
+// falls back to the sender's domain when there is no display name.
+function company_(from) {
+  const m = from.match(/^\s*"?([^"<]*?)"?\s*<([^>]+)>/);
+  const name = m ? m[1].trim() : '';
+  const email = m ? m[2] : from;
+  const domain = (email.split('@')[1] || '').replace(/^(mail|email|jobs|careers|hr|no-?reply)\./, '');
+  const generic = /(gmail|outlook|hotmail|yahoo|icloud|myworkday|workday|successfactors|greenhouse|lever|taleo|smartrecruiters)\./i;
+  if (name) return name;
+  return generic.test(domain) ? email : domain.split('.')[0];
+}
+
+function getSheet_() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName(CONFIG.SHEET_NAME) || ss.insertSheet(CONFIG.SHEET_NAME);
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(HEADERS);
+    sheet.setFrozenRows(1);
+    sheet.getRange('A:A').setNumberFormat('yyyy-mm-dd');
+  }
+  return sheet;
+}
+</script>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- storage ---------- */
+const KEY="coop-path.v1";
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY)||"null");if(s&&typeof s==="object")return s}catch(e){}return null}
+let state=load();
+const firstRun=!state;
+if(!state)state={checks:{},timers:[],seedV:2};
+state.checks=state.checks||{};state.timers=state.timers||[];
+if(state.seedV!==2){const keep1=(arr)=>{let seen=false;return (arr||[]).filter(x=>{if(!x.example)return true;if(seen)return false;seen=true;return true})};state.timers=keep1(state.timers);if(state.apps)state.apps=keep1(state.apps);state.seedV=2}
+/* Examples are shown on first visit only; the first real entry replaces them. */
+function addTimer(t){state.timers=state.timers.filter(x=>!x.example);state.timers.push(t)}
+function addApp(a){state.apps=(state.apps||[]).filter(x=>!x.example);state.apps.unshift(a)}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
+
+/* ---------- helpers ---------- */
+const $=(s,r=document)=>r.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const uid=()=>Math.random().toString(36).slice(2,9);
+function toast(msg){const t=document.createElement("div");t.className="toast";t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),2200)}
+const fmtG=new Intl.DateTimeFormat("ar-SA-u-ca-gregory-nu-latn",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+let fmtH;try{fmtH=new Intl.DateTimeFormat("ar-SA-u-ca-islamic-umalqura-nu-latn",{day:"numeric",month:"long",year:"numeric"})}catch(e){fmtH=null}
+const hijri=d=>fmtH?fmtH.format(d).replace(/\s*هـ\s*$/,""):"";
+
+/* ---------- journey data ---------- */
+const STAGES=[
+ {id:"explore",name:"الاستكشاف",when:"قبل التدريب بسنة تقريبًا",intro:"تعرف وش يبي منك القسم، وش المجالات المتاحة، ووش صار مع اللي قبلك.",
+  items:[
+   ["e1","اعرف شروط التدريب في جامعتك: الساعات المطلوبة، المدة، والنماذج اللي لازم تعبيها","#apply"],
+   ["e2","اقرأ تجارب الطلاب السابقين وتقييماتهم لجهات التدريب","#experiences"],
+   ["e3","حدد مجالين أو ثلاثة تبي تتدرب فيها (مثلًا: تحليل بيانات، تطوير backend)",null],
+   ["e4","سوّ قائمة أولية بالجهات اللي تهمك",null],
+   ["e5","اختر كورس أو مسار تبدأ فيه يقوّي مجالك","#courses"]]},
+ {id:"prep",name:"التجهيز",when:"قبل التدريب بـ 6 إلى 9 شهور",intro:"جهّز الأشياء اللي بيشوفها مسؤول التوظيف قبل لا يشوفك.",
+  items:[
+   ["p1","اكتب أول نسخة من سيرتك الذاتية","#cv"],
+   ["p2","أسس حسابك في لينكدإن: صورة، بانر، Headline، About","#linkedin"],
+   ["p3","رتب حسابك في GitHub وخل أفضل مشروعين public مع README","#cv"],
+   ["p4","خلّص كورس واحد على الأقل وأضف شهادته","#courses"],
+   ["p5","انشر أول بوست عن مشروع أو شي تعلمته","#linkedin"]]},
+ {id:"apply",name:"البحث والتقديم",when:"قبل التدريب بـ 3 إلى 6 شهور",intro:"مرحلة الكمية والمتابعة: قدّم على أكثر من جهة وتابع كل تقديم.",
+  items:[
+   ["a1","اشترك في قنوات التدريب التعاوني وفعّل تنبيهات الوظائف في لينكدإن","#apply"],
+   ["a2","أضف مواعيد إغلاق التقديم للجهات اللي تهمك في مواعيدك","#timers"],
+   ["a3","عدّل سيرتك لكل جهة حسب متطلباتها","#cv"],
+   ["a4","سجّل كل تقديم في المتتبع (الجهة، التاريخ، الحالة)","#apply"],
+   ["a5","تواصل مع موظفين أو خريجين من جامعتك في الجهات اللي قدّمت عليها","#linkedin"]]},
+ {id:"accept",name:"المقابلات والقبول",when:"حسب ردود الجهات",intro:"استعد للمقابلة، وأول ما يجيك الخطاب ثبّت تواريخه.",
+  items:[
+   ["c1","جهّز إجابات للأسئلة المتكررة واشرح مشاريعك بدقيقتين",null],
+   ["c2","استلم خطاب القبول وتأكد إن بياناته مطابقة لمتطلبات جامعتك",null],
+   ["c3","ارفع الخطاب أو النماذج للجهة المسؤولة في جامعتك",null],
+   ["c4","أضف تاريخ بداية التدريب ونهايته في مواعيدك","#timers"],
+   ["c5","اعتذر بلباقة من الجهات الثانية اللي ما بتكمل معها",null]]},
+ {id:"during",name:"أثناء التدريب",when:"طول فترة التدريب",intro:"اشتغل، ووثّق شغلك أول بأول عشان التقرير والسيرة.",
+  items:[
+   ["d1","أضف مواعيد التقارير والتقييمات المطلوبة من الجامعة في مواعيدك","#timers"],
+   ["d2","سجل كل أسبوع وش اشتغلت عليه ووش التقنيات اللي استخدمتها",null],
+   ["d3","حدّث لينكدإن: أضف التدريب في Experience","#linkedin"],
+   ["d4","ابنِ علاقات مع فريقك واطلب ملاحظات على شغلك",null]]},
+ {id:"after",name:"بعد التدريب",when:"آخر أسبوعين وما بعدها",intro:"اقفل التجربة صح، وحوّلها لشي يخدمك في الخطوة الجاية.",
+  items:[
+   ["f1","سلّم التقرير النهائي وجهز العرض إن كان مطلوب",null],
+   ["f2","اطلب توصية من مشرفك في لينكدإن أو خطاب توصية","#linkedin"],
+   ["f3","حدّث سيرتك بإنجازات التدريب بأرقام ونتائج","#cv"],
+   ["f4","انشر بوست عن تجربتك وش تعلمت","#linkedin"],
+   ["f5","قيّم جهة التدريب عشان تفيد اللي بعدك","#experiences"]]}
+];
+function stageProgress(s){const n=s.items.length,d=s.items.filter(i=>state.checks[i[0]]).length;return{d,n,p:Math.round(d/n*100)}}
+function totalProgress(){let d=0,n=0;STAGES.forEach(s=>{const p=stageProgress(s);d+=p.d;n+=p.n});return Math.round(d/n*100)}
+
+/* ---------- countdown data ---------- */
+const TYPES={
+ start:"بداية التدريب",end:"نهاية التدريب",deadline:"إغلاق تقديم",interview:"مقابلة",report:"تقرير أو تقييم",uni:"تسليم للجامعة",other:"موعد آخر"};
+function addDays(n,h=9){const d=new Date();d.setDate(d.getDate()+n);d.setHours(h,0,0,0);return d.toISOString()}
+if(firstRun){
+  state.timers=[
+   {id:uid(),type:"deadline",title:"إغلاق تقديم برنامج تدريب (مثال)",org:"جهة مثال",at:addDays(12,23),example:true}
+  ];
+  save();
+}
+
+function diffParts(ms){
+  const s=Math.max(0,Math.floor(Math.abs(ms)/1000));
+  return{d:Math.floor(s/86400),h:Math.floor(s%86400/3600),m:Math.floor(s%3600/60),s:s%60};
+}
+const pad=n=>String(n).padStart(2,"0");
+function countHTML(ms){
+  if(ms<=0)return'<span style="font-size:1rem">انتهى</span>';
+  const p=diffParts(ms);
+  const u=(n,l)=>`<span class="u"><b>${n}</b><small>${l}</small></span>`;
+  return u(p.d,"يوم")+u(pad(p.h),"ساعة")+u(pad(p.m),"دقيقة")+u(pad(p.s),"ثانية");
+}
+function sortedTimers(){
+  const now=Date.now();
+  return [...state.timers].sort((a,b)=>{
+    const ta=new Date(a.at)-now,tb=new Date(b.at)-now;
+    if((ta<0)!==(tb<0))return ta<0?1:-1;
+    return ta<0?tb-ta:ta-tb;
+  });
+}
+function gcalLink(t){
+  const d=new Date(t.at),e=new Date(d.getTime()+60*60*1000);
+  const f=x=>x.toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");
+  const q=new URLSearchParams({action:"TEMPLATE",text:t.title,dates:f(d)+"/"+f(e),details:(TYPES[t.type]||"")+(t.org?" - "+t.org:"")+"\nمن مسار التعاوني"});
+  return "https://calendar.google.com/calendar/render?"+q.toString();
+}
+function trainingWindow(){
+  const s=state.timers.find(t=>t.type==="start"),e=state.timers.find(t=>t.type==="end");
+  if(!s||!e)return null;
+  const a=new Date(s.at),b=new Date(e.at);if(b<=a)return null;
+  const now=Date.now();
+  const pct=Math.min(100,Math.max(0,(now-a)/(b-a)*100));
+  const weeks=Math.round((b-a)/(7*864e5));
+  return{a,b,pct,weeks,example:s.example||e.example};
+}
+
+/* ---------- views ---------- */
+const views={};
+
+views.journey=()=>`
+  <section class="view">
+    <div style="display:grid;gap:10px">
+      <span class="eyebrow">خريطة الرحلة</span>
+      <h1>ست محطات من الاستكشاف إلى ما بعد التدريب</h1>
+      <p class="lede">علّم على كل خطوة تخلصها. التوقيتات تقريبية، ارجع لشروط قسمك لأن كل جامعة وكل كلية لها نظامها.</p>
+    </div>
+    <div>
+      ${STAGES.map((s,i)=>{const p=stageProgress(s);return `
+      <div class="stage ${p.p===100?"done":p.d?"started":""}" id="stage-${s.id}">
+        <div class="rail"><span class="ring">${i+1}</span>${i<STAGES.length-1?'<span class="bar"></span>':""}</div>
+        <div class="stage-body">
+          <div class="stage-head"><h2>${s.name}</h2><span class="when">${s.when}</span></div>
+          <p class="lede">${s.intro}</p>
+          <div class="row"><div class="progress" style="flex:1;min-width:120px"><i style="width:${p.p}%"></i></div><span class="tag">${p.d}/${p.n}</span></div>
+          <ul class="checks">
+            ${s.items.map(([id,txt,link])=>`<li><label><input type="checkbox" id="chk-${id}" data-check="${id}" ${state.checks[id]?"checked":""}><span>${txt}${link?` <a class="go" href="${link}">افتح</a>`:""}</span></label></li>`).join("")}
+          </ul>
+        </div>
+      </div>`}).join("")}
+    </div>
+  </section>`;
+
+let showAllTimers=false;
+function timersBlock(){
+  const tw=trainingWindow();
+  const list=sortedTimers();
+  const hasEx=state.timers.some(t=>t.example);
+  const shown=showAllTimers?list:list.slice(0,4);
+  return `
+    <div class="sec" id="timers-sec">
+      <div class="row" style="justify-content:space-between">
+        <div class="sec-head"><h2>مواعيدك</h2><span class="meta">بداية التدريب ونهايته من الخطاب، إغلاق التقديم، المقابلات، والتقارير.</span></div>
+        ${hasEx?`<button class="linkbtn" id="clearEx" type="button">احذف الأمثلة</button>`:""}
+      </div>
+
+      ${tw?`<div class="panel train">
+        <div class="row" style="justify-content:space-between"><h3>فترة التدريب${tw.example?' <span class="tag example">مثال</span>':""}</h3><span class="tag">${tw.weeks} أسبوع</span></div>
+        <div class="progress"><i style="width:${tw.pct.toFixed(1)}%"></i></div>
+        <div class="ends"><span>البداية: ${fmtG.format(tw.a)}</span><span>${tw.pct<=0?"ما بدأ بعد":tw.pct>=100?"انتهى التدريب":"منجز "+Math.round(tw.pct)+"%"}</span><span>النهاية: ${fmtG.format(tw.b)}</span></div>
+      </div>`:""}
+
+      <div class="timers" id="timerList">
+        ${list.length?shown.map(t=>{
+          const d=new Date(t.at),ms=d-Date.now();
+          const cls=ms<=0?"past":ms<7*864e5?"soon":"";
+          return `<div class="timer ${cls}">
+            <div><div class="t-title">${esc(t.title)} ${t.example?'<span class="tag example">مثال</span>':""}</div>
+              <div class="t-sub"><span class="tag ${t.type==="deadline"||t.type==="interview"?"signal":""}">${esc(TYPES[t.type]||"")}</span> ${fmtG.format(d)}${hijri(d)?" · "+hijri(d)+" هـ":""}</div></div>
+            <div class="t-count" data-at="${esc(t.at)}">${countHTML(ms)}</div>
+            <div class="t-actions"><a href="${gcalLink(t)}" target="_blank" rel="noopener">أضف لتقويم Google</a><button type="button" data-del="${t.id}">حذف</button></div>
+          </div>`}).join("")
+        :`<div class="panel"><p class="meta">ما أضفت أي موعد للحين. ابدأ بتاريخ بداية التدريب أو أقرب موعد إغلاق تقديم.</p></div>`}
+      </div>
+      ${list.length>4?`<div><button class="linkbtn" type="button" id="toggleTimers">${showAllTimers?"اعرض أقرب 4 بس":"اعرض كل المواعيد ("+list.length+")"}</button></div>`:""}
+
+      <details class="panel addbox" id="addTimerBox">
+        <summary class="sum">+ أضف موعد</summary>
+        <form class="tform" id="tform" autocomplete="off" style="margin-top:14px">
+          <label>نوع الموعد<select id="t-type">${Object.entries(TYPES).map(([k,v])=>`<option value="${k}">${v}</option>`).join("")}</select></label>
+          <label>العنوان<input id="t-title" required placeholder="مثلًا: إغلاق تقديم برنامج أرامكو"></label>
+          <label>الجهة (اختياري)<input id="t-org" placeholder="اسم الشركة أو الجهة"></label>
+          <label>التاريخ<input id="t-date" type="date" required><span class="hijri" id="t-hijri"></span></label>
+          <label>الوقت<input id="t-time" type="time" value="09:00"></label>
+          <button class="btn" type="submit">أضف الموعد</button>
+        </form>
+      </details>
+    </div>`;
+}
+
+views.home=()=>{
+  const tp=totalProgress();
+  return `
+  <section class="view">
+    <div class="hero-text">
+      <span class="eyebrow">دليل الطالب للتدريب التعاوني</span>
+      <h1>من أول خطوة إلى آخر يوم في التدريب</h1>
+      <p class="lede">خطوات كل مرحلة، تجارب طلاب، ومواعيدك في مكان واحد.</p>
+    </div>
+
+    <div class="panel" style="display:grid;gap:18px">
+      <div class="row" style="justify-content:space-between">
+        <h2>وين وصلت؟</h2><span class="tag">${tp}% من الرحلة</span>
+      </div>
+      <div class="line" id="line">
+        <span class="fill" style="width:${(84*tp/100).toFixed(1)}%"></span>
+        ${STAGES.map((s,i)=>{const p=stageProgress(s);return `<a class="stn ${p.p===100?"done":p.d?"started":""}" href="#journey" data-stage="${s.id}"><span class="ring">${i+1}</span><span class="nm">${s.name}</span><span class="pc">${p.d}/${p.n}</span></a>`}).join("")}
+      </div>
+      ${(()=>{for(const st of STAGES)for(const [id,txt,link] of st.items)if(!state.checks[id])return `<div class="nextstep"><span class="plabel">خطوتك الجاية · ${st.name}</span><p>${txt}</p><div class="row"><button type="button" class="btn" data-donestep="${id}">خلصتها</button>${link?`<a class="btn ghost" href="${link}">افتح القسم</a>`:""}<a class="linkbtn" href="#journey">كل الخطوات</a></div></div>`;return `<div class="nextstep"><p>خلصت كل خطوات الرحلة.</p></div>`})()}
+    </div>
+
+    ${timersBlock()}
+
+    <div class="grid five">
+      ${[
+        ["experiences","تجارب الطلاب","تجارب طلاب جامعتنا مع جهات تدريبهم."],
+        ["courses","التطوير","سجّل كورساتك وأيام تعلّمك."],
+        ["cv","السيرة الذاتية","سيرة طالب بدون خبرة، وقالب وفحص ATS."],
+        ["linkedin","لينكدإن","من تأسيس الحساب إلى البوستات."],
+        ["apply","التقديم","متتبع التقديمات ومواقع الفرص."]
+      ].map(c=>`<a class="card" href="#${c[0]}"><h3>${c[1]}</h3><span class="meta">${c[2]}</span></a>`).join("")}
+    </div>
+
+    <details class="more backup">
+      <summary>نسخة احتياطية ونقل بياناتك لجهاز ثاني</summary>
+      <div style="display:grid;gap:10px">
+        <p class="meta">انسخ النسخة الاحتياطية واحفظها، وبعدين الصقها هنا في الجهاز الثاني.</p>
+        <div class="row"><button class="btn ghost" type="button" id="copyBackup">انسخ النسخة الاحتياطية</button></div>
+        <textarea id="restoreBox" rows="3" placeholder="الصق النسخة الاحتياطية هنا"></textarea>
+        <div class="row"><button class="btn quiet" type="button" id="restoreBtn">استرجع البيانات</button></div>
+      </div>
+    </details>
+  </section>`;
+};
+
+function placeholder(eyebrow,title,lede,items,extra=""){
+  return `<section class="view">
+    <div style="display:grid;gap:10px"><span class="eyebrow">${eyebrow}</span><h1>${title}</h1><p class="lede">${lede}</p></div>
+    <div class="panel" style="display:grid;gap:14px">
+      <div class="row"><h3>اللي بينبني في هذا القسم</h3><span class="tag signal">الخطوة القادمة</span></div>
+      <ul class="soon-list">${items.map(i=>`<li><b>${i[0]}</b><span>${i[1]}</span></li>`).join("")}</ul>
+    </div>${extra}</section>`;
+}
+/* ---------- Courses (before training) ---------- */
+const RES_GROUPS=[
+ ["برمجة وبيانات",[["سطر","https://satr.codes/","مسارات برمجة وقواعد بيانات وتطبيقات وUI/UX. مجاني."],["Kaggle Learn","https://www.kaggle.com/learn","دورات قصيرة مجانية في Python و Pandas و SQL."],["freeCodeCamp","https://www.freecodecamp.org/","منهج مجاني في تطوير الويب بمشاريع."],["Microsoft Learn","https://learn.microsoft.com/training/","مسارات مجانية في Power BI و Azure وغيرها."],["Google Data Analytics","https://www.coursera.org/professional-certificates/google-data-analytics","شهادة احترافية على Coursera، فيه Financial Aid."]]],
+ ["ذكاء اصطناعي",[["أكاديمية سدايا","https://academy.sdaia.gov.sa/","برامج في البيانات والذكاء الاصطناعي، أغلبها في الرياض."],["Machine Learning Specialization","https://www.coursera.org/specializations/machine-learning-introduction","مدخل تعلم الآلة على Coursera."]]],
+ ["أمن سيبراني",[["Cisco Networking Academy","https://www.netacad.com/","أساسيات الشبكات والأمن."],["TryHackMe","https://tryhackme.com/","مختبرات عملية، فيه محتوى مجاني."],["Google Cybersecurity","https://www.coursera.org/professional-certificates/google-cybersecurity","شهادة احترافية على Coursera."]]],
+ ["تصميم",[["Google UX Design","https://www.coursera.org/professional-certificates/google-ux-design","شهادة احترافية على Coursera."],["Figma","https://www.figma.com/","مجاني للطلاب."]]],
+ ["عام",[["أكاديمية طويق","https://tuwaiq.edu.sa/","معسكرات ودورات حضورية وعن بعد."],["دروب","https://doroob.sa/","دورات بشهادات في مهارات مكتبية وتقنية وعامة."],["البوابة الوطنية للبيانات المفتوحة","https://data.gov.sa/","بيانات سعودية تبني عليها مشروع."],["Google Project Management","https://www.coursera.org/professional-certificates/google-project-management","شهادة احترافية على Coursera."]]]
+];
+const PLATFORMS=[["coursera.org","Coursera"],["satr.codes","سطر"],["tuwaiq.edu.sa","أكاديمية طويق"],["sdaia.gov.sa","أكاديمية سدايا"],["doroob.sa","دروب"],["kaggle.com","Kaggle"],["udemy.com","Udemy"],["edx.org","edX"],["youtube.com","YouTube"],["youtu.be","YouTube"],["linkedin.com","LinkedIn Learning"],["datacamp.com","DataCamp"],["freecodecamp.org","freeCodeCamp"],["learn.microsoft.com","Microsoft Learn"],["netacad.com","Cisco"],["tryhackme.com","TryHackMe"],["rwaq.org","رواق"],["edraak.org","إدراك"],["exercism.org","Exercism"],["codecademy.com","Codecademy"],["udacity.com","Udacity"],["skillsbuild","IBM SkillsBuild"],["aws.amazon.com","AWS"],["cloudskillsboost.google","Google Cloud"]];
+const CSTATUS={plan:"أبي آخذه",doing:"أدرسه",done:"خلصته"};
+state.courses=state.courses||[];state.study=state.study||{};
+
+function guessCourse(url){
+  let u;try{u=new URL(url.trim())}catch(e){return null}
+  const host=u.hostname.replace(/^www\./,"");
+  const plat=(PLATFORMS.find(([d])=>host.includes(d))||[null,host.split(".")[0]])[1];
+  const skip=/^(learn|courses?|course|specializations?|professional-certificates|projects|paths?|tracks?|training|watch|playlist|en|ar|ar-sa|en-us|browse|programs?|details|p|c|v)$/i;
+  const segs=u.pathname.split("/").map(decodeURIComponent).filter(x=>x&&!skip.test(x)&&!/^\d+$/.test(x)&&!/^[a-f0-9-]{16,}$/i.test(x));
+  let name=segs.length?segs[segs.length-1]:"";
+  name=name.replace(/\.(html?|php)$/,"").replace(/[-_]+/g," ").trim();
+  if(name)name=name.replace(/\b[a-z]/g,c=>c.toUpperCase());
+  return{name:name||plat,plat,url:u.href};
+}
+const dkey=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+function studyGrid(){
+  const today=new Date();today.setHours(0,0,0,0);
+  const s=state.timers.find(t=>t.type==="start"&&!t.example);
+  let end=new Date(today);end.setDate(end.getDate()+7*8);
+  if(s){const sd=new Date(s.at);sd.setHours(0,0,0,0);if(sd>today)end=sd}
+  let start=new Date(today);start.setDate(start.getDate()-7*26);
+  start.setDate(start.getDate()-start.getDay());
+  const weeks=[];const d=new Date(start);
+  while(d<=end){const col=[];for(let i=0;i<7;i++){col.push(new Date(d));d.setDate(d.getDate()+1)}weeks.push(col)}
+  return{weeks,today,end,hasStart:!!s};
+}
+function studyStats(){
+  const keys=Object.keys(state.study).filter(k=>state.study[k]>0);
+  let streak=0;const d=new Date();d.setHours(0,0,0,0);
+  if(!state.study[dkey(d)])d.setDate(d.getDate()-1);
+  while(state.study[dkey(d)]>0){streak++;d.setDate(d.getDate()-1)}
+  const wk=new Date();wk.setHours(0,0,0,0);wk.setDate(wk.getDate()-wk.getDay());
+  let thisWeek=0;for(let i=0;i<7;i++){const x=new Date(wk);x.setDate(wk.getDate()+i);if(state.study[dkey(x)]>0)thisWeek++}
+  return{days:keys.length,streak,thisWeek};
+}
+const MONTHS_AR=["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"];
+
+views.courses=()=>{
+  const g=studyGrid(),st=studyStats();
+  const s=state.timers.find(t=>t.type==="start"&&!t.example);
+  const wl=s?Math.ceil((new Date(s.at)-Date.now())/(7*864e5)):null;
+  const counts={plan:0,doing:0,done:0};state.courses.forEach(c=>counts[c.status]++);
+  return `
+  <section class="view">
+    <div style="display:grid;gap:10px">
+      <span class="eyebrow">التطوير</span>
+      <h1>كورساتك وأيام تعلّمك</h1>
+      <p class="lede">سجّل الكورسات اللي تاخذها، وعلّم الأيام اللي تعلّمت فيها.</p>
+    </div>
+
+    <div class="panel countline">
+      ${wl&&wl>0?`<b class="big">${wl}</b><span>أسبوع باقي على تدريبك</span>`
+      :`<span class="meta">أضف تاريخ بداية التدريب في <a href="#timers">مواعيدك</a> ويطلع هنا كم باقي.</span>`}
+    </div>
+
+    <div class="sec">
+      <div class="row" style="justify-content:space-between"><h2>كورساتي</h2>
+        ${state.courses.length?`<span class="meta">${counts.done} خلصته · ${counts.doing} أدرسه · ${counts.plan} أبي آخذه</span>`:""}</div>
+      <form class="panel addc" id="cform" autocomplete="off">
+        <label for="c-url" class="plabel">الصق رابط الكورس</label>
+        <div class="addrow"><input id="c-url" type="url" dir="ltr" placeholder="https://www.coursera.org/learn/..."><button class="btn" type="submit">أضف</button></div>
+        <div class="guess" id="c-guess" hidden>
+          <label>الاسم<input id="c-name"></label>
+          <label>المنصة<input id="c-plat"></label>
+        </div>
+      </form>
+      <div class="clist">
+        ${state.courses.length?state.courses.map(c=>`
+        <article class="course st-${c.status}">
+          <div class="cmain">
+            <div class="ctitle"><b>${esc(c.name)}</b>${c.plat&&c.plat!==c.name?`<span class="meta">${esc(c.plat)}</span>`:""}</div>
+            <div class="t-actions">${c.url?`<a href="${esc(c.url)}" target="_blank" rel="noopener">افتح الكورس</a>`:""}<button type="button" data-cedit="${c.id}">عدّل</button><button type="button" data-cdel="${c.id}">حذف</button></div>
+            <div class="cedit" id="ce-${c.id}" hidden>
+              <label>الاسم<input id="cn-${c.id}" value="${esc(c.name)}"></label>
+              <label>المنصة<input id="cp-${c.id}" value="${esc(c.plat||"")}"></label>
+              <button class="btn ghost" type="button" data-csave="${c.id}">احفظ</button>
+            </div>
+          </div>
+          <div class="seg" role="group" aria-label="حالة الكورس">${Object.entries(CSTATUS).map(([k,t])=>`<button type="button" data-cst="${c.id}" data-v="${k}" aria-pressed="${c.status===k}">${t}</button>`).join("")}</div>
+        </article>`).join("")
+        :`<p class="hint">ما أضفت كورسات للحين. الصق رابط الكورس، ويطلع اسمه ومنصته تلقائيًا، وتقدر تعدّلهم.</p>`}
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="row" style="justify-content:space-between"><h2>أيام التعلّم</h2>
+        <span class="meta">${st.days} يوم · سلسلة ${st.streak} · هالأسبوع ${st.thisWeek}/7</span></div>
+      <div class="panel heat-wrap">
+        <p class="hint">اضغط على اليوم اللي تعلّمت فيه، واضغط مرة ثانية تشيله.</p>
+        <div class="heat-scroll"><div class="heat" dir="ltr">
+          <div class="hdays"><span></span><span>أحد</span><span></span><span>ثلاثاء</span><span></span><span>خميس</span><span></span></div>
+          ${g.weeks.map((col,ci)=>{const m=(ci===0||col[0].getMonth()!==g.weeks[ci-1][0].getMonth())&&(ci>0||col[0].getDate()<=21)?MONTHS_AR[col[0].getMonth()]:"";return `<div class="hcol"><span class="hm">${m}</span>${col.map(d=>{const k=dkey(d),lv=state.study[k]?1:0,fut=d>g.today,isT=+d===+g.today,isEnd=+d===+g.end&&g.hasStart;
+            return `<button type="button" class="hc l${lv}${fut?" fut":""}${isT?" today":""}${isEnd?" goal":""}" ${fut?"disabled":`data-day="${k}"`} title="${k}${isEnd?" · بداية التدريب":""}" aria-label="${k} مستوى ${lv}"></button>`}).join("")}</div>`}).join("")}
+        </div></div>
+        <div class="hlegend"><i class="hc l1"></i><span>تعلّمت</span>${g.hasStart?'<i class="hc goal"></i><span>بداية التدريب</span>':""}</div>
+      </div>
+    </div>
+
+    <details class="more">
+      <summary>مصادر للتوسع</summary>
+      <div class="resgroups">${RES_GROUPS.map(([gn,items])=>`<div><h3>${gn}</h3><ul class="tools">${items.map(([n,u,d])=>`<li><a href="${u}" target="_blank" rel="noopener">${n}</a><button type="button" class="linkbtn" data-cadd="${esc(u)}" data-cname="${esc(n)}">أضف لكورساتي</button><span>${d}</span></li>`).join("")}</ul></div>`).join("")}</div>
+    </details>
+  </section>`;
+};
+function bindCourses(){
+  const url=$("#c-url"),box=$("#c-guess");
+  url.addEventListener("input",()=>{const g=guessCourse(url.value);if(!g){box.hidden=true;return}box.hidden=false;$("#c-name").value=g.name;$("#c-plat").value=g.plat});
+  $("#cform").addEventListener("submit",e=>{e.preventDefault();const g=guessCourse(url.value);if(!g){toast("الرابط مو صحيح، تأكد إنه يبدأ بـ https://");return}
+    state.courses.unshift({id:uid(),url:g.url,name:$("#c-name").value.trim()||g.name,plat:$("#c-plat").value.trim()||g.plat,status:"plan"});save();render(true);toast("أُضيف الكورس")});
+  document.querySelectorAll("[data-cst]").forEach(b=>b.addEventListener("click",()=>{const c=state.courses.find(x=>x.id===b.dataset.cst);if(c){c.status=b.dataset.v;save();render(true)}}));
+  document.querySelectorAll("[data-cedit]").forEach(b=>b.addEventListener("click",()=>{const el=$("#ce-"+b.dataset.cedit);el.hidden=!el.hidden}));
+  document.querySelectorAll("[data-csave]").forEach(b=>b.addEventListener("click",()=>{const id=b.dataset.csave,c=state.courses.find(x=>x.id===id);if(!c)return;c.name=$("#cn-"+id).value.trim()||c.name;c.plat=$("#cp-"+id).value.trim();save();render(true);toast("انحفظ")}));
+  armDelete("[data-cdel]","cdel",id=>{state.courses=state.courses.filter(c=>c.id!==id)});
+  document.querySelectorAll("[data-cadd]").forEach(b=>b.addEventListener("click",()=>{const g=guessCourse(b.dataset.cadd)||{};state.courses.unshift({id:uid(),url:b.dataset.cadd,name:b.dataset.cname,plat:g.plat||"",status:"plan"});save();render(true);toast("أُضيف لكورساتك")}));
+  document.querySelectorAll(".hc[data-day]").forEach(b=>b.addEventListener("click",()=>{const k=b.dataset.day;const v=state.study[k]?0:1;if(v)state.study[k]=v;else delete state.study[k];save();
+    b.className=b.className.replace(/\bl\d\b/,"l"+v);b.setAttribute("aria-label",k+" مستوى "+v);}));
+  const hs=document.querySelector(".heat-scroll");if(hs)hs.scrollLeft=hs.scrollWidth;
+}
+
+/* ---------- LinkedIn section ---------- */
+const LI_TABS=[["profile","أسس حسابك","خطوة بخطوة"],["posts","البوستات","أفكار وتذكير نشر"],["find","الفرص والناس","البحث والتنبيهات"],["claude","Claude ولينكدإن","دليل رحمه الشريف"]];
+let liTab=(state.liTab&&LI_TABS.some(t=>t[0]===state.liTab))?state.liTab:"profile";
+const LI_STEPS=[
+ {id:"li-photo",en:"Photo",ar:"الصورة الشخصية",body:"صورة واضحة لوجهك، إضاءة جيدة، خلفية بسيطة، ولبس رسمي. ما تبي صورة؟ صمّم هوية بسيطة: اسمك أو أول حرف منه مع رمز يعبّر عن مجالك.",tip:"الشي الوحيد اللي ما ينفع: تتركها فاضية."},
+ {id:"li-banner",en:"Banner",ar:"البانر",body:"الصورة العريضة فوق حسابك. خلفية بلون واحد فيها اسمك ومجالك بخط واضح، أو صورة من الحرم الجامعي أو مكان تدريبك أو فعالية حضرتها.",tip:"ألوان قليلة وتصميم بسيط أفضل من بانر مزحوم."},
+ {id:"li-headline",en:"Headline",ar:"السطر تحت اسمك",body:"يطلع في كل مكان: نتائج البحث، طلبات التواصل، وكل تعليق تكتبه. عندك 220 حرف. لو تركته، لينكدإن يحط جامعتك تلقائيًا، وهذا نفس عنوان ألف طالب غيرك.",
+  formula:["مين أنت","وش تشتغل فيه","وش تدور عليه"],before:"Student at University Name",after:"Data Science Student | Python · SQL · Power BI | Seeking Co-op Training 2027"},
+ {id:"li-about",en:"About",ar:"النبذة",body:"تجاوب على سؤال: مين أنت ووش تقدر تسوي؟ عندك 2,600 حرف، بس أول سطرين بس يبينون قبل زر \"المزيد\"، فحط أقوى شي فوق. واذكر تقنياتك داخل جمل طبيعية لأن البحث يلقطها.",
+  before:"I am a hardworking student, passionate about technology and always eager to learn new things. I am a fast learner and a team player.",
+  after:"Third-year Data Science student focused on data analysis and data engineering.\nI work with Python, SQL and Power BI, and I'm comfortable with Git and Pandas.\nRight now I'm building a dashboard that tracks student performance across courses.\nLooking for Co-op training starting 2027. Feel free to reach out here."},
+ {id:"li-exp",en:"Experience",ar:"الخبرات",body:"تدريب، عمل حر، دوام جزئي، أو دور قيادي في نادي أو مبادرة. المسمى يوضح مجالك، وكل نقطة فيها فعل وتقنية ونتيجة. ما عندك ولا وحدة منها؟ عادي، قسم Projects يغطيك.",
+  before:"Intern · Company Name\nWorked on data tasks and helped the team.",
+  after:"Data Analyst Intern · Company Name\n• Automated a weekly report in Python, cutting prep time from 3 hours to 20 minutes.\n• Wrote SQL queries to validate data quality across 4 tables."},
+ {id:"li-projects",en:"Projects",ar:"المشاريع",body:"قسم مستقل تضيفه من زر Add profile section. مشاريع المواد، التخرج، الشخصية، والهاكاثونات كلها تنحسب. لكل مشروع: الاسم، التاريخ، التقنيات، وصف قصير، ورابط أو صورة.",
+  before:"Graduation Project\nA website built with Python.",
+  after:"Student Performance Dashboard · Mar 2026\nPython · Pandas · Power BI\nA dashboard that tracks grades and attendance by course.\nMy part: data cleaning and the Power BI model.\ngithub.com/username/student-dashboard"},
+ {id:"li-skills",en:"Skills",ar:"المهارات",body:"تقدر تضيف لين 100 مهارة، ومسؤولو التوظيف يفلترون عليها. ثبّت أقرب ثلاث مهارات لمجالك فوق. والشهادات تضيف مهاراتها لحسابك تلقائيًا.",tip:"من ملفك: Add profile section ثم Skills."},
+ {id:"li-certs",en:"Licenses & Certifications",ar:"الشهادات",body:"اكتب الاسم الرسمي كامل مثل ما هو في الشهادة، والجهة المانحة، والتاريخ، ورقم الاعتماد Credential ID ورابط التحقق. أغلب المنصات تعطيك هذي البيانات.",
+  before:"Python Course\nYouTube",after:"Google Data Analytics Professional Certificate\nCoursera · Issued Mar 2026\nCredential ID: ABC123XYZ"},
+ {id:"li-vol",en:"Volunteering",ar:"التطوع والأنشطة",body:"نشاطك في الأندية والمبادرات يغطي جزء من غياب الخبرة. اكتبه بنفس جدية الوظيفة: الجهة، دورك، المدة، وسطرين عن وش سويت والأثر. ابدأ بفعل: Led أو Organized أو Coordinated.",
+  before:"Member · University Club\nParticipated in club activities.",after:"Head of HR Committee · University Tech Club\n• Led a 6-member committee and built the attendance system for a 5-day camp."}
+];
+const LI_IDEAS=[
+ ["مشروع خلّصته","الفكرة، التحدي اللي واجهته وكيف حليته، التقنيات، والرابط."],
+ ["شهادة أنهيتها","وش استفدت، وأكثر شي لفتك فيها. مو بس صورة الشهادة."],
+ ["ورشة أو فعالية حضرتها","أبرز فكرة طلعت فيها، وشكر للجهة أو المقدم."],
+ ["معلومة تعلمتها","ملخص درس أو مصدر مفيد في تخصصك يفيد غيرك."],
+ ["أسبوع في التدريب","وش تعلمت هالأسبوع، بدون معلومات سرية عن الجهة."],
+ ["مشاركة في هاكاثون أو مسابقة","وش بنيتوا، ودورك في الفريق، ووش طلعت فيه."]];
+const LI_SEARCH=[
+ ["خريجو جامعتك","افتح صفحة جامعتك في لينكدإن، ثم People أو Alumni، وفلتر بالشركة والمجال.","University Name → People"],
+ ["مختص في مجالك","ابحث بالمسمى والمدينة، وفلتر بـ People.","Data Analyst + Riyadh"],
+ ["مسؤول التوظيف في شركة","اسم الشركة مع HR أو Recruiter أو Talent Acquisition.","Company + Talent Acquisition"]];
+const LI_JOB_STEPS=[
+ ["افتح Jobs وابحث","اكتب Internship أو Co-op مع مدينتك أو Remote."],
+ ["جرّب كلمات مختلفة","كل جهة تسميها باسم: Co-op Training، Internship، Trainee، Summer Training، أو المسمى نفسه مثل Data Analyst Intern."],
+ ["فلتر بآخر أسبوع","من فلتر Date posted، عشان تشوف الجديد بس."],
+ ["افتح الإعلان وتأكد","من التاريخ والمتطلبات، واحفظه بزر Save أو قدّم مباشرة."],
+ ["شوف صفحة الشركة","وموظفينها في مجالك، ممكن تتواصل مع واحد منهم."]];
+const DAYS=[["SU","الأحد",0],["MO","الاثنين",1],["TU","الثلاثاء",2],["WE","الأربعاء",3],["TH","الخميس",4],["FR","الجمعة",5],["SA","السبت",6]];
+state.liRem=state.liRem||{days:["SU","WE"],time:"20:00",every:"1"};
+
+function reminderLink(r){
+  if(!r.days.length)return "";
+  const want=DAYS.filter(d=>r.days.includes(d[0])).map(d=>d[2]);
+  const [hh,mm]=(r.time||"20:00").split(":").map(Number);
+  const d=new Date();d.setHours(hh,mm,0,0);
+  for(let i=0;i<8;i++){if(want.includes(d.getDay())&&d>new Date())break;d.setDate(d.getDate()+1);d.setHours(hh,mm,0,0)}
+  const e=new Date(d.getTime()+30*60*1000);
+  const f=x=>x.toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");
+  const q=new URLSearchParams({action:"TEMPLATE",text:"بوست لينكدإن",dates:f(d)+"/"+f(e),
+    details:"وقت النشر. أفكار: مشروع، شهادة، ورشة، معلومة تعلمتها.\nمن مسار التعاوني",
+    recur:`RRULE:FREQ=WEEKLY;INTERVAL=${r.every};BYDAY=${r.days.join(",")}`});
+  return "https://calendar.google.com/calendar/render?"+q.toString();
+}
+const ba=(b,a)=>`<div class="pair"><div class="weak"><span class="tag bad">قبل</span><p dir="ltr">${esc(b).replace(/\n/g,"<br>")}</p></div><div class="strong"><span class="tag good">بعد</span><p dir="ltr">${esc(a).replace(/\n/g,"<br>")}</p></div></div>`;
+
+views.linkedin=()=>{
+  const done=LI_STEPS.filter(s=>state.checks[s.id]).length;
+  const r=state.liRem;const link=reminderLink(r);
+  return `
+  <section class="view">
+    <div style="display:grid;gap:10px">
+      <span class="eyebrow">لينكدإن</span>
+      <h1>حساب يوصلك للفرص</h1>
+      <p class="lede">السيرة ترسلها مرة، ولينكدإن يبقى يعرض شغلك.</p>
+    </div>
+    <div class="segtabs four" role="tablist" aria-label="أجزاء قسم لينكدإن">${LI_TABS.map(([k,t,d])=>`<button type="button" role="tab" aria-selected="${liTab===k}" data-litab="${k}"><b>${t}</b><span>${d}</span></button>`).join("")}</div>
+
+    <div class="sec" ${liTab!=="profile"?"hidden":""}>
+      <div class="panel checkcard" style="max-width:none">
+        <div class="row" style="justify-content:space-between"><h2>ابنِ حسابك من الصفر</h2><span class="tag ${done===LI_STEPS.length?"good":""}">${done}/${LI_STEPS.length}</span></div>
+        <div class="progress" style="max-width:none"><i style="width:${Math.round(done/LI_STEPS.length*100)}%"></i></div>
+      </div>
+      <div class="cvsecs">
+        ${LI_STEPS.map((s,i)=>{const ok=!!state.checks[s.id];return `
+        <details class="cvsec${ok?" done":""}" data-step="${s.id}">
+          <summary><span class="num">${ok?"✓":i+1}</span><span class="nm"><b>${s.en}</b><span>${s.ar}</span></span></summary>
+          <div class="cvsec-body">
+            <p>${s.body}</p>
+            ${s.formula?`<p class="formula">${s.formula.map(x=>`<span>${x}</span>`).join(" + ")}</p>`:""}
+            ${s.before?`<div class="bullets"><div class="brow"><p class="w" dir="ltr">${esc(s.before).replace(/\n/g,"<br>")}</p><p class="s" dir="ltr">${esc(s.after).replace(/\n/g,"<br>")}</p></div></div>`:""}
+            ${s.tip?`<p class="tip">${s.tip}</p>`:""}
+            <label class="donebox"><input type="checkbox" id="chk-${s.id}" data-check="${s.id}" ${ok?"checked":""}><span>خلصت هذي الخطوة</span></label>
+          </div>
+        </details>`}).join("")}
+      </div>
+    </div>
+
+    <div class="sec" ${liTab!=="posts"?"hidden":""}>
+      <div class="sec-head"><h2>وش تنشر؟</h2><span class="meta">بوست كل فترة يكفي، المهم يكون عن شي سويته أو تعلمته.</span></div>
+      <ul class="ideas">${LI_IDEAS.map(([t,d])=>`<li><b>${t}</b><span>${d}</span></li>`).join("")}</ul>
+
+      <div class="sec-head"><h2>كيف تكتبه</h2>
+        <p class="formula"><span>سطر أول يشد</span> + <span>وش سويت</span> + <span>التحدي</span> + <span>وش تعلمت</span> + <span>الرابط</span></p></div>
+      <details class="more">
+        <summary>شوف مثال قبل وبعد</summary>
+        <div class="bullets"><div class="brow">
+          <p class="w">أخيرًا خلصت مشروعي!<br>#programming #coding #developer #student #project #tech</p>
+          <p class="s">خلصت أول dashboard كامل لي: متابعة أداء الطلاب.<br><br>المشكلة: الدرجات والحضور في ثلاث ملفات منفصلة، وما فيه صورة واحدة لأداء كل مادة.<br><br>نظفت البيانات ودمجتها بـ Pandas، وبنيت الـ dashboard في Power BI.<br><br>أكثر شي تعلمته: تنظيف البيانات أخذ ثلثين الوقت، وهو اللي فرق في النتيجة.<br><br>الكود: github.com/username/dashboard<br>#DataAnalysis #PowerBI</p>
+        </div></div>
+      </details>
+
+      <div class="panel" style="display:grid;gap:14px">
+        <h2>تذكير النشر</h2>
+        <div class="daypick" role="group" aria-label="أيام التذكير">${DAYS.map(([k,n])=>`<label><input type="checkbox" id="day-${k}" data-day="${k}" ${r.days.includes(k)?"checked":""}><span>${n}</span></label>`).join("")}</div>
+        <div class="tform" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr))">
+          <label>الوقت<input type="time" id="rem-time" value="${esc(r.time)}"></label>
+          <label>التكرار<select id="rem-every"><option value="1" ${r.every==="1"?"selected":""}>كل أسبوع</option><option value="2" ${r.every==="2"?"selected":""}>كل أسبوعين</option><option value="4" ${r.every==="4"?"selected":""}>كل أربع أسابيع</option></select></label>
+          ${link?`<a class="btn" href="${link}" target="_blank" rel="noopener">أضف لتقويم Google</a>`:`<span class="btn quiet" aria-disabled="true">اختر يوم واحد على الأقل</span>`}
+        </div>
+      </div>
+    </div>
+
+    <div class="sec" ${liTab!=="find"?"hidden":""}>
+      <div class="toolgrid two">
+        <div class="panel tool">
+          <h3>دوّر على فرص التدريب</h3>
+          <ol class="steps compact">${LI_JOB_STEPS.map(([b,t])=>`<li><b>${b}</b><span>${t}</span></li>`).join("")}</ol>
+        </div>
+        <div class="panel tool">
+          <h3>خل الفرص توصلك</h3>
+          <ul class="tools">
+            <li><b>Job Alerts</b><span>ابحث بالكلمة والفلاتر، وفعّل التنبيه من صفحة النتائج.</span></li>
+            <li><b>Open to Work</b><span>اختر Internship والمسمى والمدينة. للكل بإطار أخضر، أو لمسؤولي التوظيف بس.</span></li>
+          </ul>
+          <h3 style="margin-top:8px">دوّر على الناس</h3>
+          <ul class="tools">${LI_SEARCH.map(([t,d,q])=>`<li><b>${t}</b><code dir="ltr">${q}</code><span>${d}</span></li>`).join("")}</ul>
+          <p class="tip">مع طلب التواصل أرسل سطرين: مين أنت وليش تتواصل.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec" ${liTab!=="claude"?"hidden":""}>
+      <div class="row" style="justify-content:space-between">
+        <div class="sec-head"><h2>اربط Claude بلينكدإن</h2><span class="meta">يكتب مسودات بوستات، ويراجع حسابك، ويدوّر لك على فرص.</span></div>
+        <a class="btn" href="https://rixii0.github.io/linkedin_claude/" target="_blank" rel="noopener">الدليل الكامل بالصور</a>
+      </div>
+      <div class="toolgrid two">
+        <div class="panel tool">
+          <h3>Composio</h3><span class="tag">مجاني</span>
+          <ol class="steps compact">
+            <li><b>Connectors في Claude</b><span>Settings ← Customize ← Connectors ← Add custom connector</span></li>
+            <li><b>الصق رابط Composio</b><span dir="ltr" style="text-align:right">https://connect.composio.dev/mcp</span></li>
+            <li><b>Connect ثم فعّل LinkedIn</b><span>من صفحة Apps في Composio</span></li>
+          </ol>
+        </div>
+        <div class="panel tool">
+          <h3>linkedin-skills</h3><span class="tag world">اشتراك مدفوع</span>
+          <ol class="steps compact">
+            <li><b>Plugins في Claude</b><span>Settings ← Customize ← Plugins ← Add marketplace</span></li>
+            <li><b>اكتب المستودع واضغط Sync</b><span dir="ltr" style="text-align:right">sergebulaev/linkedin-skills</span></li>
+            <li><b>Install</b><span>من Discover</span></li>
+          </ol>
+        </div>
+      </div>
+      <p class="tip">راجع كل شي قبل النشر. لينكدإن يقيّد الأتمتة، والاستخدام الزايد ممكن يقيّد حسابك.</p>
+    </div>
+  </section>`;
+};
+
+function bindLinkedin(){
+  document.querySelectorAll("[data-litab]").forEach(b=>b.addEventListener("click",()=>{liTab=b.dataset.litab;state.liTab=liTab;save();render(false);window.scrollTo(0,0)}));
+  document.querySelectorAll("[data-check]").forEach(cb=>cb.addEventListener("change",()=>{
+    if(cb.checked)state.checks[cb.dataset.check]=true;else delete state.checks[cb.dataset.check];save();render(true);
+  }));
+  document.querySelectorAll("[data-day]").forEach(cb=>cb.addEventListener("change",()=>{
+    const k=cb.dataset.day;const s=new Set(state.liRem.days);cb.checked?s.add(k):s.delete(k);
+    state.liRem.days=DAYS.map(d=>d[0]).filter(d=>s.has(d));save();render(true);
+  }));
+  const t=$("#rem-time");if(t)t.addEventListener("change",()=>{state.liRem.time=t.value||"20:00";save();render(true)});
+  const ev=$("#rem-every");if(ev)ev.addEventListener("change",()=>{state.liRem.every=ev.value;save();render(true)});
+}
+
+/* ---------- CV section ---------- */
+const CV_TABS=[["write","اكتب سيرتك","الترتيب والصياغة"],["tools","القالب والأدوات","قالب، برومتات، فحص ATS"],["check","قبل ما ترسلها","مراجعة أخيرة"]];
+let cvTab=(state.cvTab&&CV_TABS.some(t=>t[0]===state.cvTab))?state.cvTab:"write";
+/* Optional: a Google Docs "make a copy" link for the template. Falls back to the .docx file. */
+const TEMPLATE_URL="";
+
+const CV_SECTIONS=[
+ {id:"header",en:"Header",ar:"رأس السيرة",why:"أول سطرين يشوفهم المراجع: مين أنت وكيف يوصل لك.",
+  yes:["اسمك الكامل بالإنجليزي","مجالك والتقنيات اللي تشتغل فيها في سطر تحت الاسم","المدينة","رقم الجوال بالصيغة الدولية","إيميل باسمك","رابط LinkedIn ورابط GitHub"],
+  no:["الصورة الشخصية","رقم الهوية أو تاريخ الميلاد","الحالة الاجتماعية والجنسية","عنوانك بالتفصيل","إيميل مثل cool_girl2004@..."],
+  ex:"LAYAN A. ALQAHTANI\nDATA ANALYST | PYTHON · SQL · POWER BI\nMakkah, Saudi Arabia | +966 5X XXX XXXX | layan.alqahtani@gmail.com\nlinkedin.com/in/layan-alqahtani | github.com/layan-aq"},
+ {id:"summary",en:"Summary",ar:"نبذة مختصرة",why:"ثلاث أو أربع أسطر تعرّف فيها بنفسك وبالفرصة اللي تدور عليها.",
+  yes:["تخصصك وسنتك الدراسية","المجال اللي يهمك","التقنيات اللي تشتغل فيها ونوع المشاريع اللي بنيتها","آخر جملة: Seeking Co-op training..."],
+  no:["صفات بدون دليل مثل hard worker و fast learner","كلام عام ينفع لأي أحد"],
+  ex:"Third-year Data Science student interested in data analysis and data engineering.\nI work with Python, SQL and Power BI, and I have built academic and personal\nprojects in data cleaning, dashboards and machine learning.\nSeeking Co-op training to apply what I have learned in a real work environment."},
+ {id:"education",en:"Education",ar:"التعليم",why:"وين تدرس ومتى تتخرج، والمواد اللي لها علاقة بالفرصة.",
+  yes:["التخصص والكلية والجامعة","سنة التخرج المتوقعة (Expected 2028)","المعدل إذا يطابق متطلبات الجهة","سطر Relevant coursework فيه 4 إلى 6 مواد"],
+  no:["المعدل إذا أقل من المطلوب، الأفضل تتركه","الثانوية العامة"],
+  ex:"B.Sc. in Data Science, College of Computing                  Expected 2028\nUniversity Name                                     GPA: 3.80 / 4.00\nRelevant coursework: Databases, Data Mining, Statistics, Machine Learning, Data Visualization"},
+ {id:"projects",en:"Projects",ar:"المشاريع",key:true,why:"أهم قسم عندك لو ما عندك خبرة عمل. هو اللي يثبت إنك تشتغل فعلًا، مو بس تدرس.",
+  yes:["مشروعين إلى ثلاثة، أفضل ما عندك","الاسم والتقنيات والتاريخ ورابط GitHub","سطرين أو ثلاثة عن اللي بنيته أنت بالضبط","مشاريع المواد والتخرج والمشاريع الشخصية والهاكاثونات كلها تنحسب"],
+  no:["مشروع رابطه ما يفتح أو repo فاضي","وصف المشروع بدون ما توضح دورك فيه"],
+  ex:"Student Performance Dashboard                                        Mar 2026\nPython · Pandas · Power BI           github.com/layan-aq/student-dashboard\n• Cleaned and merged 3 datasets (12,000+ rows) with Pandas, handling missing values\n  and duplicate records.\n• Built a Power BI dashboard with 6 views that tracks grades and attendance by course.\n• Presented the findings to a class of 40 students and the course instructor."},
+ {id:"skills",en:"Skills",ar:"المهارات",why:"قائمة مرتبة يدوّر فيها المراجع ونظام الفرز على الكلمات المفتاحية.",
+  yes:["قسّمها: Programming و Tools و Databases و Data","المهارات الشخصية في سطر واحد قصير"],
+  no:["أي تقنية ما تقدر تشرحها في المقابلة","نسب أو نجوم لمستوى المهارة"],
+  ex:"Programming: Python, SQL, R\nData: Pandas, NumPy, scikit-learn, Power BI, Excel\nTools: Git, GitHub, Jupyter, Docker\nSoft skills: Team leadership, Problem solving, Presentation"},
+ {id:"experience",en:"Experience",ar:"الخبرات",why:"تدريب سابق، عمل حر، دوام جزئي، أو مشروع لعميل. ما عندك؟ عادي، المشاريع تغطي مكانه.",
+  yes:["إذا عندك خبرة حطها فوق المشاريع","المسمى والجهة والتاريخ","كل نقطة فيها فعل وتقنية ونتيجة"],
+  no:["\"helped the team\" بدون ما تقول وش سويت","وظائف ما لها علاقة وتاخذ مساحة كبيرة"],
+  ex:"Data Analyst Intern | Company Name                          Jun 2026 – Aug 2026\n• Automated a weekly sales report in Python, cutting preparation time from 3 hours to 20 minutes.\n• Wrote SQL queries to validate data quality across 4 internal tables."},
+ {id:"activities",en:"Activities & Certifications",ar:"الأنشطة والشهادات",why:"الأندية والمبادرات والتطوع تبيّن القيادة والعمل مع فريق. والشهادات تدعم مهاراتك.",
+  yes:["دورك في النادي أو المبادرة ووش أنجزت، بأرقام إذا عندك","Certifications: شهادة من جهة معتمدة","Courses: دورة خلصتها","اللي لها علاقة بمجالك بس"],
+  no:["\"Member\" و \"Participated\" بدون وصف","كل دورة حضرتها في حياتك"],
+  ex:"HR Committee Lead | University Tech Club                    Sep 2025 – Present\n• Led a 6-member committee and organized 4 technical workshops for 150+ students.\n\nGoogle Data Analytics Professional Certificate | Coursera | 2026"}
+];
+const CV_BULLETS=[
+ ["Responsible for the database of the project.","Designed a 9-table PostgreSQL schema and wrote the queries behind the project's reports."],
+ ["Worked on data analysis.","Analyzed 2 years of sales data in Pandas and found the 3 products driving 60% of returns."],
+ ["Volunteered in the university club.","Coordinated a 6-member team that organized 4 technical workshops for 150+ students."]];
+const CV_VERBS=["Built","Designed","Developed","Analyzed","Automated","Cleaned","Visualized","Implemented","Led","Organized","Coordinated","Presented","Improved","Reduced"];
+const CV_MISTAKES=["أكثر من صفحة بدون داعي","أخطاء إملائية أو لغة ضعيفة","نفس السيرة لكل الجهات بدون تعديل","روابط ما تفتح أو repos فاضية","خط صغير ومسافات مزحومة","مهارات تكتبها وما تعرف عنها شي"];
+const CV_CHECKS=[
+ ["cv1","صفحة وحدة وعمود واحد"],["cv2","كل الروابط تفتح، وأهم repos فيها README"],
+ ["cv3","الملف PDF باسم FirstName_LastName_CV.pdf"],["cv4","ما فيها أخطاء إملائية، والخط واضح ومو مزحوم"],
+ ["cv5","عدّلتها حسب الجهة وكلماتها المفتاحية"],["cv8","كل مهارة كتبتها تقدر تشرحها في المقابلة"],["cv6","نسخت نص الـ PDF ولصقته في Notepad وطلع بالترتيب"],
+ ["cv7","قرأها شخص ثاني غيرك"]];
+const CV_RES=[
+ {n:"دورة إعداد السيرة الذاتية - دروب",u:"https://doroob.sa/",m:"مجانية بشهادة، موجهة للخريجين أكثر.",sa:true},
+ {n:"Resume tips - Harvard",u:"https://careerservices.fas.harvard.edu/resources/how-to-write-a-great-resume-tips/",m:"دليل مختصر لطلاب الجامعة.",sa:false},
+ {n:"Bullet point template - Harvard",u:"https://careerservices.fas.harvard.edu/resources/bullet-point-resume-template/",m:"قالب لطالب بدون خبرة كثيرة.",sa:false}];
+const ATS_TOOLS=[
+ {n:"ملفك المهني (Moral HR)",u:"https://heem-moralhr.cloud/profile/check",m:"يوريك وش قرأ النظام من سيرتك ووش الناقص. بدون تسجيل.",local:true},
+ {n:"Jobscan",u:"https://www.jobscan.co/",m:"يقارن سيرتك بإعلان الوظيفة. الفحص المجاني محدود."},
+ {n:"Resume Worded",u:"https://resumeworded.com/",m:"درجة عامة وملاحظات على الصياغة."}];
+
+function promptText(id){const el=document.getElementById(id);return el?el.textContent.trim():""}
+function copyText(txt,fallbackEl,okMsg){
+  const manual=()=>{if(fallbackEl){const r=document.createRange();r.selectNodeContents(fallbackEl);const s=getSelection();s.removeAllRanges();s.addRange(r)}toast("النص محدد، انسخه يدويًا")};
+  try{navigator.clipboard.writeText(txt).then(()=>toast(okMsg||"انتسخ"),manual)}catch(e){manual()}
+}
+const tagOf=t=>t.local||t.sa?'<span class="tag">'+(t.sa?"سعودي":"عربي")+'</span>':'<span class="tag world" title="مو مبني على السوق السعودي">عالمي</span>';
+const toolRows=list=>`<ul class="tools">${list.map(t=>`<li><a href="${t.u}" target="_blank" rel="noopener">${esc(t.n)}</a>${tagOf(t)}<span>${t.m}</span></li>`).join("")}</ul>`;
+
+views.cv=()=>{
+  const tabs=`<div class="segtabs" role="tablist" aria-label="أجزاء قسم السيرة">${CV_TABS.map(([k,t,d])=>`<button type="button" role="tab" aria-selected="${cvTab===k}" data-cvtab="${k}"><b>${t}</b><span>${d}</span></button>`).join("")}</div>`;
+  const done=CV_CHECKS.filter(c=>state.checks[c[0]]).length;
+  return `
+  <section class="view">
+    <div style="display:grid;gap:10px">
+      <span class="eyebrow">السيرة الذاتية</span>
+      <h1>سيرة طالب، مو سيرة خريج</h1>
+      <p class="lede">صفحة وحدة، والمشاريع هي خبرتك.</p>
+    </div>
+    ${tabs}
+
+    <div class="sec" ${cvTab!=="write"?"hidden":""}>
+      <div class="sec-head"><h2>الأقسام بالترتيب</h2><span class="meta">عندك خبرة عمل؟ ارفع Experience فوق Projects.</span></div>
+      <div class="cvsecs">
+        ${CV_SECTIONS.map((s,i)=>`
+        <details class="cvsec${s.key?" key":""}">
+          <summary><span class="num">${i+1}</span><span class="nm"><b>${s.en}</b><span>${s.ar}</span></span>${s.key?'<span class="tag signal">الأهم</span>':""}</summary>
+          <div class="cvsec-body">
+            <p>${s.why}</p>
+            <div class="yesno">
+              <div><h4>حط</h4><ul>${s.yes.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>
+              <div><h4>لا تحط</h4><ul class="no">${s.no.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>
+            </div>
+            <div class="example"><span class="example-lbl">مثال</span><pre dir="ltr">${esc(s.ex)}</pre></div>
+          </div>
+        </details>`).join("")}
+      </div>
+
+      <div class="sec-head"><h2>كيف تكتب النقطة</h2>
+        <p class="formula"><span>فعل</span> + <span>وش سويت</span> + <span>التقنية</span> + <span>النتيجة</span></p></div>
+      <div class="bullets">
+        ${CV_BULLETS.map(([w,s])=>`<div class="brow"><p class="w" dir="ltr">${esc(w)}</p><p class="s" dir="ltr">${esc(s)}</p></div>`).join("")}
+      </div>
+      <div class="verbs" dir="ltr">${CV_VERBS.map(v=>`<span>${v}</span>`).join("")}</div>
+    </div>
+
+    <div class="sec" ${cvTab!=="tools"?"hidden":""}>
+      <div class="toolgrid">
+        <div class="panel tool">
+          <span class="step">1</span>
+          <h3>القالب</h3>
+          <p class="meta">Word بعمود واحد، فيه الأقسام بالترتيب.</p>
+          ${TEMPLATE_URL?`<a class="btn" href="${TEMPLATE_URL}" target="_blank" rel="noopener">انسخ القالب</a>`:`<a class="btn" href="CV_Template.docx" target="_blank" rel="noopener">حمّل القالب</a>`}
+        </div>
+        <div class="panel tool">
+          <span class="step">2</span>
+          <h3>اكتبها مع الذكاء الاصطناعي</h3>
+          <p class="meta">انسخ البرومت والصقه في أي أداة. راجع الناتج قبل تعتمده.</p>
+          <div class="lang" role="group" aria-label="لغة البرومت"><button type="button" data-plang="ar" aria-pressed="${(state.pLang||"ar")==="ar"}">عربي</button><button type="button" data-plang="en" aria-pressed="${state.pLang==="en"}">English</button></div>
+          <div class="pbtns">
+            <button class="btn ghost" type="button" data-pcopy="create">انسخ: سيرة من الصفر</button>
+            <button class="btn ghost" type="button" data-pcopy="improve">انسخ: تحسين سيرتي</button>
+          </div>
+          <details class="peek"><summary>اعرض نص البرومت</summary>
+            <pre class="ptext" id="pt-view" dir="${state.pLang==="en"?"ltr":"rtl"}">${esc(promptText("p-create-"+(state.pLang||"ar")))}</pre>
+          </details>
+        </div>
+        <div class="panel tool">
+          <span class="step">3</span>
+          <h3>افحصها ضد الـ ATS</h3>
+          <p class="meta">نظام يقرأ سيرتك قبل أي إنسان. الأعمدة والجداول والأيقونات تلخبطه.</p>
+          <p class="tip"><b>اختبار سريع:</b> انسخ نص الـ PDF والصقه في Notepad. لو طلع بالترتيب، النظام بيقراه.</p>
+          ${toolRows(ATS_TOOLS)}
+        </div>
+      </div>
+      <details class="more">
+        <summary>مصادر للتوسع</summary>
+        ${toolRows(CV_RES)}
+      </details>
+    </div>
+
+    <div class="sec" ${cvTab!=="check"?"hidden":""}>
+      <div class="panel checkcard">
+        <div class="row" style="justify-content:space-between"><h2>قبل ما ترسلها</h2><span class="tag ${done===CV_CHECKS.length?"good":""}">${done}/${CV_CHECKS.length}</span></div>
+        <div class="progress" style="max-width:none"><i style="width:${Math.round(done/CV_CHECKS.length*100)}%"></i></div>
+        <ul class="checks">
+          ${CV_CHECKS.map(([id,t])=>`<li><label><input type="checkbox" id="chk-${id}" data-check="${id}" ${state.checks[id]?"checked":""}><span>${t}</span></label></li>`).join("")}
+        </ul>
+        ${done===CV_CHECKS.length?`<p class="tip"><b>جاهزة.</b> سجّل كل جهة ترسلها لها في <a href="#apply">متتبع التقديمات</a>.</p>`:""}
+      </div>
+    </div>
+  </section>`;
+};
+
+function bindCv(){
+  document.querySelectorAll("[data-cvtab]").forEach(b=>b.addEventListener("click",()=>{cvTab=b.dataset.cvtab;state.cvTab=cvTab;save();render(true)}));
+  document.querySelectorAll("[data-check]").forEach(cb=>cb.addEventListener("change",()=>{
+    if(cb.checked)state.checks[cb.dataset.check]=true;else delete state.checks[cb.dataset.check];save();render(true);
+  }));
+  document.querySelectorAll("[data-plang]").forEach(b=>b.addEventListener("click",()=>{state.pLang=b.dataset.plang;save();render(true)}));
+  document.querySelectorAll("[data-pcopy]").forEach(b=>b.addEventListener("click",()=>{
+    const id="p-"+b.dataset.pcopy+"-"+(state.pLang||"ar");const pre=$("#pt-view");
+    pre.textContent=promptText(id);pre.dir=state.pLang==="en"?"ltr":"rtl";
+    copyText(promptText(id),pre,"انتسخ البرومت");
+  }));
+}
+
+/* ---------- apply section ---------- */
+const STATUS={
+  interested:{t:"مهتم",c:""},applied:{t:"قدّمت",c:""},received:{t:"تم الاستلام",c:""},
+  interview:{t:"مقابلة",c:"signal"},offer:{t:"قبول",c:"good"},rejected:{t:"رفض",c:"bad"},withdrawn:{t:"اعتذرت",c:"muted"}};
+const FROM_SHEET={"قبول":"offer","رفض":"rejected","مقابلة":"interview","تم الاستلام":"received"};
+if(!Array.isArray(state.apps)){
+  const today=new Date().toISOString().slice(0,10);
+  state.apps=[
+    {id:uid(),org:"جهة مثال",role:"Data Analyst Intern",status:"interview",applied:today,link:"",notes:"مقابلة تقنية بعد أسبوع",example:true}];
+  save();
+}
+if(!Array.isArray(state.watch))state.watch=[];
+/* Link to the site's feedback form (Google Form or Microsoft Form). Paste the form's share link here. */
+const FEEDBACK_URL="https://docs.google.com/forms/d/e/1FAIpQLSdaiuoxhuF48PZLzNHkDXIIa8j2B5c-Dtq4FD6HRqFAxQq_DQ/viewform";
+const feedbackHTML=()=>FEEDBACK_URL
+  ?`<a class="btn ghost" href="${FEEDBACK_URL}" target="_blank" rel="noopener">بلّغ عن رابط أو اقترح مصدر</a>`
+  :`<span class="btn quiet" aria-disabled="true">نموذج الاقتراحات قيد التجهيز</span>`;
+let appFilter="all";
+const APPLY_TABS=[["mine","تقديماتي","المتتبع ومتابعة الإيميل"],["alerts","التنبيهات","متى يفتح التقديم"],["sources","وين تلقى الفرص","مواقع وقنوات"]];
+let applyTab=(state.applyTab&&APPLY_TABS.some(t=>t[0]===state.applyTab))?state.applyTab:"mine";
+
+const DIR={
+  rating:[["منصة تقييم جهات التدريب","https://internship-ratings.sb.sa/","طلاب يقيّمون الجهات اللي تدربوا فيها. اقرأها قبل تقدّم وبعد ما تخلص قيّم جهتك."]],
+  exp:[
+    ["تجارب التدريب - كلية الحاسب","https://docs.google.com/spreadsheets/d/1fOgUfIMu5qoOJIMJLMNdeKPD2qLcRr5NvkUQzjgRtpI/edit?usp=sharing","Google Sheets"],
+    ["تجارب التدريب التعاوني - كلية الحاسب 1445هـ","https://1drv.ms/x/c/791f3b0a0dd2eb96/IQArhbXT3b8JR7IMvOwlEn6gAUgPQH97Cdb_OysGqq4CQ2s?e=q5gXBH","OneDrive"],
+    ["استبيان جهات التدريب لدفعة 44","https://docs.google.com/spreadsheets/d/1SHdbDkkoQc1biufW20sJ1bjjLIrgHZ4EwAHPWQ2Mhvc/edit?usp=drivesdk","Google Sheets"],
+    ["تجارب التدريب 2023","https://docs.google.com/spreadsheets/d/1Occ6IRq2zXMOPu7RpC9qbpuFKFCxPvknkX6olDcxh5U/edit?usp=drivesdk","Google Sheets"],
+    ["تجارب التدريب الصيفي 1443هـ","https://docs.google.com/spreadsheets/d/16CgV9z1OqOcBOScpvRcEq_a_-Xk8tGo50_pv9aVGkX0/edit?usp=drivesdk","Google Sheets"]],
+  sites:[
+    ["عتبة","https://3atabah.com/","3atabah.com"],["تدرب","https://tadarrab.vercel.app/","tadarrab.vercel.app"],
+    ["Fursati","https://internship-coop-finder.vercel.app/","internship-coop-finder.vercel.app"],
+    ["كارير السعودية","https://careers-ksa.com/coop","careers-ksa.com/coop"],["إنطلاق","https://intelaq.net/home","intelaq.net"],
+    ["وين أتدرب؟ - دربك","https://darbak.space/where-to-train","darbak.space"]],
+  channels:[
+    ["IT_jobs_coop","https://t.me/IT_jobs_coop","تيليجرام"],["cooptraning_inksa","https://t.me/cooptraning_inksa","تيليجرام"],
+    ["SALTRAI","https://t.me/SALTRAI","تيليجرام"],["nobthacv1","https://t.me/nobthacv1","تيليجرام"],
+    ["TheFtnSa","https://t.me/TheFtnSa","تيليجرام"],["ErsaaTeam","https://t.me/ErsaaTeam","تيليجرام"],
+    ["قناة واتساب للتدريب التعاوني","https://whatsapp.com/channel/0029VavHKQf2ZjCqqY8mwd1f","واتساب"]],
+  orgs:[["سدايا","https://t.me/Sdaia_sa/222410","تيليجرام"],["سابك","https://t.me/sabic_coop","تيليجرام"],["أرامكو","https://t.me/UIP_Aramco","تيليجرام"]],
+  lists:[["تدريب تعاوني - COOP","https://docs.google.com/spreadsheets/d/1vSVuKzpY44GIR3lZyWWn9FivDRy4v5bIjyvQRv--0KE/edit?usp=drivesdk","Google Sheets: قائمة جهات وبيانات تواصلها"],
+         ["الجهات ووسائل التواصل معها","https://t.co/7vqfd995t9","رابط مختصر"]]
+};
+const linkList=(arr)=>`<ul class="links">${arr.map(([n,u,m])=>`<li><a href="${u}" target="_blank" rel="noopener">${esc(n)}</a><span>${esc(m)}</span></li>`).join("")}</ul>`;
+function monthName(ym){if(!ym)return"";const d=new Date(ym+"-01T12:00");return new Intl.DateTimeFormat("ar-SA-u-ca-gregory-nu-latn",{month:"long",year:"numeric"}).format(d)}
+function watchCal(w){
+  const d=new Date(w.month+"-01T09:00");const e=new Date(d.getTime()+30*60*1000);
+  const f=x=>x.toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");
+  const q=new URLSearchParams({action:"TEMPLATE",text:"تابع فتح التقديم: "+w.org,dates:f(d)+"/"+f(e),
+    details:"المتوقع يفتح التقديم هذا الشهر."+(w.where?"\nوين تتابع: "+w.where:"")+"\nمن مسار التعاوني"});
+  return "https://calendar.google.com/calendar/render?"+q.toString();
+}
+
+views.apply=()=>{
+  const counts={};Object.keys(STATUS).forEach(k=>counts[k]=0);state.apps.forEach(a=>counts[a.status]=(counts[a.status]||0)+1);
+  const list=state.apps.filter(a=>appFilter==="all"||a.status===appFilter);
+  const hasEx=state.apps.some(a=>a.example);
+  const gas=(document.getElementById("gasCode")||{}).textContent||"";
+  return `
+  <section class="view">
+    <div style="display:grid;gap:10px">
+      <span class="eyebrow">التقديم</span>
+      <h1>قدّم، وتابع كل تقديم</h1>
+      <p class="lede">سجّل تقديماتك وتابع حالتها في مكان واحد.</p>
+    </div>
+    <div class="segtabs" role="tablist" aria-label="أجزاء قسم التقديم">
+      ${APPLY_TABS.map(([k,t,d])=>`<button type="button" role="tab" id="tab-${k}" aria-selected="${applyTab===k}" data-atab="${k}"><b>${t}</b><span>${d}</span></button>`).join("")}
+    </div>
+
+    <!-- tracker -->
+    <div id="sec-tracker" class="sec" ${applyTab!=="mine"?"hidden":""}>
+      <div class="row" style="justify-content:space-between"><h2>متتبع التقديمات</h2>${hasEx?`<button class="linkbtn" id="clearAppEx" type="button">احذف الأمثلة</button>`:""}</div>
+      <div class="chips" role="group" aria-label="فلترة حسب الحالة">
+        <button type="button" class="chip" data-filter="all" aria-pressed="${appFilter==="all"}">الكل <b>${state.apps.length}</b></button>
+        ${Object.entries(STATUS).filter(([k])=>counts[k]||appFilter===k).map(([k,s])=>`<button type="button" class="chip ${s.c}" data-filter="${k}" aria-pressed="${appFilter===k}">${s.t} <b>${counts[k]||0}</b></button>`).join("")}
+      </div>
+
+      <details class="panel addbox" id="addAppBox">
+        <summary class="sum">+ أضف جهة</summary>
+        <form class="tform" id="aform" autocomplete="off" style="margin-top:14px">
+          <label>الجهة<input id="a-org" required placeholder="اسم الشركة أو الجهة"></label>
+          <label>البرنامج أو المسمى<input id="a-role" placeholder="مثلًا: Data Analyst Intern"></label>
+          <label>الحالة<select id="a-status">${Object.entries(STATUS).map(([k,s])=>`<option value="${k}" ${k==="applied"?"selected":""}>${s.t}</option>`).join("")}</select></label>
+          <label>تاريخ التقديم<input id="a-date" type="date"></label>
+          <label>آخر موعد للتقديم (اختياري)<input id="a-deadline" type="date"><span class="hijri">ينضاف لمواعيدك تلقائيًا</span></label>
+          <label>الرابط<input id="a-link" type="url" placeholder="https://"></label>
+          <label style="grid-column:1/-1">ملاحظات<input id="a-notes" placeholder="متطلبات، اسم شخص تواصلت معه، أي شي تبي تتذكره"></label>
+          <button class="btn" type="submit">أضف للمتتبع</button>
+        </form>
+      </details>
+
+
+      <div class="apps">
+        ${list.length?list.map(a=>`
+        <article class="app ${STATUS[a.status]?STATUS[a.status].c:""}">
+          <div class="app-main">
+            <h3>${esc(a.org)} ${a.example?'<span class="tag example">مثال</span>':""}</h3>
+            <span class="meta">${esc(a.role||"")}${a.applied?(a.role?" · ":"")+"قدّمت "+fmtG.format(new Date(a.applied+"T12:00")):""}</span>
+            ${a.notes?`<p class="app-notes">${esc(a.notes)}</p>`:""}
+            <div class="t-actions">${a.link?`<a href="${esc(a.link)}" target="_blank" rel="noopener">رابط التقديم</a>`:""}<button type="button" data-adel="${a.id}">حذف</button></div>
+          </div>
+          <label class="app-status"><span class="sr">الحالة</span>
+            <select data-astatus="${a.id}" id="st-${a.id}">${Object.entries(STATUS).map(([k,s])=>`<option value="${k}" ${k===a.status?"selected":""}>${s.t}</option>`).join("")}</select>
+          </label>
+        </article>`).join(""):`<div class="panel"><p>${state.apps.length?"ما فيه جهات بهذي الحالة.":"ما أضفت أي جهة للحين. ابدأ بالجهات اللي ناوي تقدّم عليها وحالتها \"مهتم\"."}</p></div>`}
+      </div>
+    </div>
+
+    <!-- email -->
+    <div id="sec-email" class="sec" ${applyTab!=="mine"?"hidden":""}>
+      <div class="row" style="justify-content:space-between"><h2>خل الإيميل يحدّث لك الحالات</h2>${state.emailDone?'<span class="tag">مركّب</span>':'<span class="tag signal">اختياري</span>'}</div>
+      ${state.emailDone?`
+      <div class="panel" style="display:grid;gap:10px">
+        <label for="importBox" style="font-weight:600">الصق صفوف الشيت هنا</label>
+        <p class="meta">انسخ الصفوف الجديدة من الشيت (من Date إلى Subject) والصقها هنا.</p>
+        <textarea id="importBox" rows="4" dir="ltr" placeholder="2026-11-02	Acme Talent Team	مقابلة	Interview invitation - Data Intern"></textarea>
+        <div class="row"><button class="btn" type="button" id="importBtn">حدّث المتتبع</button><span class="meta" id="importMsg"></span></div>
+        <div><button class="linkbtn" type="button" id="emailReopen">اعرض خطوات التركيب مرة ثانية</button></div>
+      </div>`:`
+      <p class="meta">سكربت في حسابك يلقط إيميلات القبول والرفض والمقابلات ويسجلها في شيت خاص فيك.</p>
+      <details class="panel addbox" id="emailBox">
+        <summary class="sum">ركّب السكربت (مرة وحدة، 5 دقايق)</summary>
+        <div style="display:grid;gap:16px;margin-top:14px">
+          <ol class="steps">
+            <li><b>سوّ Google Sheet جديد</b><span>من <a href="https://sheets.new" target="_blank" rel="noopener">sheets.new</a> وسمّه مثلًا "تقديمات التعاوني".</span></li>
+            <li><b>افتح Apps Script</b><span>من القائمة: Extensions ثم Apps Script. امسح الكود الموجود.</span></li>
+            <li><b>الصق الكود واحفظ</b><span>انسخ الكود من تحت بالزر، الصقه، واضغط حفظ.</span></li>
+            <li><b>شغّل setup مرة وحدة</b><span>اختر الدالة <code>setup</code> من الأعلى واضغط Run. Google بتطلب صلاحيات: اختر حسابك، ثم Advanced، ثم Go to project، ثم Allow. التحذير يطلع لأن السكربت شخصي ومو منشور، وهذا طبيعي.</span></li>
+            <li><b>تأكد إن الشيت امتلأ</b><span>أول فحص يرجع 180 يوم لورا، وبعدها يفحص تلقائيًا كل يوم الساعة 7 الصبح. الإيميلات اللي يلقطها تنحط تحت تصنيف Co-op في Gmail.</span></li>
+            <li><b>اضغط "خلصت التركيب"</b><span>تختفي الخطوات ويبقى لك مربع صغير تلصق فيه صفوف الشيت كل ما تبي تحدّث المتتبع.</span></li>
+          </ol>
+          <div class="code">
+            <div class="code-bar"><span>coop-email-tracker.gs</span><button class="btn ghost" type="button" id="copyGas">انسخ الكود</button></div>
+            <pre dir="ltr" id="gasPre">${esc(gas)}</pre>
+          </div>
+          <p class="tip">التصنيف بالكلمات المفتاحية وممكن يخطئ، فارجع للإيميل نفسه. وتقدر تعدّل الكلمات من <code>QUERY</code> و<code>RULES</code>.</p>
+          <div><button class="btn" type="button" id="emailDoneBtn">خلصت التركيب</button></div>
+        </div>
+      </details>`}
+    </div>
+
+    <!-- watch -->
+    <div id="sec-watch" class="sec" ${applyTab!=="alerts"?"hidden":""}>
+      <div class="sec-head"><h2>قائمة المراقبة</h2><span class="meta">أضف الجهة والشهر اللي تتوقع يفتح فيه التقديم، ويجيك تذكير أول ذاك الشهر.</span></div>
+      <p class="tip">وفعّل إشعارات <button type="button" class="linkbtn" data-atab="sources">قنوات التدريب</button> و<a href="#linkedin">تنبيهات لينكدإن</a>، لأن أغلب الإعلانات تنزل فيها أول.</p>
+      <form class="panel tform" id="wform" autocomplete="off">
+        <label>الجهة<input id="w-org" required placeholder="مثلًا: سدايا"></label>
+        <label>الشهر المتوقع لفتح التقديم<input id="w-month" type="month" required></label>
+        <label>وين تتابع إعلانها<input id="w-where" placeholder="رابط القناة أو صفحة الوظائف"></label>
+        <button class="btn" type="submit">أضف للمراقبة</button>
+      </form>
+      ${state.watch.length?`<div class="apps">${state.watch.map(w=>`
+        <article class="app"><div class="app-main"><h3>${esc(w.org)}</h3>
+          <span class="meta">المتوقع: ${monthName(w.month)}${w.where?" · "+esc(w.where):""}</span>
+          <div class="t-actions"><a href="${watchCal(w)}" target="_blank" rel="noopener">تذكير في تقويم Google</a><button type="button" data-wtimer="${w.id}">أضف لمواعيدي</button><button type="button" data-wdel="${w.id}">حذف</button></div>
+        </div></article>`).join("")}</div>`
+      :`<p class="meta">ما أضفت جهات للحين. ما تعرف متى يفتح التقديم؟ شوف إعلانها السابق في قناتها.</p>`}
+    </div>
+
+    <!-- find -->
+    <div id="sec-find" class="sec" ${applyTab!=="sources"?"hidden":""}>
+      <div class="dir">
+        <div class="panel"><h3>مواقع لاكتشاف فرص التدريب</h3>${linkList(DIR.sites)}</div>
+        <div class="panel"><h3>قنوات التدريب التعاوني</h3>${linkList(DIR.channels)}</div>
+        <div class="panel"><h3>قنوات جهات محددة</h3>${linkList(DIR.orgs)}</div>
+      </div>
+      ${FEEDBACK_URL?`<p class="meta">لقيت رابط ما يفتح أو عندك مصدر؟ <a href="${FEEDBACK_URL}" target="_blank" rel="noopener">أرسله لنا</a>.</p>`:""}
+    </div>
+  </section>`;
+};
+
+
+/* ---------- Student experiences ---------- */
+let EXPS=[];try{EXPS=JSON.parse(document.getElementById("expData").textContent)}catch(e){}
+let expMajor="all",expQ="";
+const linkify=t=>esc(t).replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>').replace(/\n/g,"<br>");
+function expChips(x){
+  const c=[];
+  if(x.mode)c.push(x.mode.startsWith("مدمج")?"مدمج":x.mode.startsWith("عن بعد")?"عن بعد":"حضوري");
+  if(x.pay){if(x.pay.startsWith("نعم")){const m=x.pay.match(/\(([^)]*\d[^)]*)\)/);c.push("مكافأة"+(m?": "+m[1].replace(/\s*تقريبًا/,"").trim()+" تقريبًا":""))}else c.push("بدون مكافأة")}
+  if(x.pressure)c.push(x.pressure.includes("مريح")?"ضغط مريح":x.pressure.includes("كبير")?"ضغط كبير":"ضغط متوسط");
+  if(x.gpa)c.push(x.gpa.startsWith("نعم")?"يشترط معدل عالي":"ما يشترط معدل عالي");
+  return c;
+}
+function expBody(x){
+  return x.sections.map(s=>{
+    const items=s.items.filter(([k,v])=>v&&!/^[-—.x]+$/i.test(v.trim()));
+    const text=s.text&&!/^[-—.x]+$/i.test(s.text.trim())?s.text:"";
+    if(!items.length&&!text)return "";
+    return `<div class="xsec"><h4>${esc(s.t)}</h4>${items.length?`<dl>${items.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${linkify(v)}</dd></div>`).join("")}</dl>`:""}${text?`<p>${linkify(text)}</p>`:""}</div>`;
+  }).join("");
+}
+views.experiences=()=>{
+  const majors={};EXPS.forEach(x=>majors[x.major]=(majors[x.major]||0)+1);
+  const q=expQ.trim().toLowerCase();
+  const list=EXPS.filter(x=>(expMajor==="all"||x.major===expMajor)&&(!q||(x.org+" "+x.major).toLowerCase().includes(q)));
+  return `
+  <section class="view">
+    <div style="display:grid;gap:10px">
+      <span class="eyebrow">تجارب الطلاب</span>
+      <h1>اعرف الجهة قبل ما تقدّم عليها</h1>
+      <p class="lede">${EXPS.length} تجربة كتبها طلاب جامعتنا عن جهات تدريبهم.</p>
+    </div>
+
+    <div class="xfilters">
+      <input type="search" id="expQ" placeholder="ابحث باسم الجهة" value="${esc(expQ)}" aria-label="ابحث باسم الجهة">
+      <div class="chips" role="group" aria-label="فلترة حسب التخصص">
+        <button type="button" class="chip" data-xm="all" aria-pressed="${expMajor==="all"}">الكل <b>${EXPS.length}</b></button>
+        ${Object.entries(majors).map(([m,n])=>`<button type="button" class="chip" data-xm="${esc(m)}" aria-pressed="${expMajor===m}">${esc(m)} <b>${n}</b></button>`).join("")}
+      </div>
+    </div>
+
+    <div class="xgrid" id="xgrid">
+      ${list.length?list.map(x=>`
+      <details class="xcard">
+        <summary>
+          <h3>${esc(x.org.replace(/\.\s*$/,""))}</h3>
+          <span class="meta">${esc(x.major)} · دفعة ${esc(x.batch)} · ${x.name?esc(x.name):"بدون اسم"}</span>
+          <div class="xchips">${expChips(x).map(c=>`<span>${esc(c)}</span>`).join("")}</div>
+          <span class="xmore">اقرأ التجربة</span>
+        </summary>
+        <div class="xbody">
+          ${expBody(x)}
+          ${x.links.length?`<p class="xcontact">تواصل: ${x.links.map(([n,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`).join(" · ")}</p>`:""}
+        </div>
+      </details>`).join("")
+      :`<p class="meta">ما فيه تجارب تطابق بحثك.</p>`}
+    </div>
+    <p class="hint">التجارب من استبيان أعدّته ريهام وان دار مان، ومنشورة بموافقة أصحابها. كل تجربة تعبّر عن صاحبها، وتجربتك ممكن تختلف.</p>
+
+    <div class="sec">
+      <h2>مصادر ثانية</h2>
+      <div class="dir">
+        <div class="panel"><h3>منصة التقييم</h3>${linkList(DIR.rating)}</div>
+        <div class="panel"><h3>تجارب طلاب كلية الحاسب</h3>${linkList(DIR.exp)}</div>
+        <div class="panel"><h3>قوائم الجهات وبيانات التواصل</h3>${linkList(DIR.lists)}</div>
+      </div>
+    </div>
+  </section>`;
+};
+function bindExperiences(){
+  document.querySelectorAll("[data-xm]").forEach(b=>b.addEventListener("click",()=>{expMajor=b.dataset.xm;render(true)}));
+  const q=$("#expQ");q.addEventListener("input",()=>{expQ=q.value;const pos=q.selectionStart;render(true);const n=$("#expQ");n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}});
+}
+
+function bindApply(){
+  document.querySelectorAll("[data-atab]").forEach(b=>b.addEventListener("click",()=>{applyTab=b.dataset.atab;state.applyTab=applyTab;save();render(true)}));
+  document.querySelectorAll("[data-filter]").forEach(b=>b.addEventListener("click",()=>{appFilter=b.dataset.filter;render(true)}));
+  $("#aform").addEventListener("submit",e=>{
+    e.preventDefault();
+    const org=$("#a-org").value.trim();if(!org)return;
+    const a={id:uid(),org,role:$("#a-role").value.trim(),status:$("#a-status").value,applied:$("#a-date").value,link:$("#a-link").value.trim(),notes:$("#a-notes").value.trim()};
+    addApp(a);
+    const dl=$("#a-deadline").value;
+    if(dl)addTimer({id:uid(),type:"deadline",title:"إغلاق التقديم: "+org,org,at:new Date(dl+"T23:59").toISOString()});
+    save();render(true);toast(dl?"أُضيفت الجهة، وموعد الإغلاق في مواعيدك":"أُضيفت الجهة");
+  });
+  document.querySelectorAll("[data-astatus]").forEach(s=>s.addEventListener("change",()=>{
+    const a=state.apps.find(x=>x.id===s.dataset.astatus);if(!a)return;a.status=s.value;save();render(true);toast("تحدّثت الحالة: "+STATUS[s.value].t);
+  }));
+  armDelete("[data-adel]","adel",id=>{state.apps=state.apps.filter(a=>a.id!==id)});
+  armDelete("[data-wdel]","wdel",id=>{state.watch=state.watch.filter(w=>w.id!==id)});
+  const ce=$("#clearAppEx");if(ce)ce.addEventListener("click",()=>{state.apps=state.apps.filter(a=>!a.example);save();render(true)});
+  const ed=$("#emailDoneBtn");if(ed)ed.addEventListener("click",()=>{state.emailDone=true;save();render(true);toast("تم. الصق صفوف الشيت هنا كل ما تبي تحدّث المتتبع")});
+  const er=$("#emailReopen");if(er)er.addEventListener("click",()=>{state.emailDone=false;save();render(true);const b=$("#emailBox");if(b)b.open=true});
+  if($("#copyGas"))$("#copyGas").addEventListener("click",()=>{
+    const txt=$("#gasPre").textContent;
+    const manual=()=>{const r=document.createRange();r.selectNodeContents($("#gasPre"));const s=getSelection();s.removeAllRanges();s.addRange(r);toast("الكود محدد، انسخه يدويًا")};
+    try{navigator.clipboard.writeText(txt).then(()=>toast("انتسخ الكود"),manual)}catch(e){manual()}
+  });
+  if($("#importBtn"))$("#importBtn").addEventListener("click",()=>{
+    const lines=$("#importBox").value.split(/\r?\n/).map(l=>l.split("\t").map(c=>c.trim())).filter(c=>c.length>=3&&c[1]&&!/^date$/i.test(c[0]));
+    if(!lines.length){$("#importMsg").textContent="ما لقيت صفوف. انسخ من الشيت نفسه عشان تجي الأعمدة مفصولة.";return}
+    const norm=s=>s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu," ").trim();
+    state.apps=state.apps.filter(a=>!a.example);let up=0,add=0;
+    lines.sort((a,b)=>String(a[0]).localeCompare(String(b[0]))).forEach(([date,company,st,subject])=>{
+      const status=FROM_SHEET[st]||null;
+      const n=norm(company);
+      const hit=state.apps.find(a=>{const m=norm(a.org);return m&&n&&(n.includes(m)||m.includes(n))});
+      const note=subject?"من الإيميل ("+date+"): "+subject:"";
+      if(hit){
+        if(status)hit.status=status;
+        if(note&&!(hit.notes||"").includes(subject||"\u0000"))hit.notes=(hit.notes?hit.notes+" | ":"")+note;
+        up++;
+      }else{
+        addApp({id:uid(),org:company,role:"",status:status||"applied",applied:/^\d{4}-\d{2}-\d{2}/.test(date)?date.slice(0,10):"",link:"",notes:note});
+        add++;
+      }
+    });
+    save();render(true);toast("حُدّثت "+up+" وأُضيفت "+add);
+  });
+  $("#wform").addEventListener("submit",e=>{
+    e.preventDefault();const org=$("#w-org").value.trim(),month=$("#w-month").value;if(!org||!month)return;
+    state.watch.push({id:uid(),org,month,where:$("#w-where").value.trim()});save();render(true);toast("أُضيفت للمراقبة");
+  });
+  document.querySelectorAll("[data-wtimer]").forEach(b=>b.addEventListener("click",()=>{
+    const w=state.watch.find(x=>x.id===b.dataset.wtimer);if(!w)return;
+    let d=new Date(w.month+"-01T09:00");while(d<new Date())d.setFullYear(d.getFullYear()+1);
+    addTimer({id:uid(),type:"other",title:"يفتح التقديم المتوقع: "+w.org,org:w.org,at:d.toISOString()});save();toast("أُضيف لمواعيدك");
+  }));
+}
+function armDelete(sel,key,fn){
+  document.querySelectorAll(sel).forEach(b=>b.addEventListener("click",()=>{
+    if(b.dataset.armed){fn(b.dataset[key]);save();render(true);return}
+    b.dataset.armed="1";b.textContent="أكّد الحذف";b.style.color="var(--danger)";
+    setTimeout(()=>{if(b.isConnected){delete b.dataset.armed;b.textContent="حذف";b.style.color=""}},3000);
+  }));
+}
+
+/* ---------- router ---------- */
+const ORDER=["home","journey","experiences","courses","cv","linkedin","apply"];
+function fromHash(){let h="";try{h=(location.hash||"").slice(1)}catch(e){}if(h==="timers")return "home";return ORDER.includes(h)?h:null}
+let view=fromHash()||"home";
+function current(){return view}
+function go(v){
+  let anchor=null;if(v==="timers"){v="home";anchor="timers-sec"}
+  if(!ORDER.includes(v))return;
+  view=v;render(false);window.scrollTo(0,0);
+  if(anchor){const el=document.getElementById(anchor);if(el)el.scrollIntoView({block:"start"})}
+  try{if(location.hash!=="#"+v)location.hash=v}catch(e){}
+}
+/* Handle in-page navigation ourselves: some embedded viewers do not fire hashchange for #links. */
+document.addEventListener("click",e=>{
+  const a=e.target.closest&&e.target.closest("a[href^='#']");
+  if(!a||a.dataset.jump)return;
+  const v=a.getAttribute("href").slice(1);
+  if(!ORDER.includes(v)&&v!=="timers")return;
+  e.preventDefault();go(v);
+});
+function render(keepScroll){
+  const v=current();
+  const y=window.scrollY;
+  $("#app").innerHTML=views[v]();
+  document.querySelectorAll("nav.tabs a").forEach(a=>{if(a.getAttribute("href")==="#"+v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+  const fc=document.getElementById("footCredits");if(fc)fc.hidden=v!=="home";
+  if(keepScroll)window.scrollTo(0,y);
+  bind(v);
+}
+window.addEventListener("hashchange",()=>{const v=fromHash();if(v&&v!==view){view=v;render(false);window.scrollTo(0,0)}});
+
+/* ---------- bindings ---------- */
+function bind(v){
+  if(v==="apply")bindApply();
+  if(v==="cv")bindCv();
+  if(v==="experiences")bindExperiences();
+  if(v==="courses")bindCourses();
+  if(v==="linkedin")bindLinkedin();
+  if(v==="journey"){
+    document.querySelectorAll("[data-check]").forEach(cb=>cb.addEventListener("change",()=>{
+      if(cb.checked)state.checks[cb.dataset.check]=true;else delete state.checks[cb.dataset.check];
+      save();render(true);
+    }));
+  }
+  if(v==="home"){
+    document.querySelectorAll("[data-donestep]").forEach(b=>b.addEventListener("click",()=>{state.checks[b.dataset.donestep]=true;save();render(true);toast("تمام، هذي الجاية")}));
+    const tg=$("#toggleTimers");if(tg)tg.addEventListener("click",()=>{showAllTimers=!showAllTimers;render(true)});
+    const dateIn=$("#t-date"),hj=$("#t-hijri");
+    dateIn.addEventListener("input",()=>{if(!dateIn.value){hj.textContent="";return}const d=new Date(dateIn.value+"T12:00");hj.textContent=hijri(d)?hijri(d)+" هـ":""});
+    $("#t-type").addEventListener("change",e=>{const t=$("#t-title");if(!t.value&&e.target.value!=="other")t.value=TYPES[e.target.value]});
+    $("#tform").addEventListener("submit",e=>{
+      e.preventDefault();
+      const date=dateIn.value,time=$("#t-time").value||"09:00",title=$("#t-title").value.trim();
+      if(!date||!title)return;
+      addTimer({id:uid(),type:$("#t-type").value,title,org:$("#t-org").value.trim(),at:new Date(date+"T"+time).toISOString()});
+      save();render(true);toast("أُضيف الموعد");
+    });
+    document.querySelectorAll("[data-del]").forEach(b=>b.addEventListener("click",()=>{
+      if(b.dataset.armed){state.timers=state.timers.filter(t=>t.id!==b.dataset.del);save();render(true);return}
+      b.dataset.armed="1";b.textContent="أكّد الحذف";b.style.color="var(--danger)";
+      setTimeout(()=>{if(b.isConnected){delete b.dataset.armed;b.textContent="حذف";b.style.color=""}},3000);
+    }));
+    const ce=$("#clearEx");if(ce)ce.addEventListener("click",()=>{state.timers=state.timers.filter(t=>!t.example);save();render(true)});
+    $("#copyBackup").addEventListener("click",()=>{
+      const txt=JSON.stringify(state);
+      const box=$("#restoreBox");
+      const manual=()=>{box.value=txt;box.select();toast("حدد النص وانسخه يدويًا")};
+      try{navigator.clipboard.writeText(txt).then(()=>toast("انتسخت النسخة الاحتياطية"),manual)}catch(e){manual()}
+    });
+    $("#restoreBtn").addEventListener("click",()=>{
+      try{const s=JSON.parse($("#restoreBox").value);if(!s||!Array.isArray(s.timers))throw 0;state=Object.assign({checks:{},timers:[],apps:[],watch:[]},s);save();render(true);toast("رجعت بياناتك")}
+      catch(e){toast("النص هذا مو نسخة احتياطية صحيحة. انسخه كامل وجرب مرة ثانية")}
+    });
+  }
+}
+
+/* live ticking */
+setInterval(()=>{document.querySelectorAll("[data-at]").forEach(el=>{el.innerHTML=countHTML(new Date(el.dataset.at)-Date.now())})},1000);
+
+/* theme toggle */
+const curTheme=()=>document.documentElement.getAttribute("data-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+const themeLabel=()=>{$("#themeBtn").textContent=curTheme()==="dark"?"الوضع الفاتح":"الوضع الداكن"};
+$("#themeBtn").addEventListener("click",()=>{
+  const nx=curTheme()==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",nx);try{localStorage.setItem(KEY+".theme",nx)}catch(e){}themeLabel();
+});
+try{const t=localStorage.getItem(KEY+".theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}
+themeLabel();
+
+document.documentElement.setAttribute("dir","rtl");document.documentElement.setAttribute("lang","ar");
+/* Site owner, shown in the footer of every page. */
+const OWNER=["ساره الغامدي","https://www.linkedin.com/in/%D8%B3%D8%A7%D8%B1%D9%87-%D8%A7%D9%84%D8%BA%D8%A7%D9%85%D8%AF%D9%8A-sara-al-ghamdi/"];
+try{const o=document.getElementById("footOwner");if(o)o.innerHTML="© "+new Date().getFullYear()+" مسار التعاوني · فكرة وإعداد "+(OWNER[1]?`<a href="${OWNER[1]}" target="_blank" rel="noopener">${OWNER[0]}</a>`:OWNER[0])}catch(e){}
+/* Credits shown in the footer of the home page. Add each person's LinkedIn profile URL. */
+const CREDITS=[
+  ["أنس المحمادي","https://www.linkedin.com/in/anas-almehmadi"],
+  ["رحمه الشريف","https://www.linkedin.com/in/%D8%B1%D8%AD%D9%85%D9%87-%D8%A7%D9%84%D8%B4%D8%B1%D9%8A%D9%81-3b8a863a7"],
+  ["ريهام وان دار مان","https://www.linkedin.com/in/reham-wan-deraman"]];
+try{const c=document.getElementById("footCredits");if(c)c.innerHTML="شكر وتقدير إلى: "+CREDITS.map(([n,u])=>u?`<a href="${u}" target="_blank" rel="noopener">${n}</a>`:n).join("، ")}catch(e){}
+try{const f=document.getElementById("fbFooter");if(f)f.innerHTML=FEEDBACK_URL?`<a href="${FEEDBACK_URL}" target="_blank" rel="noopener">أرسل ملاحظة أو اقتراح</a>`:""}catch(e){}
+render(false);
+})();
+</script>
+
+</body>
+</html>
