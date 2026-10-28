@@ -1,5 +1,6 @@
 # مسار التعاوني
 
+**Live site:** https://m000n-o00o.github.io/masar-coop/
 A guide site for university students going through co-op training: journey map, countdowns, student experiences, courses tracker, CV and LinkedIn guides, and an application tracker.
 
 ## Files
