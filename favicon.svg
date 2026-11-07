@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background tile, site's dark green-black -->
+  <rect width="64" height="64" rx="14" fill="#18201D"/>
+  <!-- Winding path from start ring to the goal -->
+  <path d="M24.5 41 C 28.5 38.5, 31 38, 32 33 S 40 26, 44 26" fill="none" stroke="#73C0A2" stroke-width="5" stroke-linecap="round"/>
+  <!-- Start point as a ring, echoing the site's logo -->
+  <circle cx="16" cy="49" r="6" fill="none" stroke="#73C0A2" stroke-width="4"/>
+  <!-- Goal flag -->
+  <line x1="46" y1="28" x2="46" y2="11" stroke="#E8EEEB" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M47 11 L56 15 L47 19 Z" fill="#73C0A2"/>
+</svg>
